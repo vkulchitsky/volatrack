@@ -1,4 +1,4 @@
-#include "physics/types.h"
+#include "physics/data/types.h"
 
 #include <iostream>
 using namespace std;
