@@ -7,3 +7,4 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(Volatrack main.cpp physics/data/sphere.cpp
     physics/data/volatile.cpp physics/data/surfpoint.cpp)
+add_executable(Tests tests/unittesting.cpp)
