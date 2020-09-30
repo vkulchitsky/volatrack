@@ -7,6 +7,7 @@
 #define TYPE_H
 
 #include <vector>
+#include <cmath>
 
 namespace volatrack
 {
@@ -40,6 +41,19 @@ struct vec3
         z = other.z;
     }
 
+    vec3 operator*(real k)
+    {
+        x *= k;
+        y *= k;
+        z *= k;
+    }
+    vec3 operator/(real k)
+    {
+        x /= k;
+        y /= k;
+        z /= k;
+    }
+
     real operator*(const vec3& other)
     {
         return x * other.x + y * other.y + z * other.z;
@@ -52,6 +66,9 @@ struct vec3
 
         return {X, Y, Z};
     }
+
+    real length2() {return x * x + y * y + z * z;}
+    real length() {return std::sqrt(length2());}
 
     real x;
     real y;
@@ -73,7 +90,9 @@ struct Material
     // properties: density? shear modulus? etc.
 };
 
-const Material mat; // ???
+const Material lunarRegolith;
+
+// ???
 
 }
 
