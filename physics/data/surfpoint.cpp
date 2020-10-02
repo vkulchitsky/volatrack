@@ -1,4 +1,4 @@
-#include "surfpoint.h"
+#include "surfpoint.hpp"
 
 using namespace volatrack;
 
@@ -18,7 +18,7 @@ void SurfPoint::setRect(const vec3 &rect)
 
 void SurfPoint::setRect(real x, real y, real z)
 {
-    m_rect = {x, y, z};
+    m_rect = vec3(x, y, z);
 }
 
 void SurfPoint::normalize()

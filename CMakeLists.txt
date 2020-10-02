@@ -2,9 +2,25 @@ cmake_minimum_required(VERSION 3.5)
 
 project(Volatrack LANGUAGES CXX)
 
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(Volatrack main.cpp physics/data/sphere.cpp
-    physics/data/volatile.cpp physics/data/surfpoint.cpp)
-add_executable(Tests tests/unittesting.cpp)
+set(TARGET_NAME volatrack)
+
+file(GLOB_RECURSE SOURCES "physics/data/*.cpp")
+file(GLOB SOURCES_R "*.cpp")
+
+find_package(Qt5 COMPONENTS Widgets REQUIRED)
+
+add_executable(${TARGET_NAME} ${SOURCES} ${SOURCES_R})
+
+target_link_libraries(${TARGET_NAME} Qt5::Widgets)
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+add_subdirectory(tests)
