@@ -1,5 +1,5 @@
 /*!
-  //
+  Data structure for point on surface of sphere
   @file surfpoint.hpp
   @author Vladimir A Kulchitsky
   @version 1.0 10/02/2020

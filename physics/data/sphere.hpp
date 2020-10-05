@@ -8,7 +8,7 @@
 #ifndef SPHERE_H
 #define SPHERE_H
 
-#include "types.hpp"
+#include "material.h"
 
 namespace volatrack
 {
@@ -28,22 +28,24 @@ struct Sphere
     Material material;
 };
 
-/*!
- * \brief inheriting sphere vector for flexibility
- */
-class Spheres : public std::vector<Sphere>
-{
-public:
-    /*!
-     * \brief push sphere to spheres
-     * \param x coordinate of center
-     * \param y coordinate of center
-     * \param z coordinate of center
-     * \param R - radius
-     */
-    void pushSphere(real x, real y, real z, real R);
-    void pushSphere(const vec3& pos, real R);
-};
+///*!
+// * \brief inheriting sphere vector for flexibility
+// */
+//class Spheres : public std::vector<Sphere>
+//{
+//public:
+//    /*!
+//     * \brief push sphere to spheres
+//     * \param x coordinate of center
+//     * \param y coordinate of center
+//     * \param z coordinate of center
+//     * \param R - radius
+//     */
+//    void pushSphere(real x, real y, real z, real R);
+//    void pushSphere(const vec3& pos, real R);
+//};
+
+using Spheres = std::vector<Sphere>;
 
 //using Spheres = std::vector<Sphere>
 //Spheres data;

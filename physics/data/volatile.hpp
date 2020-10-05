@@ -30,7 +30,7 @@ struct Volatile
      * \param spheres to which volatile points with index
      * \return absolute position, not just relative to sphere
      */
-    vec3 absolutePosition(const Spheres& spheres);
+    vec3 absolutePosition(const Spheres& spheres) const;
 
     Index isphere; //!< index of regolith sphere
     SurfPoint loc; //!< location of volatile within surface of sphere
@@ -38,18 +38,20 @@ struct Volatile
     Flagger flags; //!< flags (e.g. type of molecule)
 };
 
-class Volatiles : public std::vector<Volatile>
-{
-public:
-    /*!
-     * \brief push volatile to volatiles
-     * \param i - index of sphere it points to
-     * \param x - relative x coordinate of the volatile
-     * \param y - relative y coordinate of the volatile
-     * \param z - relative z coordinate of the volatile
-     */
-    void pushVolatile(Index i, real x, real y, real z);
-};
+//class Volatiles : public std::vector<Volatile>
+//{
+//public:
+//    /*!
+//     * \brief push volatile to volatiles
+//     * \param i - index of sphere it points to
+//     * \param x - relative x coordinate of the volatile
+//     * \param y - relative y coordinate of the volatile
+//     * \param z - relative z coordinate of the volatile
+//     */
+//    void pushVolatile(Index i, real x, real y, real z);
+//};
+
+using Volatiles = std::vector<Volatile>;
 
 }
 

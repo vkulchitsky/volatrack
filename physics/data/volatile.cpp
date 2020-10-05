@@ -8,15 +8,15 @@ Volatile::Volatile(Index i, real x, real y, real z)
     , flags(0)
 {}
 
-vec3 Volatile::absolutePosition(const Spheres &spheres)
+vec3 Volatile::absolutePosition(const Spheres &spheres) const
 {
     const Sphere& sphere = spheres[isphere];
 
     return sphere.c + loc.rect() * sphere.R;
 }
 
-void Volatiles::pushVolatile(Index i, real x, real y, real z)
-{
-    Volatile vol(i, x, y, z);
-    push_back(vol);
-}
+//void Volatiles::pushVolatile(Index i, real x, real y, real z)
+//{
+//    Volatile vol(i, x, y, z);
+//    push_back(vol);
+//}

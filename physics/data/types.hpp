@@ -12,6 +12,8 @@
 #include <cmath>
 
 #include <QVector3D>
+#include <QString>
+#include <QJsonObject>
 
 namespace volatrack
 {
@@ -77,52 +79,11 @@ const real waterFreeze = 273.15; // water freezing temperature
 
 using vec3 = QVector3D;
 
-/*!
- * \brief Material of a sphere - expected to be lunar regolith
- */
-struct Material
+struct CanIO
 {
-    Material()
-        : rho(0)
-        , G(0)
-        , nu(0)
-        , gamma(0)
-        , CR0(0)
-        , vR0(0)
-        , alpha_t(0)
-        , mu(0)
-        , rMu{0}
-        , rNu{0}
-        , rK{0}
-        , rTh{0}
-        , visc{0}
-        , viscg{0}
-        , name("nothing")
-    {
-
-    }
-
-//    real getRayleighCoef();
-
-    real rho;        //!< density, kg/m^3
-    real G;          //!< shear modulus, Pa
-    real nu;         //!< poisson coef., 1
-    real gamma;      //!< surface energy, J/m^2
-    real CR0;        //!< standard restitution, 1
-    real vR0;        //!< standard impact velocity, m/s
-    real alpha_t;    //!< tangent elastic reduction, 1
-    real mu;         //!< friction coefficient
-    real rMu;        //!< rolling dry friction coef.
-    real rNu;        //!< rolling visc. friction coef.
-    real rK;         //!< rolling dry torque growth factor
-    real rTh;        //!< rolling visc. torque growth factor
-    real visc;       //!< viscosity coefficient for tangential force
-    real viscg;      //!< viscosity growth factor
-
-    std::string name;    //!< material name
+    virtual QJsonObject saveToJson() = 0;
+    virtual void loadFromJson(const QJsonObject& jo) = 0;
 };
-
-const Material lunarRegolith;
 
 // ???
 

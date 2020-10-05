@@ -1,4 +1,9 @@
-/*! \file */
+/*!
+  Framework for unit tests
+  @file unittestingframework.hpp
+  @author Serhii Lytvynenko
+  @version 2.0 10/02/2020
+*/
 
 #ifndef UNITTESTS_H
 #define UNITTESTS_H
