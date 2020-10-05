@@ -1,4 +1,7 @@
 #include "sphere.hpp"
+
+#include <QJsonArray>
+
 using namespace volatrack;
 
 Sphere::Sphere(real x, real y, real z, real R)
@@ -15,14 +18,25 @@ Sphere::Sphere(vec3 pos, real R)
     , material(lunarRegolith)
 {}
 
-//void Spheres::pushSphere(real x, real y, real z, real R)
-//{
-//    Sphere sph(x, y, z, R);
-//    push_back(sph);
-//}
+QJsonObject Sphere::saveToJson()
+{
+    QJsonObject res;
 
-//void Spheres::pushSphere(const vec3 &pos, real R)
-//{
-//    Sphere sph(pos, R);
-//    push_back(sph);
-//}
+    // position
+    QJsonArray posArr = {c.x(), c.y(), c.z()};
+    res.insert("position", posArr);
+
+    // radius and temperature
+    res.insert("radius", R);
+    res.insert("temperature", T);
+
+    // material
+    res.insert("material", material.saveToJson());
+
+    return res;
+}
+
+void Sphere::loadFromJson(const QJsonObject &jo)
+{
+    //
+}

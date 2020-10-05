@@ -1,3 +1,10 @@
+/*!
+    Data structure for material
+    @file material.hpp
+    @author Vladimir A Kulchitsky
+    @version 1.0 10/05/2020
+*/
+
 #ifndef MATERIAL_H
 #define MATERIAL_H
 
@@ -13,7 +20,16 @@ struct Material : public CanIO
 {
     Material();
 
+    /*!
+     * \brief save to json format
+     * \return json object in Qt form representing the material
+     */
     QJsonObject saveToJson() override;
+
+    /*!
+     * \brief load from json format
+     * \param json object in Qt form representing the material
+     */
     void loadFromJson(const QJsonObject &jo) override;
 
     real rho;        //!< density, kg/m^3

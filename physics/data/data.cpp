@@ -1,4 +1,4 @@
-#include "data.h"
+#include "data.hpp"
 
 #include <QJsonObject>
 #include <QJsonArray>
@@ -38,67 +38,20 @@ void volatrack::Data::pushVolatile(const volatrack::Volatile &vol)
 QJsonObject Data::saveToJson()
 {
     QJsonObject res;
-    QJsonArray sphArr;
-    QJsonArray volArr;
 
     // fill spheres
-
+    QJsonArray sphArr;
     for (Index i = 0; i < m_spheres.size(); ++i)
     {
-        auto& sph = m_spheres[i];
-        QJsonObject sphObj;
-
-        // position
-        QJsonArray posArr = {sph.c.x(), sph.c.y(), sph.c.z()};
-        sphObj.insert("position", posArr);
-
-        // radius and temperature
-        sphObj.insert("radius", sph.R);
-        sphObj.insert("temperature", sph.T);
-
-        // material
-//        QJsonObject matObj;
-//        auto& mat = sph.material;
-//        matObj.insert("rho", mat.rho);
-//        matObj.insert("G", mat.G);
-//        matObj.insert("nu", mat.nu);
-//        matObj.insert("gamma", mat.gamma);
-//        matObj.insert("CR0", mat.CR0);
-//        matObj.insert("vR0", mat.vR0);
-//        matObj.insert("alpha_t", mat.alpha_t);
-//        matObj.insert("mu", mat.mu);
-//        matObj.insert("rMu", mat.rMu);
-//        matObj.insert("rNu", mat.rNu);
-//        matObj.insert("rK", mat.rK);
-//        matObj.insert("rTh", mat.rTh);
-//        matObj.insert("visc", mat.visc);
-//        matObj.insert("viscg", mat.viscg);
-//        matObj.insert("name", QString::fromStdString(mat.name));
-//        sphObj.insert("material", matObj);
-
-        sphObj.insert("material", sph.material.saveToJson());
-
+        auto sphObj = m_spheres[i].saveToJson();
         sphArr.insert(i, sphObj);
     }
 
     // fill volatiles
-
+    QJsonArray volArr;
     for (Index i = 0; i < m_volatiles.size(); ++i)
     {
-        auto& vol = m_volatiles[i];
-        QJsonObject volObj;
-
-        // sphere index
-        volObj.insert("isphere", static_cast<int>(vol.isphere));
-
-        // surface location
-        QJsonArray surfLocArr = {vol.loc.rect().x(), vol.loc.rect().y(),
-                                vol.loc.rect().z()};
-        volObj.insert("surface location", surfLocArr);
-
-        // flags
-        volObj.insert("flags", static_cast<int>(vol.flags));
-
+        auto volObj = m_volatiles[i].saveToJson();
         volArr.insert(i, volObj);
     }
 
@@ -111,4 +64,9 @@ QJsonObject Data::saveToJson()
 void Data::loadFromJson(const QJsonObject &jo)
 {
     //
+}
+
+Time Data::time() const
+{
+    return m_time;
 }

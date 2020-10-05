@@ -8,7 +8,7 @@
 #ifndef SPHERE_H
 #define SPHERE_H
 
-#include "material.h"
+#include "material.hpp"
 
 namespace volatrack
 {
@@ -16,11 +16,35 @@ namespace volatrack
 /*!
  * \brief a sphere approximates a soil particle on the moon
  */
-struct Sphere
+struct Sphere : CanIO
 {
+    /*!
+     * \brief constructor from coordinates and radius
+     * \param x coordinate
+     * \param y coordinate
+     * \param z coordinate
+     * \param R - radius
+     */
     Sphere(real x, real y, real z, real R);
 
+    /*!
+     * \brief constructor from position and radius
+     * \param pos - position of sphere
+     * \param R - radius
+     */
     Sphere(vec3 pos, real R);
+
+    /*!
+     * \brief save to json format
+     * \return json object in Qt form representing the sphere
+     */
+    QJsonObject saveToJson() override;
+
+    /*!
+     * \brief load from json format
+     * \param json object in Qt form representing the sphere
+     */
+    void loadFromJson(const QJsonObject &jo) override;
 
     vec3 c; //!< position
     real R; //!< radius
@@ -28,29 +52,8 @@ struct Sphere
     Material material;
 };
 
-///*!
-// * \brief inheriting sphere vector for flexibility
-// */
-//class Spheres : public std::vector<Sphere>
-//{
-//public:
-//    /*!
-//     * \brief push sphere to spheres
-//     * \param x coordinate of center
-//     * \param y coordinate of center
-//     * \param z coordinate of center
-//     * \param R - radius
-//     */
-//    void pushSphere(real x, real y, real z, real R);
-//    void pushSphere(const vec3& pos, real R);
-//};
+using Spheres = std::vector<Sphere>; //!< defining Spheres as Sphere vector
 
-using Spheres = std::vector<Sphere>;
-
-//using Spheres = std::vector<Sphere>
-//Spheres data;
-//data.push_back(Sphere{1, 2, 3, 4});
-//data.push_back(Sphere{vec3{0, 0, 0}, 1});
 }
 
 #endif // SPHERE_H

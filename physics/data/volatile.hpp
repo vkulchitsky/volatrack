@@ -14,7 +14,7 @@
 
 namespace volatrack {
 
-struct Volatile
+struct Volatile : CanIO
 {
     /*!
      * \brief Constructor.
@@ -32,25 +32,16 @@ struct Volatile
      */
     vec3 absolutePosition(const Spheres& spheres) const;
 
+    QJsonObject saveToJson() override;
+    void loadFromJson(const QJsonObject &jo) override;
+
     Index isphere; //!< index of regolith sphere
     SurfPoint loc; //!< location of volatile within surface of sphere
 
     Flagger flags; //!< flags (e.g. type of molecule)
 };
 
-//class Volatiles : public std::vector<Volatile>
-//{
-//public:
-//    /*!
-//     * \brief push volatile to volatiles
-//     * \param i - index of sphere it points to
-//     * \param x - relative x coordinate of the volatile
-//     * \param y - relative y coordinate of the volatile
-//     * \param z - relative z coordinate of the volatile
-//     */
-//    void pushVolatile(Index i, real x, real y, real z);
-//};
-
+//! defining Volatiles as Volatile vector
 using Volatiles = std::vector<Volatile>;
 
 }

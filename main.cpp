@@ -1,7 +1,7 @@
 #include "physics/data/sphere.hpp"
 #include "physics/data/volatile.hpp"
 #include "tests/unittestingframework.hpp"
-#include "physics/data/data.h"
+#include "physics/data/data.hpp"
 
 #include <QVector>
 #include <QJsonObject>
