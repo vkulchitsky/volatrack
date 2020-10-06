@@ -16,7 +16,7 @@ namespace volatrack
 /*!
  * \brief Time tracker - includes current time and may include additional info
  */
-class Time
+class Time : CanIO
 {
 public:
 
@@ -24,6 +24,18 @@ public:
      * \brief default constructor
      */
     Time();
+
+    /*!
+     * \brief save to json format
+     * \returnjson object in Qt form representing the time
+     */
+    QJsonObject saveToJson() override;
+
+    /*!
+     * \brief load from json format
+     * \param json object in Qt form representing the time
+     */
+    void loadFromJson(const QJsonObject &jo) override;
 
     real t; //!< current time
 };

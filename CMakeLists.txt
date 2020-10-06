@@ -14,11 +14,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(TARGET_NAME volatrack)
 
 file(GLOB_RECURSE SOURCES "physics/data/*.cpp")
+file(GLOB_RECURSE SOURCES_E "physics/engine/*.cpp")
 file(GLOB SOURCES_R "*.cpp")
 
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
-add_executable(${TARGET_NAME} ${SOURCES} ${SOURCES_R})
+add_executable(${TARGET_NAME} ${SOURCES} ${SOURCES_R} ${SOURCES_E})
 
 target_link_libraries(${TARGET_NAME} Qt5::Widgets)
 

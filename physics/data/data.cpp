@@ -57,6 +57,7 @@ QJsonObject Data::saveToJson()
 
     res.insert("spheres", sphArr);
     res.insert("volatiles", volArr);
+    res.insert("time", m_time.saveToJson());
 
     return res;
 }
