@@ -1,0 +1,169 @@
+\hypertarget{classvolatrack_1_1Data}{}\doxysection{volatrack\+::Data Class Reference}
+\label{classvolatrack_1_1Data}\index{volatrack::Data@{volatrack::Data}}
+
+
+The \mbox{\hyperlink{classvolatrack_1_1Data}{Data}} class stores all data together.  
+
+
+
+
+{\ttfamily \#include $<$data.\+hpp$>$}
+
+
+
+Inheritance diagram for volatrack\+::Data\+:
+% FIG 0
+
+
+Collaboration diagram for volatrack\+::Data\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classvolatrack_1_1Data_af11f741cb7f587e2e495452a8905a22a}\label{classvolatrack_1_1Data_af11f741cb7f587e2e495452a8905a22a}} 
+\mbox{\hyperlink{classvolatrack_1_1Data_af11f741cb7f587e2e495452a8905a22a}{Data}} ()
+\begin{DoxyCompactList}\small\item\em default constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classvolatrack_1_1Data_aa8e54aae28775c9ff81d3217af71ed86}{Data}} (const \mbox{\hyperlink{sphere_8hpp_a39b72476f0103a6903f1379cb3e0913a}{Spheres}} \&\&\mbox{\hyperlink{classvolatrack_1_1Data_ade226872c0c01abf87362d4848ebf535}{spheres}}, const \mbox{\hyperlink{volatile_8hpp_ac9201d2ac7b4010ad3a0e89ede55e19c}{Volatiles}} \&\&vols)
+\begin{DoxyCompactList}\small\item\em constructor from spheres and volatiles \end{DoxyCompactList}\item 
+\mbox{\hyperlink{sphere_8hpp_a39b72476f0103a6903f1379cb3e0913a}{Spheres}} \mbox{\hyperlink{classvolatrack_1_1Data_ade226872c0c01abf87362d4848ebf535}{spheres}} () const
+\begin{DoxyCompactList}\small\item\em spheres getter \end{DoxyCompactList}\item 
+\mbox{\hyperlink{volatile_8hpp_ac9201d2ac7b4010ad3a0e89ede55e19c}{Volatiles}} \mbox{\hyperlink{classvolatrack_1_1Data_afd06beddbdd5d265099185e3db5e0567}{volatiles}} () const
+\begin{DoxyCompactList}\small\item\em volatiles getter \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvolatrack_1_1Data_a3feccf3fda71b45b474f538f75f41a7c}{push\+Sphere}} (const \mbox{\hyperlink{structvolatrack_1_1Sphere}{Sphere}} \&sphere)
+\begin{DoxyCompactList}\small\item\em push sphere to data \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvolatrack_1_1Data_a4624a8013f041c9b8e52b4997ef90dda}{push\+Volatile}} (const \mbox{\hyperlink{structvolatrack_1_1Volatile}{Volatile}} \&vol)
+\begin{DoxyCompactList}\small\item\em push volatile to data \end{DoxyCompactList}\item 
+Q\+Json\+Object \mbox{\hyperlink{classvolatrack_1_1Data_adc6b4ac6fb3c9a8cc4505e03d7a01060}{save\+To\+Json}} () const override
+\begin{DoxyCompactList}\small\item\em save to json format \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvolatrack_1_1Data_a63b09d38ed6a5e99f67f958864e1a309}{load\+From\+Json}} (const Q\+Json\+Object \&jo) const override
+\begin{DoxyCompactList}\small\item\em load from json format \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classvolatrack_1_1Data_ae2544b939668cab9f2f8744261892720}\label{classvolatrack_1_1Data_ae2544b939668cab9f2f8744261892720}} 
+\mbox{\hyperlink{classvolatrack_1_1Time}{Time}} {\bfseries time}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classvolatrack_1_1Data}{Data}} class stores all data together. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classvolatrack_1_1Data_aa8e54aae28775c9ff81d3217af71ed86}\label{classvolatrack_1_1Data_aa8e54aae28775c9ff81d3217af71ed86}} 
+\index{volatrack::Data@{volatrack::Data}!Data@{Data}}
+\index{Data@{Data}!volatrack::Data@{volatrack::Data}}
+\doxysubsubsection{\texorpdfstring{Data()}{Data()}}
+{\footnotesize\ttfamily Data\+::\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{sphere_8hpp_a39b72476f0103a6903f1379cb3e0913a}{Spheres}} \&\&}]{spheres,  }\item[{const \mbox{\hyperlink{volatile_8hpp_ac9201d2ac7b4010ad3a0e89ede55e19c}{Volatiles}} \&\&}]{vols }\end{DoxyParamCaption})}
+
+
+
+constructor from spheres and volatiles 
+
+
+\begin{DoxyParams}{Parameters}
+{\em spheres} & \\
+\hline
+{\em vols} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classvolatrack_1_1Data_a63b09d38ed6a5e99f67f958864e1a309}\label{classvolatrack_1_1Data_a63b09d38ed6a5e99f67f958864e1a309}} 
+\index{volatrack::Data@{volatrack::Data}!loadFromJson@{loadFromJson}}
+\index{loadFromJson@{loadFromJson}!volatrack::Data@{volatrack::Data}}
+\doxysubsubsection{\texorpdfstring{loadFromJson()}{loadFromJson()}}
+{\footnotesize\ttfamily void Data\+::load\+From\+Json (\begin{DoxyParamCaption}\item[{const Q\+Json\+Object \&}]{jo }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+load from json format 
+
+
+\begin{DoxyParams}{Parameters}
+{\em json} & object in Qt form representing the data \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{structvolatrack_1_1CanIO}{volatrack\+::\+Can\+IO}}.
+
+\mbox{\Hypertarget{classvolatrack_1_1Data_a3feccf3fda71b45b474f538f75f41a7c}\label{classvolatrack_1_1Data_a3feccf3fda71b45b474f538f75f41a7c}} 
+\index{volatrack::Data@{volatrack::Data}!pushSphere@{pushSphere}}
+\index{pushSphere@{pushSphere}!volatrack::Data@{volatrack::Data}}
+\doxysubsubsection{\texorpdfstring{pushSphere()}{pushSphere()}}
+{\footnotesize\ttfamily void volatrack\+::\+Data\+::push\+Sphere (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structvolatrack_1_1Sphere}{Sphere}} \&}]{sphere }\end{DoxyParamCaption})}
+
+
+
+push sphere to data 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sphere} & to be pushed \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classvolatrack_1_1Data_a4624a8013f041c9b8e52b4997ef90dda}\label{classvolatrack_1_1Data_a4624a8013f041c9b8e52b4997ef90dda}} 
+\index{volatrack::Data@{volatrack::Data}!pushVolatile@{pushVolatile}}
+\index{pushVolatile@{pushVolatile}!volatrack::Data@{volatrack::Data}}
+\doxysubsubsection{\texorpdfstring{pushVolatile()}{pushVolatile()}}
+{\footnotesize\ttfamily void volatrack\+::\+Data\+::push\+Volatile (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structvolatrack_1_1Volatile}{Volatile}} \&}]{vol }\end{DoxyParamCaption})}
+
+
+
+push volatile to data 
+
+
+\begin{DoxyParams}{Parameters}
+{\em volatile} & to push \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classvolatrack_1_1Data_adc6b4ac6fb3c9a8cc4505e03d7a01060}\label{classvolatrack_1_1Data_adc6b4ac6fb3c9a8cc4505e03d7a01060}} 
+\index{volatrack::Data@{volatrack::Data}!saveToJson@{saveToJson}}
+\index{saveToJson@{saveToJson}!volatrack::Data@{volatrack::Data}}
+\doxysubsubsection{\texorpdfstring{saveToJson()}{saveToJson()}}
+{\footnotesize\ttfamily Q\+Json\+Object Data\+::save\+To\+Json (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+save to json format 
+
+\begin{DoxyReturn}{Returns}
+json object in Qt form representing the data 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{structvolatrack_1_1CanIO}{volatrack\+::\+Can\+IO}}.
+
+\mbox{\Hypertarget{classvolatrack_1_1Data_ade226872c0c01abf87362d4848ebf535}\label{classvolatrack_1_1Data_ade226872c0c01abf87362d4848ebf535}} 
+\index{volatrack::Data@{volatrack::Data}!spheres@{spheres}}
+\index{spheres@{spheres}!volatrack::Data@{volatrack::Data}}
+\doxysubsubsection{\texorpdfstring{spheres()}{spheres()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{sphere_8hpp_a39b72476f0103a6903f1379cb3e0913a}{Spheres}} Data\+::spheres (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+spheres getter 
+
+\begin{DoxyReturn}{Returns}
+stored spheres 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classvolatrack_1_1Data_afd06beddbdd5d265099185e3db5e0567}\label{classvolatrack_1_1Data_afd06beddbdd5d265099185e3db5e0567}} 
+\index{volatrack::Data@{volatrack::Data}!volatiles@{volatiles}}
+\index{volatiles@{volatiles}!volatrack::Data@{volatrack::Data}}
+\doxysubsubsection{\texorpdfstring{volatiles()}{volatiles()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{volatile_8hpp_ac9201d2ac7b4010ad3a0e89ede55e19c}{Volatiles}} Data\+::volatiles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+volatiles getter 
+
+\begin{DoxyReturn}{Returns}
+stored volatiles 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/vladimir/\+Volatrack/physics/data/\mbox{\hyperlink{data_8hpp}{data.\+hpp}}\item 
+/home/vladimir/\+Volatrack/physics/data/data.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,123 @@
+\hypertarget{classvolatrack_1_1SurfPoint}{}\doxysection{volatrack\+::Surf\+Point Class Reference}
+\label{classvolatrack_1_1SurfPoint}\index{volatrack::SurfPoint@{volatrack::SurfPoint}}
+
+
+The \mbox{\hyperlink{classvolatrack_1_1SurfPoint}{Surf\+Point}} class rectangular coordinates, requires one constraint\+: x $\ast$ x + y $\ast$ y + z $\ast$ z = 1 x, y, and z are relative coordinates to spheres\mbox{[}isphere\mbox{]}.R.  
+
+
+
+
+{\ttfamily \#include $<$surfpoint.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvolatrack_1_1SurfPoint_ab0581d4ba42b8afe4b91c4e1c4e2ab41}{Surf\+Point}} (const vec3 \&\mbox{\hyperlink{classvolatrack_1_1SurfPoint_ae8851f76489b0fa76cf6079e92823f70}{rect}})
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classvolatrack_1_1SurfPoint_add392d141ff3a45984c60f745646e8bf}{Surf\+Point}} (real x, real y, real z)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+vec3 \mbox{\hyperlink{classvolatrack_1_1SurfPoint_ae8851f76489b0fa76cf6079e92823f70}{rect}} () const
+\begin{DoxyCompactList}\small\item\em getter for Cartesian representation \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvolatrack_1_1SurfPoint_ab8b8553f2aa05e0fbceff7675ea3c11e}{set\+Rect}} (const vec3 \&\mbox{\hyperlink{classvolatrack_1_1SurfPoint_ae8851f76489b0fa76cf6079e92823f70}{rect}})
+\begin{DoxyCompactList}\small\item\em settter for Cartesian representation \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvolatrack_1_1SurfPoint_ab812fb3d283254161ed4353408b9fc14}{set\+Rect}} (real x, real y, real z)
+\begin{DoxyCompactList}\small\item\em settter for Cartesian representation \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classvolatrack_1_1SurfPoint_a8fae8ed37fa24081515cb231a08176ef}\label{classvolatrack_1_1SurfPoint_a8fae8ed37fa24081515cb231a08176ef}} 
+void \mbox{\hyperlink{classvolatrack_1_1SurfPoint_a8fae8ed37fa24081515cb231a08176ef}{normalize}} ()
+\begin{DoxyCompactList}\small\item\em normalizes Cartesian rep to allow a proper \mbox{\hyperlink{classvolatrack_1_1SurfPoint}{Surf\+Point}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classvolatrack_1_1SurfPoint}{Surf\+Point}} class rectangular coordinates, requires one constraint\+: x $\ast$ x + y $\ast$ y + z $\ast$ z = 1 x, y, and z are relative coordinates to spheres\mbox{[}isphere\mbox{]}.R. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classvolatrack_1_1SurfPoint_ab0581d4ba42b8afe4b91c4e1c4e2ab41}\label{classvolatrack_1_1SurfPoint_ab0581d4ba42b8afe4b91c4e1c4e2ab41}} 
+\index{volatrack::SurfPoint@{volatrack::SurfPoint}!SurfPoint@{SurfPoint}}
+\index{SurfPoint@{SurfPoint}!volatrack::SurfPoint@{volatrack::SurfPoint}}
+\doxysubsubsection{\texorpdfstring{SurfPoint()}{SurfPoint()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Surf\+Point\+::\+Surf\+Point (\begin{DoxyParamCaption}\item[{const vec3 \&}]{rect }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rect} & -\/ Cartesian rep of constructed \mbox{\hyperlink{classvolatrack_1_1SurfPoint}{Surf\+Point}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classvolatrack_1_1SurfPoint_add392d141ff3a45984c60f745646e8bf}\label{classvolatrack_1_1SurfPoint_add392d141ff3a45984c60f745646e8bf}} 
+\index{volatrack::SurfPoint@{volatrack::SurfPoint}!SurfPoint@{SurfPoint}}
+\index{SurfPoint@{SurfPoint}!volatrack::SurfPoint@{volatrack::SurfPoint}}
+\doxysubsubsection{\texorpdfstring{SurfPoint()}{SurfPoint()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Surf\+Point\+::\+Surf\+Point (\begin{DoxyParamCaption}\item[{real}]{x,  }\item[{real}]{y,  }\item[{real}]{z }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & coordinate of Cartesian rep \\
+\hline
+{\em y} & coordinate of Cartesian rep \\
+\hline
+{\em z} & coordinate of Cartesian rep \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classvolatrack_1_1SurfPoint_ae8851f76489b0fa76cf6079e92823f70}\label{classvolatrack_1_1SurfPoint_ae8851f76489b0fa76cf6079e92823f70}} 
+\index{volatrack::SurfPoint@{volatrack::SurfPoint}!rect@{rect}}
+\index{rect@{rect}!volatrack::SurfPoint@{volatrack::SurfPoint}}
+\doxysubsubsection{\texorpdfstring{rect()}{rect()}}
+{\footnotesize\ttfamily vec3 Surf\+Point\+::rect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+getter for Cartesian representation 
+
+\begin{DoxyReturn}{Returns}
+stored Cartesian rep 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classvolatrack_1_1SurfPoint_ab8b8553f2aa05e0fbceff7675ea3c11e}\label{classvolatrack_1_1SurfPoint_ab8b8553f2aa05e0fbceff7675ea3c11e}} 
+\index{volatrack::SurfPoint@{volatrack::SurfPoint}!setRect@{setRect}}
+\index{setRect@{setRect}!volatrack::SurfPoint@{volatrack::SurfPoint}}
+\doxysubsubsection{\texorpdfstring{setRect()}{setRect()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Surf\+Point\+::set\+Rect (\begin{DoxyParamCaption}\item[{const vec3 \&}]{rect }\end{DoxyParamCaption})}
+
+
+
+settter for Cartesian representation 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Cartesian} & rep being set \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classvolatrack_1_1SurfPoint_ab812fb3d283254161ed4353408b9fc14}\label{classvolatrack_1_1SurfPoint_ab812fb3d283254161ed4353408b9fc14}} 
+\index{volatrack::SurfPoint@{volatrack::SurfPoint}!setRect@{setRect}}
+\index{setRect@{setRect}!volatrack::SurfPoint@{volatrack::SurfPoint}}
+\doxysubsubsection{\texorpdfstring{setRect()}{setRect()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Surf\+Point\+::set\+Rect (\begin{DoxyParamCaption}\item[{real}]{x,  }\item[{real}]{y,  }\item[{real}]{z }\end{DoxyParamCaption})}
+
+
+
+settter for Cartesian representation 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & coordinate of Cartesian rep being set \\
+\hline
+{\em y} & coordinate of Cartesian rep being set \\
+\hline
+{\em z} & coordinate of Cartesian rep being set \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/vladimir/\+Volatrack/physics/data/\mbox{\hyperlink{surfpoint_8hpp}{surfpoint.\+hpp}}\item 
+/home/vladimir/\+Volatrack/physics/data/surfpoint.\+cpp\end{DoxyCompactItemize}

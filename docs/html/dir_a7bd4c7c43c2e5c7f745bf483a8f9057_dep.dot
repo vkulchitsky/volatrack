@@ -1,0 +1,11 @@
+digraph "/home/vladimir/Volatrack/physics/engine" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_59dc24c326e2a72d1164f014b22de83d {
+    graph [ bgcolor="#ddddee", pencolor="black", label="physics" fontname="Helvetica", fontsize="10", URL="dir_59dc24c326e2a72d1164f014b22de83d.html"]
+  dir_a7bd4c7c43c2e5c7f745bf483a8f9057 [shape=box, label="engine", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_a7bd4c7c43c2e5c7f745bf483a8f9057.html"];
+  }
+  dir_ad4d83cd0a3ac74f6e36abb406753d48 [shape=box label="data" URL="dir_ad4d83cd0a3ac74f6e36abb406753d48.html"];
+  dir_a7bd4c7c43c2e5c7f745bf483a8f9057->dir_ad4d83cd0a3ac74f6e36abb406753d48 [headlabel="1", labeldistance=1.5 headhref="dir_000004_000003.html"];
+}

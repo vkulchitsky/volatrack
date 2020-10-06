@@ -1,0 +1,73 @@
+\hypertarget{classvolatrack_1_1Time}{}\doxysection{volatrack\+::Time Class Reference}
+\label{classvolatrack_1_1Time}\index{volatrack::Time@{volatrack::Time}}
+
+
+\mbox{\hyperlink{classvolatrack_1_1Time}{Time}} tracker -\/ includes current time and may include additional info.  
+
+
+
+
+{\ttfamily \#include $<$time.\+hpp$>$}
+
+
+
+Inheritance diagram for volatrack\+::Time\+:
+% FIG 0
+
+
+Collaboration diagram for volatrack\+::Time\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classvolatrack_1_1Time_a4245e409c7347d1d671858962c2ca3b5}\label{classvolatrack_1_1Time_a4245e409c7347d1d671858962c2ca3b5}} 
+\mbox{\hyperlink{classvolatrack_1_1Time_a4245e409c7347d1d671858962c2ca3b5}{Time}} ()
+\begin{DoxyCompactList}\small\item\em default constructor \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classvolatrack_1_1Time_a757707edefec7b93949b436f8cc13fe5}\label{classvolatrack_1_1Time_a757707edefec7b93949b436f8cc13fe5}} 
+Q\+Json\+Object \mbox{\hyperlink{classvolatrack_1_1Time_a757707edefec7b93949b436f8cc13fe5}{save\+To\+Json}} () const override
+\begin{DoxyCompactList}\small\item\em save to json format \textbackslash{}returnjson object in Qt form representing the time \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvolatrack_1_1Time_a9e35b12e81fccbeb9b212b9223b52726}{load\+From\+Json}} (const Q\+Json\+Object \&jo) const override
+\begin{DoxyCompactList}\small\item\em load from json format \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classvolatrack_1_1Time_accb52735b814a7b1b35fc17be5380fce}\label{classvolatrack_1_1Time_accb52735b814a7b1b35fc17be5380fce}} 
+real \mbox{\hyperlink{classvolatrack_1_1Time_accb52735b814a7b1b35fc17be5380fce}{t}}
+\begin{DoxyCompactList}\small\item\em current time \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classvolatrack_1_1Time_a6efdc10ce56e587cba4d26d58b779395}\label{classvolatrack_1_1Time_a6efdc10ce56e587cba4d26d58b779395}} 
+real \mbox{\hyperlink{classvolatrack_1_1Time_a6efdc10ce56e587cba4d26d58b779395}{dt}}
+\begin{DoxyCompactList}\small\item\em time step \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classvolatrack_1_1Time_acebb0f4d98323b227cc75380b3baef2f}\label{classvolatrack_1_1Time_acebb0f4d98323b227cc75380b3baef2f}} 
+real \mbox{\hyperlink{classvolatrack_1_1Time_acebb0f4d98323b227cc75380b3baef2f}{dt\+Save}}
+\begin{DoxyCompactList}\small\item\em save time step \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classvolatrack_1_1Time}{Time}} tracker -\/ includes current time and may include additional info. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classvolatrack_1_1Time_a9e35b12e81fccbeb9b212b9223b52726}\label{classvolatrack_1_1Time_a9e35b12e81fccbeb9b212b9223b52726}} 
+\index{volatrack::Time@{volatrack::Time}!loadFromJson@{loadFromJson}}
+\index{loadFromJson@{loadFromJson}!volatrack::Time@{volatrack::Time}}
+\doxysubsubsection{\texorpdfstring{loadFromJson()}{loadFromJson()}}
+{\footnotesize\ttfamily void Time\+::load\+From\+Json (\begin{DoxyParamCaption}\item[{const Q\+Json\+Object \&}]{jo }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+load from json format 
+
+
+\begin{DoxyParams}{Parameters}
+{\em json} & object in Qt form representing the time \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{structvolatrack_1_1CanIO}{volatrack\+::\+Can\+IO}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/vladimir/\+Volatrack/physics/data/\mbox{\hyperlink{time_8hpp}{time.\+hpp}}\item 
+/home/vladimir/\+Volatrack/physics/data/time.\+cpp\end{DoxyCompactItemize}

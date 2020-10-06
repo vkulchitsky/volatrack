@@ -1,0 +1,122 @@
+\hypertarget{structvolatrack_1_1Material}{}\doxysection{volatrack\+::Material Struct Reference}
+\label{structvolatrack_1_1Material}\index{volatrack::Material@{volatrack::Material}}
+
+
+\mbox{\hyperlink{structvolatrack_1_1Material}{Material}} of a sphere -\/ expected to be lunar regolith.  
+
+
+
+
+{\ttfamily \#include $<$material.\+hpp$>$}
+
+
+
+Inheritance diagram for volatrack\+::Material\+:
+% FIG 0
+
+
+Collaboration diagram for volatrack\+::Material\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Q\+Json\+Object \mbox{\hyperlink{structvolatrack_1_1Material_ac36ae30ebc2544c507bd954eaca75afa}{save\+To\+Json}} () const override
+\begin{DoxyCompactList}\small\item\em save to json format \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structvolatrack_1_1Material_a987cdb28231e1ea349fedd28055eac28}{load\+From\+Json}} (const Q\+Json\+Object \&jo) const override
+\begin{DoxyCompactList}\small\item\em load from json format \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structvolatrack_1_1Material_ae135ffe5165ee79c68f7a33697309deb}\label{structvolatrack_1_1Material_ae135ffe5165ee79c68f7a33697309deb}} 
+real \mbox{\hyperlink{structvolatrack_1_1Material_ae135ffe5165ee79c68f7a33697309deb}{rho}}
+\begin{DoxyCompactList}\small\item\em density, kg/m$^\wedge$3 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structvolatrack_1_1Material_a3a201f40b260800822971690bc2e315e}\label{structvolatrack_1_1Material_a3a201f40b260800822971690bc2e315e}} 
+real \mbox{\hyperlink{structvolatrack_1_1Material_a3a201f40b260800822971690bc2e315e}{G}}
+\begin{DoxyCompactList}\small\item\em shear modulus, Pa \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structvolatrack_1_1Material_afb33be632288ad3bd2b548f0fb529ee1}\label{structvolatrack_1_1Material_afb33be632288ad3bd2b548f0fb529ee1}} 
+real \mbox{\hyperlink{structvolatrack_1_1Material_afb33be632288ad3bd2b548f0fb529ee1}{nu}}
+\begin{DoxyCompactList}\small\item\em poisson coef., 1 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structvolatrack_1_1Material_acf5094b1a81ad490a28b4925c9b6ab69}\label{structvolatrack_1_1Material_acf5094b1a81ad490a28b4925c9b6ab69}} 
+real \mbox{\hyperlink{structvolatrack_1_1Material_acf5094b1a81ad490a28b4925c9b6ab69}{gamma}}
+\begin{DoxyCompactList}\small\item\em surface energy, J/m$^\wedge$2 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structvolatrack_1_1Material_aad619b44027c0af47cdb4ff33c752bff}\label{structvolatrack_1_1Material_aad619b44027c0af47cdb4ff33c752bff}} 
+real \mbox{\hyperlink{structvolatrack_1_1Material_aad619b44027c0af47cdb4ff33c752bff}{C\+R0}}
+\begin{DoxyCompactList}\small\item\em standard restitution, 1 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structvolatrack_1_1Material_a40eaa4a605ff351565cb96df10042b87}\label{structvolatrack_1_1Material_a40eaa4a605ff351565cb96df10042b87}} 
+real \mbox{\hyperlink{structvolatrack_1_1Material_a40eaa4a605ff351565cb96df10042b87}{v\+R0}}
+\begin{DoxyCompactList}\small\item\em standard impact velocity, m/s \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structvolatrack_1_1Material_afa4784757dda755a99c45868fc35f4d5}\label{structvolatrack_1_1Material_afa4784757dda755a99c45868fc35f4d5}} 
+real \mbox{\hyperlink{structvolatrack_1_1Material_afa4784757dda755a99c45868fc35f4d5}{alpha\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em tangent elastic reduction, 1 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structvolatrack_1_1Material_a236d78eba534d64f803244a0e883bf0c}\label{structvolatrack_1_1Material_a236d78eba534d64f803244a0e883bf0c}} 
+real \mbox{\hyperlink{structvolatrack_1_1Material_a236d78eba534d64f803244a0e883bf0c}{mu}}
+\begin{DoxyCompactList}\small\item\em friction coefficient \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structvolatrack_1_1Material_a3686815cfd2a71c167c4a0745bfc70a1}\label{structvolatrack_1_1Material_a3686815cfd2a71c167c4a0745bfc70a1}} 
+real \mbox{\hyperlink{structvolatrack_1_1Material_a3686815cfd2a71c167c4a0745bfc70a1}{r\+Mu}}
+\begin{DoxyCompactList}\small\item\em rolling dry friction coef. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structvolatrack_1_1Material_a0255787d872bdddf214f9b9175cf58a4}\label{structvolatrack_1_1Material_a0255787d872bdddf214f9b9175cf58a4}} 
+real \mbox{\hyperlink{structvolatrack_1_1Material_a0255787d872bdddf214f9b9175cf58a4}{r\+Nu}}
+\begin{DoxyCompactList}\small\item\em rolling visc. friction coef. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structvolatrack_1_1Material_ad209daa4dbab2c54e423265f3d81d969}\label{structvolatrack_1_1Material_ad209daa4dbab2c54e423265f3d81d969}} 
+real \mbox{\hyperlink{structvolatrack_1_1Material_ad209daa4dbab2c54e423265f3d81d969}{rK}}
+\begin{DoxyCompactList}\small\item\em rolling dry torque growth factor \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structvolatrack_1_1Material_ac8520dbb7cc4f95abb54a42cade4a86b}\label{structvolatrack_1_1Material_ac8520dbb7cc4f95abb54a42cade4a86b}} 
+real \mbox{\hyperlink{structvolatrack_1_1Material_ac8520dbb7cc4f95abb54a42cade4a86b}{r\+Th}}
+\begin{DoxyCompactList}\small\item\em rolling visc. torque growth factor \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structvolatrack_1_1Material_ab3c9dd798af4a617ccc0be8fc4f7f6f9}\label{structvolatrack_1_1Material_ab3c9dd798af4a617ccc0be8fc4f7f6f9}} 
+real \mbox{\hyperlink{structvolatrack_1_1Material_ab3c9dd798af4a617ccc0be8fc4f7f6f9}{visc}}
+\begin{DoxyCompactList}\small\item\em viscosity coefficient for tangential force \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structvolatrack_1_1Material_aaebce58cf31503510d93f2e9d9888cb1}\label{structvolatrack_1_1Material_aaebce58cf31503510d93f2e9d9888cb1}} 
+real \mbox{\hyperlink{structvolatrack_1_1Material_aaebce58cf31503510d93f2e9d9888cb1}{viscg}}
+\begin{DoxyCompactList}\small\item\em viscosity growth factor \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structvolatrack_1_1Material_a8e3f76f1dfddd6ea03df3fe523cee0e7}\label{structvolatrack_1_1Material_a8e3f76f1dfddd6ea03df3fe523cee0e7}} 
+std\+::string \mbox{\hyperlink{structvolatrack_1_1Material_a8e3f76f1dfddd6ea03df3fe523cee0e7}{name}}
+\begin{DoxyCompactList}\small\item\em material name \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{structvolatrack_1_1Material}{Material}} of a sphere -\/ expected to be lunar regolith. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structvolatrack_1_1Material_a987cdb28231e1ea349fedd28055eac28}\label{structvolatrack_1_1Material_a987cdb28231e1ea349fedd28055eac28}} 
+\index{volatrack::Material@{volatrack::Material}!loadFromJson@{loadFromJson}}
+\index{loadFromJson@{loadFromJson}!volatrack::Material@{volatrack::Material}}
+\doxysubsubsection{\texorpdfstring{loadFromJson()}{loadFromJson()}}
+{\footnotesize\ttfamily void Material\+::load\+From\+Json (\begin{DoxyParamCaption}\item[{const Q\+Json\+Object \&}]{jo }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+load from json format 
+
+
+\begin{DoxyParams}{Parameters}
+{\em json} & object in Qt form representing the material \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{structvolatrack_1_1CanIO}{volatrack\+::\+Can\+IO}}.
+
+\mbox{\Hypertarget{structvolatrack_1_1Material_ac36ae30ebc2544c507bd954eaca75afa}\label{structvolatrack_1_1Material_ac36ae30ebc2544c507bd954eaca75afa}} 
+\index{volatrack::Material@{volatrack::Material}!saveToJson@{saveToJson}}
+\index{saveToJson@{saveToJson}!volatrack::Material@{volatrack::Material}}
+\doxysubsubsection{\texorpdfstring{saveToJson()}{saveToJson()}}
+{\footnotesize\ttfamily Q\+Json\+Object Material\+::save\+To\+Json (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+save to json format 
+
+\begin{DoxyReturn}{Returns}
+json object in Qt form representing the material 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{structvolatrack_1_1CanIO}{volatrack\+::\+Can\+IO}}.
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/vladimir/\+Volatrack/physics/data/\mbox{\hyperlink{material_8hpp}{material.\+hpp}}\item 
+/home/vladimir/\+Volatrack/physics/data/material.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,191 @@
+\hypertarget{unittestingframework_8hpp}{}\doxysection{/home/vladimir/\+Volatrack/tests/unittestingframework.hpp File Reference}
+\label{unittestingframework_8hpp}\index{/home/vladimir/Volatrack/tests/unittestingframework.hpp@{/home/vladimir/Volatrack/tests/unittestingframework.hpp}}
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+Include dependency graph for unittestingframework.\+hpp\+:
+% FIG 0
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{unittestingframework_8hpp_a69d40576ee624d600ba9793e4b895499}\label{unittestingframework_8hpp_a69d40576ee624d600ba9793e4b895499}} 
+\#define {\bfseries P\+P\+H\+\_\+\+D\+E\+F\+S\+\_\+\+U\+N\+U\+S\+E\+D11}~\mbox{[}\mbox{[}gnu\+::unused\mbox{]}\mbox{]}
+\item 
+\#define \mbox{\hyperlink{unittestingframework_8hpp_a07fc9e3c2fa55f275fe572e4bb251316}{A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+AL}}(x,  y)
+\begin{DoxyCompactList}\small\item\em macro that checks for equality of two values in unit test \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{unittestingframework_8hpp_ac37a7f481b6739993602bc0c9ce4bbd2}\label{unittestingframework_8hpp_ac37a7f481b6739993602bc0c9ce4bbd2}} 
+\#define \mbox{\hyperlink{unittestingframework_8hpp_ac37a7f481b6739993602bc0c9ce4bbd2}{A\+S\+S\+E\+R\+T\+\_\+\+T\+R\+UE}}(x,  hint)~\mbox{\hyperlink{unittestingframework_8hpp_ad93f851d0bc05248d44ab3e9e85880c3}{Assert\+True}}((x), hint)
+\begin{DoxyCompactList}\small\item\em Check if an expression is false. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{unittestingframework_8hpp_a5e1be48028ba5986daf2839b9f4a17a4}\label{unittestingframework_8hpp_a5e1be48028ba5986daf2839b9f4a17a4}} 
+\#define \mbox{\hyperlink{unittestingframework_8hpp_a5e1be48028ba5986daf2839b9f4a17a4}{A\+S\+S\+E\+R\+T\+\_\+\+F\+A\+L\+SE}}(x,  hint)~\mbox{\hyperlink{unittestingframework_8hpp_ac37a7f481b6739993602bc0c9ce4bbd2}{A\+S\+S\+E\+R\+T\+\_\+\+T\+R\+UE}}(!(x), hint)
+\begin{DoxyCompactList}\small\item\em Check if an expression is false. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{unittestingframework_8hpp_a5772775db148d6324cd76a76f4e5b24f}\label{unittestingframework_8hpp_a5772775db148d6324cd76a76f4e5b24f}} 
+\#define \mbox{\hyperlink{unittestingframework_8hpp_a5772775db148d6324cd76a76f4e5b24f}{F\+A\+IL}}(reason)~throw Tests\+::\+Fail(reason);
+\begin{DoxyCompactList}\small\item\em Fail the test with the reason specified. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{unittestingframework_8hpp_a485433d16fe4c38310b4d38019200487}{B\+E\+F\+O\+RE}}(n)
+\begin{DoxyCompactList}\small\item\em macro that define code block that will be runned before test \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{unittestingframework_8hpp_ac3d44964d4e029ca9274e12169c7fa61}{T\+E\+ST}}(n)
+\begin{DoxyCompactList}\small\item\em macro that define test code block \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{unittestingframework_8hpp_aff1c00b24734949fa2cd984c384bb4f4}{A\+F\+T\+ER}}(n)
+\begin{DoxyCompactList}\small\item\em macro that define code block that will be runned after test \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{unittestingframework_8hpp_a1a8fa6e66b27f84ae5fc944f25b8a3a2}{I\+N\+I\+T\+\_\+\+T\+E\+S\+TS}}()
+\begin{DoxyCompactList}\small\item\em macro that need to work library. Includes main function. Only one macro for test solution! \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{unittestingframework_8hpp_ad93f851d0bc05248d44ab3e9e85880c3}\label{unittestingframework_8hpp_ad93f851d0bc05248d44ab3e9e85880c3}} 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{unittestingframework_8hpp_ad93f851d0bc05248d44ab3e9e85880c3}{Assert\+True}} (const T \&t, const std\+::string \&hint)
+\begin{DoxyCompactList}\small\item\em Assert that an expression is true. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Framework for unit tests
+
+\begin{DoxyAuthor}{Author}
+Serhii Lytvynenko 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+2.\+0 10/02/2020 
+\end{DoxyVersion}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{unittestingframework_8hpp_aff1c00b24734949fa2cd984c384bb4f4}\label{unittestingframework_8hpp_aff1c00b24734949fa2cd984c384bb4f4}} 
+\index{unittestingframework.hpp@{unittestingframework.hpp}!AFTER@{AFTER}}
+\index{AFTER@{AFTER}!unittestingframework.hpp@{unittestingframework.hpp}}
+\doxysubsubsection{\texorpdfstring{AFTER}{AFTER}}
+{\footnotesize\ttfamily \#define A\+F\+T\+ER(\begin{DoxyParamCaption}\item[{}]{n }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keyword}{inline} \textcolor{keywordtype}{void} n \#\# \_\_AFTER\_\_(); \(\backslash\)}
+\DoxyCodeLine{    int n \#\# \_\_AFTER\_CALLER\_\_() \(\backslash\)}
+\DoxyCodeLine{    \{ \(\backslash\)}
+\DoxyCodeLine{        auto index = std::string(\_\_FILE\_\_).find\_last\_of(\textcolor{stringliteral}{"/\(\backslash\)\(\backslash\)"}) + 1; \(\backslash\)}
+\DoxyCodeLine{        auto fileName = std::string(\_\_FILE\_\_).substr(index); \(\backslash\)}
+\DoxyCodeLine{        Tests::TestRunner::instance().m\_tests[std::string(\#n) + \textcolor{stringliteral}{" "} + \(\backslash\)}
+\DoxyCodeLine{    fileName].m\_after = n \#\# \_\_AFTER\_\_; \(\backslash\)}
+\DoxyCodeLine{        return 0; \(\backslash\)}
+\DoxyCodeLine{    \} \(\backslash\)}
+\DoxyCodeLine{    static \textcolor{keywordtype}{int} n \#\# \_\_AFTER\_CALL\_\_ = n \#\# \_\_AFTER\_CALLER\_\_(); \(\backslash\)}
+\DoxyCodeLine{    inline \textcolor{keywordtype}{void} n \#\# \_\_AFTER\_\_()}
+
+\end{DoxyCode}
+
+
+macro that define code block that will be runned after test 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & name of test \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{unittestingframework_8hpp_a07fc9e3c2fa55f275fe572e4bb251316}\label{unittestingframework_8hpp_a07fc9e3c2fa55f275fe572e4bb251316}} 
+\index{unittestingframework.hpp@{unittestingframework.hpp}!ASSERT\_EQUAL@{ASSERT\_EQUAL}}
+\index{ASSERT\_EQUAL@{ASSERT\_EQUAL}!unittestingframework.hpp@{unittestingframework.hpp}}
+\doxysubsubsection{\texorpdfstring{ASSERT\_EQUAL}{ASSERT\_EQUAL}}
+{\footnotesize\ttfamily \#define A\+S\+S\+E\+R\+T\+\_\+\+E\+Q\+U\+AL(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{y }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{ \(\backslash\)}
+\DoxyCodeLine{    std::ostringstream os; \(\backslash\)}
+\DoxyCodeLine{    os << \#x << \textcolor{stringliteral}{" != "} << \#y << \textcolor{stringliteral}{", "} << \_\_FILE\_\_ << \textcolor{stringliteral}{":"} << \_\_LINE\_\_; \(\backslash\)}
+\DoxyCodeLine{    AssertTrue(((x) == (y)), os.str()); \(\backslash\)}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+macro that checks for equality of two values in unit test 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & value for which operation == with y is defined, where x on left side \\
+\hline
+{\em y} & value for which operation == with x is defined, where y on right side \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{unittestingframework_8hpp_a485433d16fe4c38310b4d38019200487}\label{unittestingframework_8hpp_a485433d16fe4c38310b4d38019200487}} 
+\index{unittestingframework.hpp@{unittestingframework.hpp}!BEFORE@{BEFORE}}
+\index{BEFORE@{BEFORE}!unittestingframework.hpp@{unittestingframework.hpp}}
+\doxysubsubsection{\texorpdfstring{BEFORE}{BEFORE}}
+{\footnotesize\ttfamily \#define B\+E\+F\+O\+RE(\begin{DoxyParamCaption}\item[{}]{n }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keyword}{inline} \textcolor{keywordtype}{void} n \#\# \_\_BEFORE\_\_(); \(\backslash\)}
+\DoxyCodeLine{    int n \#\# \_\_BEFORE\_CALLER\_\_() \(\backslash\)}
+\DoxyCodeLine{    \{ \(\backslash\)}
+\DoxyCodeLine{        auto index = std::string(\_\_FILE\_\_).find\_last\_of(\textcolor{stringliteral}{"/\(\backslash\)\(\backslash\)"}) + 1; \(\backslash\)}
+\DoxyCodeLine{        auto fileName = std::string(\_\_FILE\_\_).substr(index); \(\backslash\)}
+\DoxyCodeLine{        Tests::TestRunner::instance().m\_tests[std::string(\#n) + \textcolor{stringliteral}{" "}+ \(\backslash\)}
+\DoxyCodeLine{    fileName].m\_before = n \#\# \_\_BEFORE\_\_; \(\backslash\)}
+\DoxyCodeLine{        return 0; \(\backslash\)}
+\DoxyCodeLine{    \} \(\backslash\)}
+\DoxyCodeLine{    static \textcolor{keywordtype}{int} n \#\# \_\_BEFORE\_CALL\_\_ = n \#\# \_\_BEFORE\_CALLER\_\_(); \(\backslash\)}
+\DoxyCodeLine{    inline \textcolor{keywordtype}{void} n \#\# \_\_BEFORE\_\_()}
+
+\end{DoxyCode}
+
+
+macro that define code block that will be runned before test 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & name of test \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{unittestingframework_8hpp_a1a8fa6e66b27f84ae5fc944f25b8a3a2}\label{unittestingframework_8hpp_a1a8fa6e66b27f84ae5fc944f25b8a3a2}} 
+\index{unittestingframework.hpp@{unittestingframework.hpp}!INIT\_TESTS@{INIT\_TESTS}}
+\index{INIT\_TESTS@{INIT\_TESTS}!unittestingframework.hpp@{unittestingframework.hpp}}
+\doxysubsubsection{\texorpdfstring{INIT\_TESTS}{INIT\_TESTS}}
+{\footnotesize\ttfamily \#define I\+N\+I\+T\+\_\+\+T\+E\+S\+TS(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} main() \(\backslash\)}
+\DoxyCodeLine{    \{ \(\backslash\)}
+\DoxyCodeLine{        Tests::TestRunner::instance().run(); \(\backslash\)}
+\DoxyCodeLine{    \} \(\backslash\)}
+
+\end{DoxyCode}
+
+
+macro that need to work library. Includes main function. Only one macro for test solution! 
+
+\mbox{\Hypertarget{unittestingframework_8hpp_ac3d44964d4e029ca9274e12169c7fa61}\label{unittestingframework_8hpp_ac3d44964d4e029ca9274e12169c7fa61}} 
+\index{unittestingframework.hpp@{unittestingframework.hpp}!TEST@{TEST}}
+\index{TEST@{TEST}!unittestingframework.hpp@{unittestingframework.hpp}}
+\doxysubsubsection{\texorpdfstring{TEST}{TEST}}
+{\footnotesize\ttfamily \#define T\+E\+ST(\begin{DoxyParamCaption}\item[{}]{n }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keyword}{inline} \textcolor{keywordtype}{void} n \#\# \_\_TEST\_\_(); \(\backslash\)}
+\DoxyCodeLine{    int n \#\# \_\_TEST\_CALLER\_\_() \(\backslash\)}
+\DoxyCodeLine{    \{ \(\backslash\)}
+\DoxyCodeLine{        auto index = std::string(\_\_FILE\_\_).find\_last\_of(\textcolor{stringliteral}{"/\(\backslash\)\(\backslash\)"}) + 1; \(\backslash\)}
+\DoxyCodeLine{        auto fileName = std::string(\_\_FILE\_\_).substr(index); \(\backslash\)}
+\DoxyCodeLine{        Tests::TestRunner::instance().m\_tests[std::string(\#n) + \textcolor{stringliteral}{" "} + \(\backslash\)}
+\DoxyCodeLine{    fileName].m\_test = n \#\# \_\_TEST\_\_; \(\backslash\)}
+\DoxyCodeLine{        return 0; \(\backslash\)}
+\DoxyCodeLine{    \} \(\backslash\)}
+\DoxyCodeLine{    PPH\_DEFS\_UNUSED11                                       \(\backslash\)}
+\DoxyCodeLine{    static \textcolor{keywordtype}{int} n \#\# \_\_TEST\_CALL\_\_ = n \#\# \_\_TEST\_CALLER\_\_(); \(\backslash\)}
+\DoxyCodeLine{    inline \textcolor{keywordtype}{void} n \#\# \_\_TEST\_\_()}
+
+\end{DoxyCode}
+
+
+macro that define test code block 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & name of test \\
+\hline
+\end{DoxyParams}

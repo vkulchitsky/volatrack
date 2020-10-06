@@ -1,0 +1,103 @@
+\hypertarget{classvolatrack_1_1Engine}{}\doxysection{volatrack\+::Engine Class Reference}
+\label{classvolatrack_1_1Engine}\index{volatrack::Engine@{volatrack::Engine}}
+
+
+The physical engine -\/ main process.  
+
+
+
+
+{\ttfamily \#include $<$engine.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classvolatrack_1_1Engine_aef8445064e08bec196e2e07009f9546d}\label{classvolatrack_1_1Engine_aef8445064e08bec196e2e07009f9546d}} 
+\mbox{\hyperlink{classvolatrack_1_1Engine_aef8445064e08bec196e2e07009f9546d}{Engine}} ()
+\begin{DoxyCompactList}\small\item\em default constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classvolatrack_1_1Engine_a0597be13ed3d78c4e0f0715607a1cd73}{Engine}} (\mbox{\hyperlink{classvolatrack_1_1Data}{Data}} \&data)
+\begin{DoxyCompactList}\small\item\em constructor with data -\/ may or may not be necessary \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvolatrack_1_1Engine_ac620cc5a952fd4e0416a52cf5966056e}{process}} (\mbox{\hyperlink{classvolatrack_1_1Data}{Data}} \&data)
+\begin{DoxyCompactList}\small\item\em process that alters data accordingly \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvolatrack_1_1Engine_a10b849521a0dff3c34d07fc24c296456}{init}} (const \mbox{\hyperlink{classvolatrack_1_1Data}{Data}} \&data)
+\begin{DoxyCompactList}\small\item\em initital steps for starting simulation \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classvolatrack_1_1Engine_abbeed0cdcf32b1e76dc1c35515e9ce51}{needs\+Saving}} (const \mbox{\hyperlink{classvolatrack_1_1Data}{Data}} \&data)
+\begin{DoxyCompactList}\small\item\em if called, data is saved to a file \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The physical engine -\/ main process. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classvolatrack_1_1Engine_a0597be13ed3d78c4e0f0715607a1cd73}\label{classvolatrack_1_1Engine_a0597be13ed3d78c4e0f0715607a1cd73}} 
+\index{volatrack::Engine@{volatrack::Engine}!Engine@{Engine}}
+\index{Engine@{Engine}!volatrack::Engine@{volatrack::Engine}}
+\doxysubsubsection{\texorpdfstring{Engine()}{Engine()}}
+{\footnotesize\ttfamily volatrack\+::\+Engine\+::\+Engine (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classvolatrack_1_1Data}{Data}} \&}]{data }\end{DoxyParamCaption})}
+
+
+
+constructor with data -\/ may or may not be necessary 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classvolatrack_1_1Engine_a10b849521a0dff3c34d07fc24c296456}\label{classvolatrack_1_1Engine_a10b849521a0dff3c34d07fc24c296456}} 
+\index{volatrack::Engine@{volatrack::Engine}!init@{init}}
+\index{init@{init}!volatrack::Engine@{volatrack::Engine}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void volatrack\+::\+Engine\+::init (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvolatrack_1_1Data}{Data}} \&}]{data }\end{DoxyParamCaption})}
+
+
+
+initital steps for starting simulation 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classvolatrack_1_1Engine_abbeed0cdcf32b1e76dc1c35515e9ce51}\label{classvolatrack_1_1Engine_abbeed0cdcf32b1e76dc1c35515e9ce51}} 
+\index{volatrack::Engine@{volatrack::Engine}!needsSaving@{needsSaving}}
+\index{needsSaving@{needsSaving}!volatrack::Engine@{volatrack::Engine}}
+\doxysubsubsection{\texorpdfstring{needsSaving()}{needsSaving()}}
+{\footnotesize\ttfamily bool volatrack\+::\+Engine\+::needs\+Saving (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvolatrack_1_1Data}{Data}} \&}]{data }\end{DoxyParamCaption})}
+
+
+
+if called, data is saved to a file 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether data is in need of saving 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classvolatrack_1_1Engine_ac620cc5a952fd4e0416a52cf5966056e}\label{classvolatrack_1_1Engine_ac620cc5a952fd4e0416a52cf5966056e}} 
+\index{volatrack::Engine@{volatrack::Engine}!process@{process}}
+\index{process@{process}!volatrack::Engine@{volatrack::Engine}}
+\doxysubsubsection{\texorpdfstring{process()}{process()}}
+{\footnotesize\ttfamily void volatrack\+::\+Engine\+::process (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classvolatrack_1_1Data}{Data}} \&}]{data }\end{DoxyParamCaption})}
+
+
+
+process that alters data accordingly 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & to be altered \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/vladimir/\+Volatrack/physics/engine/\mbox{\hyperlink{engine_8hpp}{engine.\+hpp}}\item 
+/home/vladimir/\+Volatrack/physics/engine/engine.\+cpp\end{DoxyCompactItemize}

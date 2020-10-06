@@ -1,0 +1,12 @@
+digraph "/home/vladimir/Volatrack/physics" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_59dc24c326e2a72d1164f014b22de83d {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_59dc24c326e2a72d1164f014b22de83d.html"];
+    dir_59dc24c326e2a72d1164f014b22de83d [shape=plaintext label="physics"];
+    dir_ad4d83cd0a3ac74f6e36abb406753d48 [shape=box label="data" color="black" fillcolor="white" style="filled" URL="dir_ad4d83cd0a3ac74f6e36abb406753d48.html"];
+    dir_a7bd4c7c43c2e5c7f745bf483a8f9057 [shape=box label="engine" color="black" fillcolor="white" style="filled" URL="dir_a7bd4c7c43c2e5c7f745bf483a8f9057.html"];
+  }
+  dir_a7bd4c7c43c2e5c7f745bf483a8f9057->dir_ad4d83cd0a3ac74f6e36abb406753d48 [headlabel="1", labeldistance=1.5 headhref="dir_000004_000003.html"];
+}

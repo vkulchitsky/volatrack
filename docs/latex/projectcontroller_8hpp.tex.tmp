@@ -1,0 +1,22 @@
+\hypertarget{projectcontroller_8hpp}{}\doxysection{/home/vladimir/\+Volatrack/io/projectcontroller.hpp File Reference}
+\label{projectcontroller_8hpp}\index{/home/vladimir/Volatrack/io/projectcontroller.hpp@{/home/vladimir/Volatrack/io/projectcontroller.hpp}}
+{\ttfamily \#include \char`\"{}physics/engine/engine.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}physics/data/data.\+hpp\char`\"{}}\newline
+Include dependency graph for projectcontroller.\+hpp\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classvolatrack_1_1ProjectController}{volatrack\+::\+Project\+Controller}}
+\begin{DoxyCompactList}\small\item\em Controller for saving data into files. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Ability to save data into files and control the project
+
+\begin{DoxyAuthor}{Author}
+Vladimir A Kulchitsky 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 10/06/2020 
+\end{DoxyVersion}

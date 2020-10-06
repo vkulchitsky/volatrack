@@ -1,0 +1,8 @@
+digraph "/home/vladimir/Volatrack/tests" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  dir_59425e443f801f1f2fd8bbe4959a3ccf [shape=box, label="tests", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_59425e443f801f1f2fd8bbe4959a3ccf.html"];
+  dir_59dc24c326e2a72d1164f014b22de83d [shape=box label="physics" fillcolor="white" style="filled" color="red" URL="dir_59dc24c326e2a72d1164f014b22de83d.html"];
+  dir_59425e443f801f1f2fd8bbe4959a3ccf->dir_59dc24c326e2a72d1164f014b22de83d [headlabel="2", labeldistance=1.5 headhref="dir_000001_000000.html"];
+}

@@ -1,0 +1,134 @@
+\hypertarget{structvolatrack_1_1Sphere}{}\doxysection{volatrack\+::Sphere Struct Reference}
+\label{structvolatrack_1_1Sphere}\index{volatrack::Sphere@{volatrack::Sphere}}
+
+
+a sphere approximates a soil particle on the moon  
+
+
+
+
+{\ttfamily \#include $<$sphere.\+hpp$>$}
+
+
+
+Inheritance diagram for volatrack\+::Sphere\+:
+% FIG 0
+
+
+Collaboration diagram for volatrack\+::Sphere\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structvolatrack_1_1Sphere_a6bd0b6d576a72b56c6fe371e4266c528}{Sphere}} (real x, real y, real z, real \mbox{\hyperlink{structvolatrack_1_1Sphere_afa5e983e3fee8295568252338e6c15a6}{R}})
+\begin{DoxyCompactList}\small\item\em constructor from coordinates and radius \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structvolatrack_1_1Sphere_a7be7b847a3436c1786d41c178ec2521e}{Sphere}} (vec3 pos, real \mbox{\hyperlink{structvolatrack_1_1Sphere_afa5e983e3fee8295568252338e6c15a6}{R}})
+\begin{DoxyCompactList}\small\item\em constructor from position and radius \end{DoxyCompactList}\item 
+Q\+Json\+Object \mbox{\hyperlink{structvolatrack_1_1Sphere_a7adf114fa62d9980d9b5610077ee3f6b}{save\+To\+Json}} () const override
+\begin{DoxyCompactList}\small\item\em save to json format \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structvolatrack_1_1Sphere_a9b93c843a1183af01bce673c64bc86c8}{load\+From\+Json}} (const Q\+Json\+Object \&jo) const override
+\begin{DoxyCompactList}\small\item\em load from json format \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structvolatrack_1_1Sphere_a52f51057e5e4b09ed269fc8403bac5e2}\label{structvolatrack_1_1Sphere_a52f51057e5e4b09ed269fc8403bac5e2}} 
+vec3 \mbox{\hyperlink{structvolatrack_1_1Sphere_a52f51057e5e4b09ed269fc8403bac5e2}{c}}
+\begin{DoxyCompactList}\small\item\em position \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structvolatrack_1_1Sphere_afa5e983e3fee8295568252338e6c15a6}\label{structvolatrack_1_1Sphere_afa5e983e3fee8295568252338e6c15a6}} 
+real \mbox{\hyperlink{structvolatrack_1_1Sphere_afa5e983e3fee8295568252338e6c15a6}{R}}
+\begin{DoxyCompactList}\small\item\em radius \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structvolatrack_1_1Sphere_ac72ff99931f15afec40dfca87863485d}\label{structvolatrack_1_1Sphere_ac72ff99931f15afec40dfca87863485d}} 
+real \mbox{\hyperlink{structvolatrack_1_1Sphere_ac72ff99931f15afec40dfca87863485d}{T}}
+\begin{DoxyCompactList}\small\item\em temperature in Kelvin \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structvolatrack_1_1Sphere_adde2c6a8a0cb4b9f065f4e905297f1af}\label{structvolatrack_1_1Sphere_adde2c6a8a0cb4b9f065f4e905297f1af}} 
+\mbox{\hyperlink{structvolatrack_1_1Material}{Material}} {\bfseries material}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+a sphere approximates a soil particle on the moon 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structvolatrack_1_1Sphere_a6bd0b6d576a72b56c6fe371e4266c528}\label{structvolatrack_1_1Sphere_a6bd0b6d576a72b56c6fe371e4266c528}} 
+\index{volatrack::Sphere@{volatrack::Sphere}!Sphere@{Sphere}}
+\index{Sphere@{Sphere}!volatrack::Sphere@{volatrack::Sphere}}
+\doxysubsubsection{\texorpdfstring{Sphere()}{Sphere()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Sphere\+::\+Sphere (\begin{DoxyParamCaption}\item[{real}]{x,  }\item[{real}]{y,  }\item[{real}]{z,  }\item[{real}]{R }\end{DoxyParamCaption})}
+
+
+
+constructor from coordinates and radius 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & coordinate \\
+\hline
+{\em y} & coordinate \\
+\hline
+{\em z} & coordinate \\
+\hline
+{\em R} & -\/ radius \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{structvolatrack_1_1Sphere_a7be7b847a3436c1786d41c178ec2521e}\label{structvolatrack_1_1Sphere_a7be7b847a3436c1786d41c178ec2521e}} 
+\index{volatrack::Sphere@{volatrack::Sphere}!Sphere@{Sphere}}
+\index{Sphere@{Sphere}!volatrack::Sphere@{volatrack::Sphere}}
+\doxysubsubsection{\texorpdfstring{Sphere()}{Sphere()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Sphere\+::\+Sphere (\begin{DoxyParamCaption}\item[{vec3}]{pos,  }\item[{real}]{R }\end{DoxyParamCaption})}
+
+
+
+constructor from position and radius 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & -\/ position of sphere \\
+\hline
+{\em R} & -\/ radius \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structvolatrack_1_1Sphere_a9b93c843a1183af01bce673c64bc86c8}\label{structvolatrack_1_1Sphere_a9b93c843a1183af01bce673c64bc86c8}} 
+\index{volatrack::Sphere@{volatrack::Sphere}!loadFromJson@{loadFromJson}}
+\index{loadFromJson@{loadFromJson}!volatrack::Sphere@{volatrack::Sphere}}
+\doxysubsubsection{\texorpdfstring{loadFromJson()}{loadFromJson()}}
+{\footnotesize\ttfamily void Sphere\+::load\+From\+Json (\begin{DoxyParamCaption}\item[{const Q\+Json\+Object \&}]{jo }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+load from json format 
+
+
+\begin{DoxyParams}{Parameters}
+{\em json} & object in Qt form representing the sphere \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{structvolatrack_1_1CanIO}{volatrack\+::\+Can\+IO}}.
+
+\mbox{\Hypertarget{structvolatrack_1_1Sphere_a7adf114fa62d9980d9b5610077ee3f6b}\label{structvolatrack_1_1Sphere_a7adf114fa62d9980d9b5610077ee3f6b}} 
+\index{volatrack::Sphere@{volatrack::Sphere}!saveToJson@{saveToJson}}
+\index{saveToJson@{saveToJson}!volatrack::Sphere@{volatrack::Sphere}}
+\doxysubsubsection{\texorpdfstring{saveToJson()}{saveToJson()}}
+{\footnotesize\ttfamily Q\+Json\+Object Sphere\+::save\+To\+Json (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+save to json format 
+
+\begin{DoxyReturn}{Returns}
+json object in Qt form representing the sphere 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{structvolatrack_1_1CanIO}{volatrack\+::\+Can\+IO}}.
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/vladimir/\+Volatrack/physics/data/\mbox{\hyperlink{sphere_8hpp}{sphere.\+hpp}}\item 
+/home/vladimir/\+Volatrack/physics/data/sphere.\+cpp\end{DoxyCompactItemize}
