@@ -21,7 +21,7 @@ Material::Material()
 {
 }
 
-QJsonObject Material::saveToJson()
+QJsonObject Material::saveToJson() const
 {
     QJsonObject res;
     res.insert("rho", rho);
@@ -43,7 +43,7 @@ QJsonObject Material::saveToJson()
     return res;
 }
 
-void Material::loadFromJson(const QJsonObject &jo)
+void Material::loadFromJson(const QJsonObject &jo) const
 {
     //
 }

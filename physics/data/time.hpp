@@ -29,15 +29,17 @@ public:
      * \brief save to json format
      * \returnjson object in Qt form representing the time
      */
-    QJsonObject saveToJson() override;
+    QJsonObject saveToJson() const override;
 
     /*!
      * \brief load from json format
      * \param json object in Qt form representing the time
      */
-    void loadFromJson(const QJsonObject &jo) override;
+    void loadFromJson(const QJsonObject &jo) const override;
 
     real t; //!< current time
+    real dt; //!< time step
+    real dtSave; //!< save time step
 };
 
 }

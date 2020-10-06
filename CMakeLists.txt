@@ -15,11 +15,13 @@ set(TARGET_NAME volatrack)
 
 file(GLOB_RECURSE SOURCES "physics/data/*.cpp")
 file(GLOB_RECURSE SOURCES_E "physics/engine/*.cpp")
+file(GLOB_RECURSE SOURCES_IO "io/*.cpp")
 file(GLOB SOURCES_R "*.cpp")
 
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
-add_executable(${TARGET_NAME} ${SOURCES} ${SOURCES_R} ${SOURCES_E})
+add_executable(${TARGET_NAME} ${SOURCES} ${SOURCES_R} ${SOURCES_E}
+    ${SOURCES_IO})
 
 target_link_libraries(${TARGET_NAME} Qt5::Widgets)
 

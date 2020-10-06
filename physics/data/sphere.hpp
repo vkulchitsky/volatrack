@@ -38,13 +38,13 @@ struct Sphere : CanIO
      * \brief save to json format
      * \return json object in Qt form representing the sphere
      */
-    QJsonObject saveToJson() override;
+    QJsonObject saveToJson() const override;
 
     /*!
      * \brief load from json format
      * \param json object in Qt form representing the sphere
      */
-    void loadFromJson(const QJsonObject &jo) override;
+    void loadFromJson(const QJsonObject &jo) const override;
 
     vec3 c; //!< position
     real R; //!< radius

@@ -28,8 +28,8 @@ using vec3 = QVector3D;
 
 struct CanIO
 {
-    virtual QJsonObject saveToJson() = 0;
-    virtual void loadFromJson(const QJsonObject& jo) = 0;
+    virtual QJsonObject saveToJson() const = 0;
+    virtual void loadFromJson(const QJsonObject& jo) const = 0;
 };
 
 }

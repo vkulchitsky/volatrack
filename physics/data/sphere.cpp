@@ -18,7 +18,7 @@ Sphere::Sphere(vec3 pos, real R)
     , material(lunarRegolith)
 {}
 
-QJsonObject Sphere::saveToJson()
+QJsonObject Sphere::saveToJson() const
 {
     QJsonObject res;
 
@@ -36,7 +36,7 @@ QJsonObject Sphere::saveToJson()
     return res;
 }
 
-void Sphere::loadFromJson(const QJsonObject &jo)
+void Sphere::loadFromJson(const QJsonObject &jo) const
 {
     //
 }

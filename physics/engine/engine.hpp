@@ -34,6 +34,22 @@ public:
      * \param data to be altered
      */
     void process(Data& data);
+
+    /*!
+     * \brief initital steps for starting simulation
+     * \param data
+     */
+    void init(const Data& data);
+
+    /*!
+     * \brief if called, data is saved to a file
+     * \param data
+     * \return whether data is in need of saving
+     */
+    bool needsSaving(const Data& data);
+
+private:
+    real m_lastSaveTime;
 };
 
 }

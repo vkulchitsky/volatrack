@@ -35,7 +35,7 @@ void volatrack::Data::pushVolatile(const volatrack::Volatile &vol)
     m_volatiles.push_back(vol);
 }
 
-QJsonObject Data::saveToJson()
+QJsonObject Data::saveToJson() const
 {
     QJsonObject res;
 
@@ -57,17 +57,12 @@ QJsonObject Data::saveToJson()
 
     res.insert("spheres", sphArr);
     res.insert("volatiles", volArr);
-    res.insert("time", m_time.saveToJson());
+    res.insert("time", time.saveToJson());
 
     return res;
 }
 
-void Data::loadFromJson(const QJsonObject &jo)
+void Data::loadFromJson(const QJsonObject &jo) const
 {
     //
-}
-
-Time Data::time() const
-{
-    return m_time;
 }

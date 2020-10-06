@@ -46,12 +46,6 @@ public:
     Volatiles volatiles() const;
 
     /*!
-     * \brief time tracker
-     * \return time data
-     */
-    Time time() const;
-
-    /*!
      * \brief push sphere to data
      * \param sphere to be pushed
      */
@@ -67,18 +61,19 @@ public:
      * \brief save to json format
      * \return json object in Qt form representing the data
      */
-    QJsonObject saveToJson() override;
+    QJsonObject saveToJson() const override;
 
     /*!
      * \brief load from json format
      * \param json object in Qt form representing the data
      */
-    void loadFromJson(const QJsonObject &jo) override;
+    void loadFromJson(const QJsonObject &jo) const override;
+
+    Time time;
 
 private:
     Spheres m_spheres;
     Volatiles m_volatiles;
-    Time m_time;
 };
 
 }

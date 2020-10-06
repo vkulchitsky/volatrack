@@ -18,7 +18,7 @@ vec3 Volatile::absolutePosition(const Spheres &spheres) const
     return sphere.c + loc.rect() * sphere.R;
 }
 
-QJsonObject Volatile::saveToJson()
+QJsonObject Volatile::saveToJson() const
 {
     QJsonObject res;
 
@@ -36,7 +36,7 @@ QJsonObject Volatile::saveToJson()
     return res;
 }
 
-void Volatile::loadFromJson(const QJsonObject &jo)
+void Volatile::loadFromJson(const QJsonObject &jo) const
 {
     //
 }

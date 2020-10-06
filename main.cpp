@@ -2,6 +2,8 @@
 #include "physics/data/volatile.hpp"
 #include "tests/unittestingframework.hpp"
 #include "physics/data/data.hpp"
+#include "physics/engine/engine.hpp"
+#include "io/projectcontroller.hpp"
 
 #include <QVector>
 #include <QJsonObject>
@@ -11,7 +13,7 @@
 
 using namespace volatrack;
 
-void firstRun()
+Data quickData()
 {
     Data data;
 
@@ -23,6 +25,11 @@ void firstRun()
     data.pushVolatile(Volatile(1, 1, 0, 0));
     data.pushVolatile(Volatile(1, -1, 0, 0));
 
+    return data;
+}
+
+void firstPrint(const Data& data)
+{
     const auto& volatiles = data.volatiles();
     const auto& spheres = data.spheres();
 
@@ -41,8 +48,36 @@ void firstRun()
     qDebug().noquote() << QJsonDocument{json}.toJson(QJsonDocument::Indented);
 }
 
+void firstLoop()
+{
+    auto data = quickData();
+
+    Engine engine;
+    ProjectController pc;
+    const real endTime = 1.0;
+
+    engine.init(data);
+    pc.saveToJson(data);
+
+    while (data.time.t < endTime)
+    {
+        engine.process(data);
+
+        if (engine.needsSaving(data))
+        {
+              pc.saveToJson(data);
+        }
+    }
+}
+
+void firstRun()
+{
+    Data data = quickData();
+    firstPrint(data);
+}
+
 int main()
 {
-    firstRun();
+    firstLoop();
     return 0;
 }
