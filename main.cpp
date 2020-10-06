@@ -52,12 +52,11 @@ void firstLoop()
 {
     auto data = quickData();
 
-    Engine engine;
-    ProjectController pc;
+    Engine engine(data);
+    ProjectController pc("FirstLoop");
     const real endTime = 1.0;
 
-    engine.init(data);
-    pc.saveToJson(data);
+    pc.saveToJsonFile(data);
 
     while (data.time.t < endTime)
     {
@@ -65,7 +64,7 @@ void firstLoop()
 
         if (engine.needsSaving(data))
         {
-              pc.saveToJson(data);
+              pc.saveToJsonFile(data);
         }
     }
 }

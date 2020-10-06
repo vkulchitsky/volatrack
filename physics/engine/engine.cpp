@@ -7,9 +7,9 @@ Engine::Engine() : m_lastSaveTime(0)
     //
 }
 
-Engine::Engine(Data &data) : m_lastSaveTime(data.time.t)
+Engine::Engine(const Data &data)
 {
-    //
+    init(data);
 }
 
 void Engine::process(Data &data)

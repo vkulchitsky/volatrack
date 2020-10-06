@@ -27,7 +27,7 @@ public:
      * \brief constructor with data - may or may not be necessary
      * \param data
      */
-    Engine(Data& data);
+    Engine(const Data &data);
 
     /*!
      * \brief process that alters data accordingly

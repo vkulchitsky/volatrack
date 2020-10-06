@@ -20,13 +20,16 @@ namespace volatrack {
 class ProjectController
 {
 public:
-    ProjectController();
+    ProjectController(const QString& name);
 
     /*!
      * \brief save data to json file
      * \param data
      */
-    void saveToJson(const Data& data);
+    void saveToJsonFile(const Data& data);
+
+private:
+    QString m_name;
 };
 
 }
