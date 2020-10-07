@@ -20,7 +20,7 @@ file(GLOB SOURCES "*.cpp")
 
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
-add_executable(${TARGET_NAME} ${SOURCES_P} ${SOURCES} ${SOURCES_E}
+add_executable(${TARGET_NAME} ${SOURCES_D} ${SOURCES} ${SOURCES_E}
     ${SOURCES_IO})
 
 target_link_libraries(${TARGET_NAME} Qt5::Widgets)
