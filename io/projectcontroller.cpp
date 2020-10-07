@@ -6,7 +6,11 @@
 
 using namespace volatrack;
 
-ProjectController::ProjectController(const QString &name) : m_name(name) {}
+ProjectController::ProjectController(const QString &name,
+                                     const QString &sourceDir)
+    : m_name(name)
+    , m_sourceDir(sourceDir)
+{}
 
 void ProjectController::saveToJsonFile(const Data &data)
 {
@@ -14,9 +18,9 @@ void ProjectController::saveToJsonFile(const Data &data)
 
     Index frame = static_cast<Index>(data.time.t / data.time.dtSave);
 
-    QString here = "../Volatrack/io";
+    QString here = "../volatrack/io";
     QString curr = QDir::currentPath();
-    QString s = here;
+    QString s = !m_sourceDir.isEmpty() ? m_sourceDir : here;
 
     QDir dir(s);
     dir.mkdir(m_name);

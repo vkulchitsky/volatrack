@@ -20,7 +20,7 @@ namespace volatrack {
 class ProjectController
 {
 public:
-    ProjectController(const QString& name);
+    ProjectController(const QString& name, const QString& sourceDir = {});
 
     /*!
      * \brief save data to json file
@@ -30,6 +30,7 @@ public:
 
 private:
     QString m_name;
+    QString m_sourceDir;
 };
 
 }
