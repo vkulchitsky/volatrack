@@ -11,10 +11,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     m_fileDialog = new QFileDialog(nullptr, {}, "../../Volatrack/io", "*.json");
 
-//    connect(ui->pushButton, &QPushButton::clicked, [this]()
-//    {
-//        m_fileDialog->show();
-//    });
+    connect(ui->actionSelect_files, &QAction::triggered, [this]()
+    {
+        m_fileDialog->show();
+    });
 
     connect(m_fileDialog, &QFileDialog::filesSelected, [this]()
     {
