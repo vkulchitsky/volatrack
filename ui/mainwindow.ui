@@ -16,17 +16,17 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="Player" name="player" native="true"/>
-    </item>
-    <item>
-     <widget class="QOpenGLWidget" name="openGLWidget"/>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButton">
-      <property name="text">
-       <string>Select file</string>
+     <widget class="QOpenGLWidget" name="openGLWidget">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
       </property>
      </widget>
+    </item>
+    <item>
+     <widget class="Player" name="player" native="true"/>
     </item>
    </layout>
   </widget>
@@ -39,8 +39,20 @@
      <height>22</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionSelect_files"/>
+   </widget>
+   <addaction name="menuFile"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionSelect_files">
+   <property name="text">
+    <string>Select files</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>

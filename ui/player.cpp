@@ -2,12 +2,21 @@
 #include "ui_player.h"
 
 #include <QPushButton>
+#include <QStyle>
+#include <QCommonStyle>
 
 Player::Player(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Player)
 {
     ui->setupUi(this);
+
+    QCommonStyle style;
+    ui->first->setIcon(style.standardIcon(QStyle::SP_MediaSkipBackward));
+    ui->previous->setIcon(style.standardIcon(QStyle::SP_MediaSeekBackward));
+    ui->play->setIcon(style.standardIcon(QStyle::SP_MediaPlay));
+    ui->next->setIcon(style.standardIcon(QStyle::SP_MediaSeekForward));
+    ui->last->setIcon(style.standardIcon(QStyle::SP_MediaSkipForward));
 
     connect(ui->first, &QPushButton::clicked, [this]()
     {

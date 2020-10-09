@@ -1,6 +1,3 @@
-file(GLOB_RECURSE SOURCES_DA "../physics/data/*.cpp")
-#file(GLOB_RECURSE SOURCES_E "../physics/engine/*.cpp")
-file(GLOB_RECURSE SOURCES_IO "../io/*.cpp")
 file(GLOB_RECURSE SOURCES_UI "*.cpp")
 file(GLOB_RECURSE FORMS "*.ui")
 file(GLOB_RECURSE SOURCES_RE "rendering/*.cpp")
