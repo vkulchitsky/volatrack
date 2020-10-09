@@ -11,6 +11,10 @@
 #include "physics/engine/engine.hpp"
 #include "physics/data/data.hpp"
 
+#include <QStringList>
+#include <QVector>
+#include <QJsonObject>
+
 namespace volatrack {
 
 
@@ -21,6 +25,14 @@ class ProjectController
 {
 public:
     ProjectController(const QString& name, const QString& sourceDir = {});
+    ProjectController();
+
+    void setFiles(const QStringList&& files);
+    QString getPath(Index i);
+    void readFiles();
+
+    Index iCurrentFile;
+    QVector<QJsonObject> m_jsons;
 
     /*!
      * \brief save data to json file
@@ -29,6 +41,10 @@ public:
     void saveToJsonFile(const Data& data);
 
 private:
+
+    QJsonObject readPath(const QString& path);
+
+    QStringList m_files;
     QString m_name;
     QString m_sourceDir;
 };

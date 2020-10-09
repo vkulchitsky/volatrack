@@ -1,0 +1,99 @@
+{
+    "spheres": [
+        {
+            "material": {
+                "CR0": 0,
+                "G": 0,
+                "alpha_t": 0,
+                "gamma": 0,
+                "mu": 0,
+                "name": "nothing",
+                "nu": 0,
+                "rK": 0,
+                "rMu": 0,
+                "rNu": 0,
+                "rTh": 0,
+                "rho": 0,
+                "vR0": 0,
+                "visc": 0,
+                "viscg": 0
+            },
+            "position": [
+                0,
+                0,
+                0
+            ],
+            "radius": 1,
+            "temperature": 273.15
+        },
+        {
+            "material": {
+                "CR0": 0,
+                "G": 0,
+                "alpha_t": 0,
+                "gamma": 0,
+                "mu": 0,
+                "name": "nothing",
+                "nu": 0,
+                "rK": 0,
+                "rMu": 0,
+                "rNu": 0,
+                "rTh": 0,
+                "rho": 0,
+                "vR0": 0,
+                "visc": 0,
+                "viscg": 0
+            },
+            "position": [
+                0,
+                0,
+                2
+            ],
+            "radius": 0.5,
+            "temperature": 273.15
+        }
+    ],
+    "time": {
+        "current time": 0.5601500000000855,
+        "save time step": 0.01,
+        "time step": 1e-05
+    },
+    "volatiles": [
+        {
+            "flags": 0,
+            "isphere": 0,
+            "surface location": [
+                0,
+                0,
+                1
+            ]
+        },
+        {
+            "flags": 0,
+            "isphere": 0,
+            "surface location": [
+                0,
+                0,
+                -1
+            ]
+        },
+        {
+            "flags": 0,
+            "isphere": 1,
+            "surface location": [
+                1,
+                0,
+                0
+            ]
+        },
+        {
+            "flags": 0,
+            "isphere": 1,
+            "surface location": [
+                -1,
+                0,
+                0
+            ]
+        }
+    ]
+}

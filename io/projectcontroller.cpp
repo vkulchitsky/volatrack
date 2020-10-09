@@ -6,6 +6,36 @@
 
 using namespace volatrack;
 
+ProjectController::ProjectController()
+{
+
+}
+
+void ProjectController::setFiles(const QStringList &&files)
+{
+    m_files = std::move(files);
+}
+
+QString ProjectController::getPath(Index i)
+{
+    return m_files[i];
+}
+
+void ProjectController::readFiles()
+{
+    m_jsons.clear();
+
+    for (auto& path : m_files)
+    {
+        m_jsons.push_back(readPath(path));
+    }
+}
+
+QJsonObject ProjectController::readPath(const QString &path)
+{
+    return {};
+}
+
 ProjectController::ProjectController(const QString &name,
                                      const QString &sourceDir)
     : m_name(name)
