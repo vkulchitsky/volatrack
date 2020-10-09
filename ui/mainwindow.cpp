@@ -30,7 +30,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->player, &Player::slidTo, [this](const int value)
     {
-        ui->player->setLabel(m_fileDialog->selectedFiles()[value]);
+        if (m_fileDialog->selectedFiles().size())
+        {
+            ui->player->setLabel(m_fileDialog->selectedFiles()[value]);
+        }
     });
 }
 
