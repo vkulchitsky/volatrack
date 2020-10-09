@@ -11,6 +11,8 @@ Player::Player(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    setLabel({});
+
     QCommonStyle style;
     ui->first->setIcon(style.standardIcon(QStyle::SP_MediaSkipBackward));
     ui->previous->setIcon(style.standardIcon(QStyle::SP_MediaSeekBackward));
@@ -50,6 +52,12 @@ Player::Player(QWidget *parent) :
     {
         ui->horizontalSlider->setValue(ui->horizontalSlider->maximum());
     });
+
+    connect(ui->horizontalSlider, &QSlider::valueChanged, [this]
+            (const int value)
+    {
+        slidTo(value);
+    });
 }
 
 Player::~Player()
@@ -65,4 +73,14 @@ void Player::setLabel(const QString &text)
 void Player::setFrame(int frame)
 {
     ui->horizontalSlider->setValue(frame);
+}
+
+void Player::setMinimum(int min)
+{
+    ui->horizontalSlider->setMinimum(min);
+}
+
+void Player::setMaximum(int max)
+{
+    ui->horizontalSlider->setMaximum(max);
 }

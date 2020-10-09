@@ -17,6 +17,11 @@ public:
 
     void setLabel(const QString& text);
     void setFrame(int frame);
+    void setMinimum(int min);
+    void setMaximum(int max);
+
+signals:
+    void slidTo(int val);
 
 private:
     Ui::Player *ui;

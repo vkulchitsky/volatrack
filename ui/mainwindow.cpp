@@ -10,6 +10,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     m_fileDialog = new QFileDialog(nullptr, {}, "../../Volatrack/io", "*.json");
+    m_fileDialog->setFileMode(QFileDialog::FileMode::ExistingFiles);
+
+    ui->player->setMinimum(0);
 
     connect(ui->actionSelect_files, &QAction::triggered, [this]()
     {
@@ -18,9 +21,16 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(m_fileDialog, &QFileDialog::filesSelected, [this]()
     {
+        ui->player->setMaximum(m_fileDialog->selectedFiles().size() - 1);
+
         ui->player->setLabel(m_fileDialog->selectedFiles()[0]);
         ui->player->setFrame(0);
         m_controller.setFiles(m_fileDialog->selectedFiles());
+    });
+
+    connect(ui->player, &Player::slidTo, [this](const int value)
+    {
+        ui->player->setLabel(m_fileDialog->selectedFiles()[value]);
     });
 }
 

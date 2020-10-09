@@ -29,10 +29,10 @@ public:
 
     void setFiles(const QStringList&& files);
     QString getPath(Index i);
+//    QJsonObject
     void readFiles();
 
     Index iCurrentFile;
-    QVector<QJsonObject> m_jsons;
 
     /*!
      * \brief save data to json file
@@ -47,6 +47,7 @@ private:
     QStringList m_files;
     QString m_name;
     QString m_sourceDir;
+    QVector<QJsonObject> m_jsons;
 };
 
 }
