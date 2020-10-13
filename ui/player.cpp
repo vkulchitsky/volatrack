@@ -120,7 +120,7 @@ void Player::pause()
 void Player::playToNext()
 {
     QTimer* timer = new QTimer(this);
-    const int slideLength =1000; // milliseconds
+    const int slideLength =100; // milliseconds
     connect(timer, &QTimer::timeout, [this, timer]()
     {
         if (!m_isPlaying) return;
