@@ -25,6 +25,10 @@ signals:
 
 private:
     Ui::Player *ui;
+    bool m_isPlaying;
+    void play();
+    void pause();
+    void playToNext();
 };
 
 #endif // PLAYER_H
