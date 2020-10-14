@@ -43,7 +43,21 @@ QJsonObject Material::saveToJson() const
     return res;
 }
 
-void Material::loadFromJson(const QJsonObject &jo) const
+void Material::loadFromJson(const QJsonObject &jo)
 {
-    //
+    rho = jo["rho"].toDouble();
+    G = jo["G"].toDouble();
+    nu = jo["nu"].toDouble();
+    gamma = jo["gamma"].toDouble();
+    CR0 = jo["CR0"].toDouble();
+    vR0 = jo["vR0"].toDouble();
+    alpha_t = jo["alpha_t"].toDouble();
+    mu = jo["mu"].toDouble();
+    rMu = jo["rMu"].toDouble();
+    rNu = jo["rNu"].toDouble();
+    rK = jo["rK"].toDouble();
+    rTh = jo["rTh"].toDouble();
+    visc = jo["visc"].toDouble();
+    viscg = jo["viscg"].toDouble();
+    name = jo["name"].toString().toStdString();
 }

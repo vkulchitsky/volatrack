@@ -33,7 +33,7 @@ struct Volatile : CanIO
     vec3 absolutePosition(const Spheres& spheres) const;
 
     QJsonObject saveToJson() const override;
-    void loadFromJson(const QJsonObject &jo) const override;
+    void loadFromJson(const QJsonObject &jo) override;
 
     Index isphere; //!< index of regolith sphere
     SurfPoint loc; //!< location of volatile within surface of sphere

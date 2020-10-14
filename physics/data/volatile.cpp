@@ -36,7 +36,14 @@ QJsonObject Volatile::saveToJson() const
     return res;
 }
 
-void Volatile::loadFromJson(const QJsonObject &jo) const
+void Volatile::loadFromJson(const QJsonObject &jo)
 {
-    //
+    isphere = static_cast<Index>(jo["isphere"].toInt());
+
+    auto surfLocArr = jo["surface location"].toArray();
+    loc.rect().setX(surfLocArr[0].toDouble());
+    loc.rect().setY(surfLocArr[1].toDouble());
+    loc.rect().setZ(surfLocArr[2].toDouble());
+
+    flags = static_cast<Flagger>(jo["flags"].toInt());
 }

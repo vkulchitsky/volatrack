@@ -35,7 +35,7 @@ public:
      * \brief load from json format
      * \param json object in Qt form representing the time
      */
-    void loadFromJson(const QJsonObject &jo) const override;
+    void loadFromJson(const QJsonObject &jo) override;
 
     real t; //!< current time
     real dt; //!< time step

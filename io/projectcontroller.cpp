@@ -33,7 +33,17 @@ void ProjectController::readFiles()
 
 QJsonObject ProjectController::readPath(const QString &path)
 {
-    return {};
+    QFile file(path);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        return {};
+    }
+
+    QByteArray bytes = file.readAll();
+    auto doc = QJsonDocument::fromJson(bytes);
+    file.close();
+
+    return doc.object();
 }
 
 ProjectController::ProjectController(const QString &name,

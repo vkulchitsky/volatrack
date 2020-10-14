@@ -36,7 +36,15 @@ QJsonObject Sphere::saveToJson() const
     return res;
 }
 
-void Sphere::loadFromJson(const QJsonObject &jo) const
+void Sphere::loadFromJson(const QJsonObject &jo)
 {
-    //
+    auto posArr = jo["position"].toArray();
+    c.setX(posArr[0].toDouble());
+    c.setY(posArr[1].toDouble());
+    c.setZ(posArr[2].toDouble());
+
+    R = jo["radius"].toDouble();
+    T = jo["temperature"].toDouble();
+
+    material.loadFromJson(jo["material"].toObject());
 }

@@ -62,7 +62,26 @@ QJsonObject Data::saveToJson() const
     return res;
 }
 
-void Data::loadFromJson(const QJsonObject &jo) const
+void Data::loadFromJson(const QJsonObject &jo)
 {
-    //
+    spheres().clear();
+    volatiles().clear();
+
+    auto sphArr = jo["spheres"].toArray();
+    auto volArr = jo["volatiles"].toArray();
+    auto timeVal = jo["time"];
+
+    for (auto sph : sphArr)
+    {
+        Sphere sphere(0, 0, 0, 1);
+        sphere.loadFromJson(sph.toObject());
+    }
+
+    for (auto vol : volArr)
+    {
+        Volatile volat(0, 1, 0, 0);
+        volat.loadFromJson(vol.toObject());
+    }
+
+    time.loadFromJson(timeVal.toObject());
 }

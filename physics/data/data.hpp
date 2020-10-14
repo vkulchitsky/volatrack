@@ -67,7 +67,7 @@ public:
      * \brief load from json format
      * \param json object in Qt form representing the data
      */
-    void loadFromJson(const QJsonObject &jo) const override;
+    void loadFromJson(const QJsonObject &jo) override;
 
     Time time;
 

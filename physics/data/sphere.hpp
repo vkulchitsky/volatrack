@@ -44,7 +44,7 @@ struct Sphere : CanIO
      * \brief load from json format
      * \param json object in Qt form representing the sphere
      */
-    void loadFromJson(const QJsonObject &jo) const override;
+    void loadFromJson(const QJsonObject &jo) override;
 
     vec3 c; //!< position
     real R; //!< radius

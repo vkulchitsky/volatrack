@@ -17,6 +17,12 @@
 
 namespace volatrack {
 
+struct DataFile
+{
+    Data data;
+    QString path;
+};
+
 
 /*!
  * \brief Controller for saving data into files

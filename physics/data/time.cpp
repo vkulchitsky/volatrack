@@ -20,7 +20,9 @@ QJsonObject Time::saveToJson() const
     return res;
 }
 
-void Time::loadFromJson(const QJsonObject &jo) const
+void Time::loadFromJson(const QJsonObject &jo)
 {
-    //
+    t = jo["current time"].toDouble();
+    dt = jo["time step"].toDouble();
+    dtSave = jo["save time step"].toDouble();
 }
