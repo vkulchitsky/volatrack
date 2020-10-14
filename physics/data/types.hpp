@@ -25,6 +25,7 @@ using Flagger = unsigned int;
 const real waterFreeze = 273.15; // water freezing temperature
 
 using vec3 = QVector3D;
+using Pairs = std::vector<std::pair<Index, Index>>;
 
 struct CanIO
 {

@@ -48,6 +48,18 @@ public:
      */
     bool needsSaving(const Data& data);
 
+    /*!
+     * \brief whether two spheres are near each other
+     * \param data
+     * \param i - first index
+     * \param j - second index
+     * \param dR - allowed distance
+     * \return whether surfaces are less than dR away
+     */
+    static bool areNear(const Data& data, Index i, Index j, real dR = 0);
+
+    Pairs getContacts(const Data& data, real dR = 0);
+
 private:
     real m_lastSaveTime;
 };
