@@ -26,6 +26,10 @@ QJsonObject Sphere::saveToJson() const
     QJsonArray posArr = {c.x(), c.y(), c.z()};
     res.insert("position", posArr);
 
+    // velocity
+    QJsonArray velArr = {v.x(), v.y(), v.z()};
+    res.insert("velocity", posArr);
+
     // radius and temperature
     res.insert("radius", R);
     res.insert("temperature", T);
@@ -42,6 +46,11 @@ void Sphere::loadFromJson(const QJsonObject &jo)
     c.setX(posArr[0].toDouble());
     c.setY(posArr[1].toDouble());
     c.setZ(posArr[2].toDouble());
+
+    auto velArr = jo["velocity"].toArray();
+    v.setX(velArr[0].toDouble());
+    v.setY(velArr[1].toDouble());
+    v.setZ(velArr[2].toDouble());
 
     R = jo["radius"].toDouble();
     T = jo["temperature"].toDouble();

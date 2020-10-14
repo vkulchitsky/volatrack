@@ -47,6 +47,7 @@ struct Sphere : CanIO
     void loadFromJson(const QJsonObject &jo) override;
 
     vec3 c; //!< position
+    vec3 v; //!< velocity
     real R; //!< radius
     real T; //!< temperature in Kelvin
     Material material;
