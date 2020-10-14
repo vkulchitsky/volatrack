@@ -31,7 +31,14 @@ class ProjectController
 {
 public:
 
+    /*!
+     * \brief Constructor with name and source directory
+     */
     ProjectController(const QString& name, const QString& sourceDir = {});
+
+    /*!
+     * \brief Simple constructor
+     */
     ProjectController();
 
     /*!

@@ -34,6 +34,7 @@ public:
     ~MainWindow();
 
 private:
+
     Ui::MainWindow *ui;
     QFileDialog* m_fileDialog;
     volatrack::ProjectController m_controller;
