@@ -14,11 +14,19 @@ ProjectController::ProjectController()
 void ProjectController::setFiles(const QStringList &&files)
 {
     m_files = std::move(files);
+    readFiles();
 }
 
 QString ProjectController::getPath(Index i)
 {
     return m_files[i];
+}
+
+Data ProjectController::getData(Index i)
+{
+    Data data;
+    data.loadFromJson(m_jsons[i]);
+    return data;
 }
 
 void ProjectController::readFiles()
@@ -50,7 +58,9 @@ ProjectController::ProjectController(const QString &name,
                                      const QString &sourceDir)
     : m_name(name)
     , m_sourceDir(sourceDir)
-{}
+{
+    readFiles();
+}
 
 void ProjectController::saveToJsonFile(const Data &data)
 {

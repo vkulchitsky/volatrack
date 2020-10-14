@@ -30,15 +30,29 @@ struct DataFile
 class ProjectController
 {
 public:
+
     ProjectController(const QString& name, const QString& sourceDir = {});
     ProjectController();
 
+    /*!
+     * \brief sets file paths to those selected
+     * \param files - string list of files
+     */
     void setFiles(const QStringList&& files);
-    QString getPath(Index i);
-//    QJsonObject
-    void readFiles();
 
-    Index iCurrentFile;
+    /*!
+     * \brief getter for a specific stored path
+     * \param i - index
+     * \return the path stored under that index
+     */
+    QString getPath(Index i);
+
+    /*!
+     * \brief data from path
+     * \param i - index
+     * \return the data from path stored under that index
+     */
+    Data getData(Index i);
 
     /*!
      * \brief save data to json file
@@ -49,6 +63,7 @@ public:
 private:
 
     QJsonObject readPath(const QString& path);
+    void readFiles();
 
     QStringList m_files;
     QString m_name;

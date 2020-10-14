@@ -1,3 +1,9 @@
+/*!
+    Main Window and process for GUI file
+    @file mainwindow.h
+    @author Vladimir A Kulchitsky
+    @version 1.0 10/06/2020
+*/
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
@@ -11,11 +17,19 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
+/*!
+ * \brief The MainWindow UI, including main GUI process in some connects
+ */
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
+
+    /*!
+     * \brief Constructor
+     * \param parent
+     */
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 

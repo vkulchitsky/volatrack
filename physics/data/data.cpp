@@ -75,12 +75,14 @@ void Data::loadFromJson(const QJsonObject &jo)
     {
         Sphere sphere(0, 0, 0, 1);
         sphere.loadFromJson(sph.toObject());
+        m_spheres.push_back(sphere);
     }
 
     for (auto vol : volArr)
     {
         Volatile volat(0, 1, 0, 0);
         volat.loadFromJson(vol.toObject());
+        m_volatiles.push_back(volat);
     }
 
     time.loadFromJson(timeVal.toObject());
