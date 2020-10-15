@@ -12,6 +12,7 @@
 #include <cmath>
 
 #include <QVector3D>
+#include <QVector4D>
 #include <QString>
 #include <QJsonObject>
 
@@ -25,6 +26,7 @@ using Flagger = unsigned int;
 const real waterFreeze = 273.15; // water freezing temperature
 
 using vec3 = QVector3D;
+using quat = QVector4D;
 using Pairs = std::vector<std::pair<Index, Index>>;
 
 struct CanIO

@@ -26,6 +26,10 @@ QJsonObject Sphere::saveToJson() const
     QJsonArray posArr = {c.x(), c.y(), c.z()};
     res.insert("position", posArr);
 
+    // orientation
+    QJsonArray oriArr = {q.x(), q.y(), q.z(), q.w()};
+    res.insert("orientation", oriArr);
+
     // velocity
     QJsonArray velArr = {v.x(), v.y(), v.z()};
     res.insert("velocity", posArr);
@@ -46,6 +50,12 @@ void Sphere::loadFromJson(const QJsonObject &jo)
     c.setX(posArr[0].toDouble());
     c.setY(posArr[1].toDouble());
     c.setZ(posArr[2].toDouble());
+
+    auto oriArr = jo["orientation"].toArray();
+    q.setX(oriArr[0].toDouble());
+    q.setY(oriArr[1].toDouble());
+    q.setZ(oriArr[2].toDouble());
+    q.setW(oriArr[3].toDouble());
 
     auto velArr = jo["velocity"].toArray();
     v.setX(velArr[0].toDouble());
