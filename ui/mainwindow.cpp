@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
+#include "physics/data/data.hpp"
 
 #include <QFileDialog>
 
@@ -34,6 +35,10 @@ MainWindow::MainWindow(QWidget *parent)
         {
             ui->player->setLabel(m_fileDialog->selectedFiles()[value]);
         }
+
+        const volatrack::Data& data = m_controller.getData(value);
+
+        // draw data
     });
 }
 
