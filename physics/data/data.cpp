@@ -1,4 +1,5 @@
 #include "data.hpp"
+#include "defs.hpp"
 
 #include <QJsonObject>
 #include <QJsonArray>
@@ -55,9 +56,9 @@ QJsonObject Data::saveToJson() const
         volArr.insert(i, volObj);
     }
 
-    res.insert("spheres", sphArr);
-    res.insert("volatiles", volArr);
-    res.insert("time", time.saveToJson());
+    res.insert(DATA_SPHERES, sphArr);
+    res.insert(DATA_VOLS, volArr);
+    res.insert(DATA_TIME, time.saveToJson());
 
     return res;
 }
@@ -67,9 +68,9 @@ void Data::loadFromJson(const QJsonObject &jo)
     spheres().clear();
     volatiles().clear();
 
-    auto sphArr = jo["spheres"].toArray();
-    auto volArr = jo["volatiles"].toArray();
-    auto timeVal = jo["time"];
+    auto sphArr = jo[DATA_SPHERES].toArray();
+    auto volArr = jo[DATA_VOLS].toArray();
+    auto timeVal = jo[DATA_TIME];
 
     for (auto sph : sphArr)
     {

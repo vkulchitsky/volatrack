@@ -1,4 +1,5 @@
 #include "sphere.hpp"
+#include "defs.hpp"
 
 #include <QJsonArray>
 
@@ -24,46 +25,46 @@ QJsonObject Sphere::saveToJson() const
 
     // position
     QJsonArray posArr = {c.x(), c.y(), c.z()};
-    res.insert("position", posArr);
+    res.insert(SPHERE_POSITION, posArr);
 
     // orientation
     QJsonArray oriArr = {q.x(), q.y(), q.z(), q.w()};
-    res.insert("orientation", oriArr);
+    res.insert(SPHERE_ROTATION, oriArr);
 
     // velocity
     QJsonArray velArr = {v.x(), v.y(), v.z()};
-    res.insert("velocity", posArr);
+    res.insert(SPHERE_VELOCITY, posArr);
 
     // radius and temperature
-    res.insert("radius", R);
-    res.insert("temperature", T);
+    res.insert(SPHERE_RADIUS, R);
+    res.insert(SPHERE_TEMPERATURE, T);
 
     // material
-    res.insert("material", material.saveToJson());
+    res.insert(SPHERE_MATERIAL, material.saveToJson());
 
     return res;
 }
 
 void Sphere::loadFromJson(const QJsonObject &jo)
 {
-    auto posArr = jo["position"].toArray();
+    auto posArr = jo[SPHERE_POSITION].toArray();
     c.setX(posArr[0].toDouble());
     c.setY(posArr[1].toDouble());
     c.setZ(posArr[2].toDouble());
 
-    auto oriArr = jo["orientation"].toArray();
+    auto oriArr = jo[SPHERE_ROTATION].toArray();
     q.setX(oriArr[0].toDouble());
     q.setY(oriArr[1].toDouble());
     q.setZ(oriArr[2].toDouble());
     q.setW(oriArr[3].toDouble());
 
-    auto velArr = jo["velocity"].toArray();
+    auto velArr = jo[SPHERE_VELOCITY].toArray();
     v.setX(velArr[0].toDouble());
     v.setY(velArr[1].toDouble());
     v.setZ(velArr[2].toDouble());
 
-    R = jo["radius"].toDouble();
-    T = jo["temperature"].toDouble();
+    R = jo[SPHERE_RADIUS].toDouble();
+    T = jo[SPHERE_TEMPERATURE].toDouble();
 
-    material.loadFromJson(jo["material"].toObject());
+    material.loadFromJson(jo[SPHERE_MATERIAL].toObject());
 }

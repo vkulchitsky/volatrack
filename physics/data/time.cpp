@@ -1,4 +1,5 @@
 #include "time.hpp"
+#include "defs.hpp"
 
 #include <QJsonObject>
 
@@ -13,16 +14,16 @@ QJsonObject Time::saveToJson() const
 {
     QJsonObject res;
 
-    res.insert("current time", t);
-    res.insert("time step", dt);
-    res.insert("save time step", dtSave);
+    res.insert(TIME_CURRENT, t);
+    res.insert(TIME_STEP, dt);
+    res.insert(TIME_SAVE_STEP, dtSave);
 
     return res;
 }
 
 void Time::loadFromJson(const QJsonObject &jo)
 {
-    t = jo["current time"].toDouble();
-    dt = jo["time step"].toDouble();
-    dtSave = jo["save time step"].toDouble();
+    t = jo[TIME_CURRENT].toDouble();
+    dt = jo[TIME_STEP].toDouble();
+    dtSave = jo[TIME_SAVE_STEP].toDouble();
 }
