@@ -36,9 +36,7 @@ MainWindow::MainWindow(QWidget *parent)
             ui->player->setLabel(m_fileDialog->selectedFiles()[value]);
         }
 
-        const volatrack::Data& data = m_controller.getData(value);
-
-        // draw data
+        ui->openGLWidget->draw(m_controller.getData(value));
     });
 }
 
