@@ -14,12 +14,23 @@ Engine::Engine(const Data &data)
 
 void Engine::process(Data &data)
 {
+    // every volatile travels sphere distance into a random direction
+
+    for (auto& vol : data.volatiles())
+    {
+        const auto& d = stdrdSphDist(vol.isphere, data);
+
+        // travel d in random direction
+        // might have to divide by R again, which may be redundant
+    }
+
     data.time.t += data.time.dt;
 }
 
 void Engine::init(const Data &data)
 {
     m_lastSaveTime = data.time.t;
+    m_timeVolCoeff = data.time.volCoeff();
 }
 
 bool Engine::needsSaving(const Data &data)
@@ -59,6 +70,17 @@ Pairs Engine::getContacts(const Data &data, real dR)
     }
 
     return res;
+}
+
+real Engine::stdrdSphDist(Index isphere, const Data& data)
+{
+    auto& sphere = data.spheres()[isphere];
+
+    auto d0 = sphere.R; // subject to change
+    auto E0 = 2e-18; // subject to change
+    auto kB = 1.38e-23;
+
+    return d0 * m_timeVolCoeff * std::exp(-E0 / (2 * kB * sphere.T));
 }
 
 }

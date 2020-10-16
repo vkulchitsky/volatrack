@@ -37,6 +37,12 @@ public:
      */
     void loadFromJson(const QJsonObject &jo) override;
 
+    /*!
+     * \brief time coefficient based on distance formula for volatile
+     * \return coefficient from dt
+     */
+    real volCoeff() const;
+
     real t; //!< current time
     real dt; //!< time step
     real dtSave; //!< save time step

@@ -27,3 +27,10 @@ void Time::loadFromJson(const QJsonObject &jo)
     dt = jo[TIME_STEP].toDouble();
     dtSave = jo[TIME_SAVE_STEP].toDouble();
 }
+
+real Time::volCoeff() const
+{
+    const real tau = 1e-3;  // will be adjusted to the correct value!
+
+    return std::sqrt(dt / tau);
+}

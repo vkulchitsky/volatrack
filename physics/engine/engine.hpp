@@ -61,7 +61,11 @@ public:
     Pairs getContacts(const Data& data, real dR = 0);
 
 private:
+
+    real stdrdSphDist(Index isphere, const Data &data);
+
     real m_lastSaveTime;
+    real m_timeVolCoeff;
 };
 
 }
