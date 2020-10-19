@@ -1,4 +1,8 @@
 #include "engine.hpp"
+#include "physics/data/constants.hpp"
+
+#include <random>
+
 namespace volatrack {
 
 
@@ -16,12 +20,18 @@ void Engine::process(Data &data)
 {
     // every volatile travels sphere distance into a random direction
 
+    auto gen = std::default_random_engine();
+    auto dist = std::uniform_real_distribution<double>(0, 2 * PI);
+
     for (auto& vol : data.volatiles())
     {
         const auto& d = stdrdSphDist(vol.isphere, data);
 
-        // travel d in random direction
-        // might have to divide by R again, which may be redundant
+        // need random unit vector
+        auto randAngle = dist(gen);
+
+        // go d in randAngle's direction on the great circle
+        vol.loc.setRect(vol.loc.rect() * C(d, randAngle));
     }
 
     data.time.t += data.time.dt;
@@ -76,11 +86,17 @@ real Engine::stdrdSphDist(Index isphere, const Data& data)
 {
     auto& sphere = data.spheres()[isphere];
 
-    auto d0 = sphere.R; // subject to change
-    auto E0 = 2e-18; // subject to change
-    auto kB = 1.38e-23;
+    auto d0 = /*sphere.R * */d0Rel; // may be better to make absolute, we'll see
 
     return d0 * m_timeVolCoeff * std::exp(-E0 / (2 * kB * sphere.T));
+}
+
+real Engine::C(real x, real alpha)
+{
+    auto s = std::sin(alpha);
+    auto c = std::cos(alpha);
+
+    return 1 + (s + c) * x - 0.5 * x * x;
 }
 
 }

@@ -1,5 +1,6 @@
 #include "time.hpp"
 #include "defs.hpp"
+#include "constants.hpp"
 
 #include <QJsonObject>
 
@@ -30,7 +31,5 @@ void Time::loadFromJson(const QJsonObject &jo)
 
 real Time::volCoeff() const
 {
-    const real tau = 1e-3;  // will be adjusted to the correct value!
-
     return std::sqrt(dt / tau);
 }

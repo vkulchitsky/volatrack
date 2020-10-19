@@ -8,7 +8,7 @@
 #ifndef MATERIAL_H
 #define MATERIAL_H
 
-#include "types.hpp"
+#include "constants.hpp"
 
 namespace volatrack {
 
