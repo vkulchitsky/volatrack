@@ -13,7 +13,7 @@ vec3 SurfPoint::rect() const
 
 void SurfPoint::setRect(const vec3 &rect)
 {
-    m_rect = rect;
+    m_rect = rect.normalized();
 }
 
 void SurfPoint::setRect(real x, real y, real z)

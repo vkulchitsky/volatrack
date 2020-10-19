@@ -25,6 +25,7 @@ void Engine::process(Data &data)
 
     for (auto& vol : data.volatiles())
     {
+        // find out distance that volatile needs to travel
         const auto& d = stdrdSphDist(vol.isphere, data);
 
         // need random unit vector
