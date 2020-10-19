@@ -64,9 +64,6 @@ private:
 
     real stdrdSphDist(Index isphere, const Data &data);
 
-    // polynomial that changes volatile position
-    static real C(real x, real alpha);
-
     real m_lastSaveTime;
     real m_timeVolCoeff;
 };

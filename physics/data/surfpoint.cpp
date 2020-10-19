@@ -26,3 +26,17 @@ void SurfPoint::normalize()
     auto RR = m_rect.length();
     m_rect = m_rect / RR;
 }
+
+void SurfPoint::moveBy(real d, real alpha)
+{
+    m_rect *= C(d, alpha);
+    normalize();
+}
+
+real SurfPoint::C(real x, real alpha)
+{
+    auto s = std::sin(alpha);
+    auto c = std::cos(alpha);
+
+    return 1 + (s + c) * x - 0.5 * x * x;
+}

@@ -61,7 +61,17 @@ public:
      */
     void normalize();
 
+    /*!
+     * \brief move location on sphere by a small amount into given direction
+     * \param d - how much to move
+     * \param alpha - in what direction to move
+     */
+    void moveBy(real d, real alpha);
+
 private:
+
+    // polynomial that changes volatile position
+    static real C(real x, real alpha);
 
     // rectangular coordinates, requires one constraint:
     // x * x + y * y + z * z = 1

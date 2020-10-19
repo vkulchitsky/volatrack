@@ -28,11 +28,8 @@ void Engine::process(Data &data)
         // find out distance that volatile needs to travel
         const auto& d = stdrdSphDist(vol.isphere, data);
 
-        // need random unit vector
-        auto randAngle = dist(gen);
-
-        // go d in randAngle's direction on the great circle
-        vol.loc.setRect(vol.loc.rect() * C(d, randAngle));
+        // go d in random direction on the great circle
+        vol.loc.moveBy(d, dist(gen));
     }
 
     data.time.t += data.time.dt;
@@ -90,14 +87,6 @@ real Engine::stdrdSphDist(Index isphere, const Data& data)
     auto d0 = /*sphere.R * */d0Rel; // may be better to make absolute, we'll see
 
     return d0 * m_timeVolCoeff * std::exp(-E0 / (2 * kB * sphere.T));
-}
-
-real Engine::C(real x, real alpha)
-{
-    auto s = std::sin(alpha);
-    auto c = std::cos(alpha);
-
-    return 1 + (s + c) * x - 0.5 * x * x;
 }
 
 }
