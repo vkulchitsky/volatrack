@@ -29,14 +29,27 @@ void SurfPoint::normalize()
 
 void SurfPoint::moveBy(real d, real alpha)
 {
-    m_rect *= C(d, alpha);
+    vec3 dAlpha(d * std::cos(alpha), d * std::sin(alpha), 1 - 0.5 * d * d);
+
+    m_rect *= frame() * dAlpha;
     normalize();
 }
 
-real SurfPoint::C(real x, real alpha)
+mat3 SurfPoint::frame()
 {
-    auto s = std::sin(alpha);
-    auto c = std::cos(alpha);
+    auto diag = std::sqrt(rect().x() * rect().x() + rect().y() * rect().y());
 
-    return 1 + (s + c) * x - 0.5 * x * x;
+    return
+    {
+        {
+            rect().y() / diag, -rect().x() / diag, 0
+        },
+        {
+            rect().x() * rect().z() / diag,
+                    rect().y() * rect().z() / diag, -diag
+        },
+        {
+            rect().x(), rect().y(), rect().z()
+        }
+    };
 }

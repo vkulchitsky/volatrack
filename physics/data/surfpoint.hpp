@@ -70,8 +70,7 @@ public:
 
 private:
 
-    // polynomial that changes volatile position
-    static real C(real x, real alpha);
+    mat3 frame();
 
     // rectangular coordinates, requires one constraint:
     // x * x + y * y + z * z = 1
