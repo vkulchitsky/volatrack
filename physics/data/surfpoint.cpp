@@ -29,26 +29,37 @@ void SurfPoint::normalize()
 
 void SurfPoint::moveBy(real d, real alpha)
 {
+    // if (x, y, z) is the north pole, we transform by angle
+    // (d*cos(a), d*sin(a), 1 - d2/2)
     vec3 dAlpha(d * std::cos(alpha), d * std::sin(alpha), 1 - 0.5 * d * d);
 
-    m_rect *= frame() * dAlpha;
+    // multiply by (x, y, z) frame to get great circle from (x, y, z)
+    // note: frame * (0, 0, 1) = (x, y, z), & dAlpha is very close to (0, 0, 1)
+    // so m_rect changes by very little
+    m_rect = frame() * dAlpha;
+
+    // should already be pretty much normal, but just in case
     normalize();
 }
 
 mat3 SurfPoint::frame()
 {
+    // diag = sqrt(x2 + y2)
     auto diag = std::sqrt(rect().x() * rect().x() + rect().y() * rect().y());
 
     return
     {
         {
+            // y/diag, -x/diag, 0
             rect().y() / diag, -rect().x() / diag, 0
         },
         {
+            // xz/diag, yz/diag, -diag
             rect().x() * rect().z() / diag,
                     rect().y() * rect().z() / diag, -diag
         },
         {
+            // x, y, z
             rect().x(), rect().y(), rect().z()
         }
     };

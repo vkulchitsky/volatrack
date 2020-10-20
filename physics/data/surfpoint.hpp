@@ -72,6 +72,7 @@ public:
 
 private:
 
+    // orthogonal transformation frame (0, 0, 1) --> (x, y, z)
     mat3 frame();
 
     // rectangular coordinates, requires one constraint:

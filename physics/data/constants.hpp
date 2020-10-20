@@ -18,11 +18,12 @@ const real waterFreeze = 273.15; //!< water freezing temperature
 // will be adjusted to the correct value!
 const real tau = 1e-3; //!< standard volatile movement time
 
+// will be adjusted to the correct value!
 const real E0 = 2e-18; //!< standard energy for volatile
 
 const real kB = 1.38e-23; //!< Boltzman's constant
 
-// subject to change
+// will be adjusted to the correct value!
 const real d0Rel = 1.0; //!< maximum volatile travel relative to sphere
 
 const real PI = 3.14159265358979323846264;

@@ -84,8 +84,10 @@ real Engine::stdrdSphDist(Index isphere, const Data& data)
 {
     auto& sphere = data.spheres()[isphere];
 
-    auto d0 = /*sphere.R * */d0Rel; // may be better to make absolute, we'll see
+    // keeping it relative because we will have to divide by R anyway
+    auto d0 = d0Rel;
 
+    // volatile travel formula
     return d0 * m_timeVolCoeff * std::exp(-E0 / (2 * kB * sphere.T));
 }
 
