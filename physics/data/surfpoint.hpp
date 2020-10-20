@@ -9,8 +9,10 @@
 #define SURFPOINT_H
 
 #include "types.hpp"
+#include "mat3.hpp"
 
-namespace volatrack {
+namespace volatrack
+{
 
 /*!
  * \brief The SurfPoint class

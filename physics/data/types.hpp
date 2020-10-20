@@ -13,7 +13,6 @@
 
 #include <QVector3D>
 #include <QVector4D>
-#include <QMatrix3x3>
 #include <QString>
 #include <QJsonObject>
 
@@ -26,70 +25,6 @@ using Flagger = unsigned int;
 
 using vec3 = QVector3D;
 using quat = QVector4D;
-
-struct mat3
-{
-    QVector3D leftColumn;
-    QVector3D middleColumn;
-    QVector3D rightColumn;
-
-    QVector3D topRow()
-    {
-        return {leftColumn.x(), middleColumn.x(), rightColumn.x()};
-    }
-
-    QVector3D middleRow()
-    {
-        return {leftColumn.y(), middleColumn.y(), rightColumn.y()};
-    }
-
-    QVector3D bottomRow()
-    {
-        return {leftColumn.z(), middleColumn.z(), rightColumn.z()};
-    }
-
-    mat3 operator+(const mat3& other)
-    {
-        mat3 res;
-
-        res.leftColumn = leftColumn + other.leftColumn;
-        res.middleColumn = middleColumn + other.middleColumn;
-        res.rightColumn = rightColumn + other.rightColumn;
-
-        return res;
-    }
-
-    mat3 operator-(const mat3& other)
-    {
-        mat3 res;
-
-        res.leftColumn = leftColumn - other.leftColumn;
-        res.middleColumn = middleColumn - other.middleColumn;
-        res.rightColumn = rightColumn - other.rightColumn;
-
-        return res;
-    }
-
-    vec3 operator*(const vec3& original)
-    {
-        return
-        {
-            QVector3D::dotProduct(topRow(), original),
-            QVector3D::dotProduct(middleRow(), original),
-            QVector3D::dotProduct(bottomRow(), original)
-        };
-    }
-
-    mat3 operator*(const mat3& other)
-    {
-        return
-        {
-            *this * other.leftColumn,
-            *this * other.middleColumn,
-            *this * other.rightColumn
-        };
-    }
-};
 
 using Pairs = std::vector<std::pair<Index, Index>>;
 
