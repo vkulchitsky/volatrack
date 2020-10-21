@@ -60,6 +60,11 @@ public:
      */
     void saveToJsonFile(const Data& data);
 
+    /*!
+     * \brief converts json file to Qt's json object
+     * \param path
+     * \return Qt's json object corresponding to path's file
+     */
     static QJsonObject readPath(const QString& path);
 
 private:

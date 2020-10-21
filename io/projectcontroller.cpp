@@ -63,9 +63,7 @@ void ProjectController::saveToJsonFile(const Data &data)
 
     Index frame = static_cast<Index>(data.time.t / data.time.dtSave);
 
-    QString here = "../Volatrack/io";
-    QString curr = QDir::currentPath();
-    QString s = !m_sourceDir.isEmpty() ? m_sourceDir : here;
+    QString s = !m_sourceDir.isEmpty() ? m_sourceDir : QDir::homePath();
 
     QDir dir(s);
     dir.mkdir(m_name);

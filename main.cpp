@@ -62,7 +62,10 @@ void secondLoopRun()
     // enter a path into sphere importer
     SphereImporter si("/home/vladimir/ss4.json");
 
-    // get data from importer
+    // get spheres from importer
+    //
+
+    // pack spheres into data, and add a few volatiles along the way
     //
 
     // take "SecondLoop" and the received data through the common loop
