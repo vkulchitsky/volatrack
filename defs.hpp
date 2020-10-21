@@ -26,7 +26,7 @@
 #define SPHERE_VELOCITY "velocity"
 #define SPHERE_RADIUS "radius"
 #define SPHERE_TEMPERATURE "temperature"
-#define SPHERE_MATERIAL "rho"
+#define SPHERE_MATERIAL "material"
 
 #define TIME_CURRENT "current time"
 #define TIME_STEP "time step"

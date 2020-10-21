@@ -4,12 +4,15 @@
 #include "physics/data/data.hpp"
 #include "physics/engine/engine.hpp"
 #include "io/projectcontroller.hpp"
+#include "io/sphereimporter.hpp"
+
+#include <iostream>
 
 #include <QVector>
 #include <QJsonObject>
 #include <QJsonDocument>
 #include <QDebug>
-#include <iostream>
+#include <QDir>
 
 using namespace volatrack;
 
@@ -28,32 +31,11 @@ Data quickData()
     return data;
 }
 
-void firstPrint(const Data& data)
+void commonLoop(const QString& projName, Data&& data,
+                const QString& sourceDir = QDir::homePath())
 {
-    const auto& volatiles = data.volatiles();
-    const auto& spheres = data.spheres();
-
-    for (Index i = 0; i < volatiles.size(); ++i)
-    {
-        std::cout << "Absolute volatile location: ("
-                  << volatiles[i].absolutePosition(spheres).x() << ", "
-                  << volatiles[i].absolutePosition(spheres).y() << ", "
-                  << volatiles[i].absolutePosition(spheres).z() << ")"
-                  << std::endl;
-    }
-
-    std::cout << "----------------------------------------------" << std::endl;
-
-    auto json = data.saveToJson();
-    qDebug().noquote() << QJsonDocument{json}.toJson(QJsonDocument::Indented);
-}
-
-void firstLoop()
-{
-    auto data = quickData();
-
     Engine engine;
-    ProjectController pc("FirstLoop");
+    ProjectController pc(projName, sourceDir);
     engine.init(data);
     const real endTime = 1.0;
 
@@ -70,14 +52,25 @@ void firstLoop()
     }
 }
 
-void firstRun()
+void firstLoopRun()
 {
-    Data data = quickData();
-    firstPrint(data);
+    commonLoop("FirstLoop", quickData());
+}
+
+void secondLoopRun()
+{
+    // enter a path into sphere importer
+    SphereImporter si("/home/vladimir/ss4.json");
+
+    // get data from importer
+    //
+
+    // take "SecondLoop" and the received data through the common loop
+    //
 }
 
 int main()
 {
-    firstLoop();
+    secondLoopRun();
     return 0;
 }

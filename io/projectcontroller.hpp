@@ -48,13 +48,6 @@ public:
     void setFiles(const QStringList&& files);
 
     /*!
-     * \brief getter for a specific stored path
-     * \param i - index
-     * \return the path stored under that index
-     */
-    QString getPath(Index i);
-
-    /*!
      * \brief data from path
      * \param i - index
      * \return the data from path stored under that index
@@ -67,9 +60,10 @@ public:
      */
     void saveToJsonFile(const Data& data);
 
+    static QJsonObject readPath(const QString& path);
+
 private:
 
-    QJsonObject readPath(const QString& path);
     void readFiles();
 
     QStringList m_files;

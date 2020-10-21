@@ -17,11 +17,6 @@ void ProjectController::setFiles(const QStringList &&files)
     readFiles();
 }
 
-QString ProjectController::getPath(Index i)
-{
-    return m_files[i];
-}
-
 Data ProjectController::getData(Index i)
 {
     Data data;
