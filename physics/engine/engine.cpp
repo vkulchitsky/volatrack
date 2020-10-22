@@ -54,8 +54,8 @@ bool Engine::needsSaving(const Data &data)
 
 bool Engine::areNear(const Data &data, Index i, Index j, real dR)
 {
-    Sphere&  first = data.spheres()[i];
-    Sphere& second = data.spheres()[j];
+    Sphere first = data.spheres()[i];
+    Sphere second = data.spheres()[j];
 
     real totalDistance2 = (first.c - second.c).lengthSquared();
 

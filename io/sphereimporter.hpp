@@ -27,6 +27,8 @@ public:
     SphereImporter();
     SphereImporter(const QString& path);
 
+    std::vector<Sphere> spheres() const;
+
 private:
     std::vector<Sphere> spheresFromFile(const QString& path);
     QJsonObject objectFromFile(const QString& path);

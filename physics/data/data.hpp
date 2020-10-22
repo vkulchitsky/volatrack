@@ -71,6 +71,10 @@ public:
 
     Time time;
 
+    void setSpheresArray(const Spheres&& spheres);
+
+    void setVolatilesArray(const Volatiles&& volatiles);
+
 private:
     Spheres m_spheres;
     Volatiles m_volatiles;

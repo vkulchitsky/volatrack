@@ -88,3 +88,13 @@ void Data::loadFromJson(const QJsonObject &jo)
 
     time.loadFromJson(timeVal.toObject());
 }
+
+void Data::setSpheresArray(const Spheres &&spheres)
+{
+    m_spheres = std::move(spheres);
+}
+
+void Data::setVolatilesArray(const Volatiles &&volatiles)
+{
+    m_volatiles = volatiles;
+}

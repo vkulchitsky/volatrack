@@ -10,7 +10,9 @@ Volatile::Volatile(Index i, real x, real y, real z)
     : isphere(i)
     , loc(x, y, z)
     , flags(0)
-{}
+{
+    loc.normalize();
+}
 
 vec3 Volatile::absolutePosition(const Spheres &spheres) const
 {

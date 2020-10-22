@@ -59,17 +59,23 @@ void firstLoopRun()
 
 void secondLoopRun()
 {
-    // enter a path into sphere importer
-    SphereImporter si("/home/vladimir/ss4.json");
+    SphereImporter si("/home/vladimir/8sph.json");
 
-    // get spheres from importer
-    //
+    Data data;
+    data.setSpheresArray(si.spheres());
 
-    // pack spheres into data, and add a few volatiles along the way
-    //
+    for (Index i = 0; i < data.spheres().size(); ++i)
+    {
+        data.pushVolatile(Volatile{i, 0, 0, 1});
+        data.pushVolatile(Volatile{i, 0, 0, -1});
+        data.pushVolatile(Volatile{i, 0, 1, 0});
+        data.pushVolatile(Volatile{i, 0, -1, 0});
+        data.pushVolatile(Volatile{i, 1, 0, 0});
+        data.pushVolatile(Volatile{i, -1, 0, 0});
+    }
 
     // take "SecondLoop" and the received data through the common loop
-    //
+    commonLoop("SecondLoop", std::move(data));
 }
 
 int main()
