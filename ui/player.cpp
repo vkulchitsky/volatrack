@@ -24,6 +24,8 @@ Player::Player(QWidget *parent) :
 
     ui->horizontalSlider->setMaximum(ui->horizontalSlider->minimum());
 
+    m_playTimer = new QTimer;
+
     connect(ui->first, &QPushButton::clicked, [this]()
     {
         ui->horizontalSlider->setValue(ui->horizontalSlider->minimum());
@@ -61,6 +63,20 @@ Player::Player(QWidget *parent) :
             (const int value)
     {
         slidTo(value);
+    });
+
+    connect(m_playTimer, &QTimer::timeout, [this]()
+    {
+        if (!m_isPlaying) return;
+
+        if (ui->horizontalSlider->value() == ui->horizontalSlider->maximum())
+        {
+            pause();
+            return;
+        }
+        ui->horizontalSlider->setValue(ui->horizontalSlider->value() + 1);
+
+        playToNext();
     });
 }
 
@@ -119,22 +135,7 @@ void Player::pause()
 
 void Player::playToNext()
 {
-    QTimer* timer = new QTimer(this);
-    const int slideLength =100; // milliseconds
-    connect(timer, &QTimer::timeout, [this, timer]()
-    {
-        if (!m_isPlaying) return;
+    const int slideLength = 100; // milliseconds
 
-        if (ui->horizontalSlider->value() == ui->horizontalSlider->maximum())
-        {
-            pause();
-            delete timer;
-            return;
-        }
-        ui->horizontalSlider->setValue(ui->horizontalSlider->value() + 1);
-        delete timer;
-
-        playToNext();
-    });
-    timer->start(slideLength);
+    m_playTimer->start(slideLength);
 }

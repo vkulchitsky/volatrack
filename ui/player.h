@@ -64,6 +64,7 @@ signals:
 
 private:
     Ui::Player *ui;
+    QTimer* m_playTimer;
     bool m_isPlaying;
     void play();
     void pause();
