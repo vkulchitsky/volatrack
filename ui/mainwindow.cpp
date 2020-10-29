@@ -38,9 +38,10 @@ MainWindow::MainWindow(QWidget *parent)
         {
             ui->player->setLabel(m_fileDialog->selectedFiles()[value]);
         }
+    });
 
-//        ui->openGLWidget->draw(m_controller.getData(value));
-
+    connect(ui->player, &Player::randomness, [this]()
+    {
         std::default_random_engine gen;
         std::uniform_real_distribution<double> distColor(0.3, 2.0);
         std::uniform_real_distribution<double> distPos(-5.0, 5.0);
@@ -67,7 +68,7 @@ MainWindow::MainWindow(QWidget *parent)
                                      static_cast<float>(scale)});
             spheres[count] = rs;
         }
-    //    ui->openGLWidget->updateSpheres(spheres);
+
         ui->openGLWidget->setSpheres(spheres);
     });
 }

@@ -61,6 +61,7 @@ signals:
      * \param val - value of frame
      */
     void slidTo(int val);
+    void randomness();
 
 private:
     Ui::Player *ui;

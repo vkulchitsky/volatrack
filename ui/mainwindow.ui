@@ -16,7 +16,7 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QOpenGLWidget" name="openGLWidget">
+     <widget class="Renderer" name="openGLWidget">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
         <horstretch>0</horstretch>
@@ -55,6 +55,11 @@
   </action>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>Renderer</class>
+   <extends>QOpenGLWidget</extends>
+   <header>renderer.h</header>
+  </customwidget>
   <customwidget>
    <class>Player</class>
    <extends>QWidget</extends>
