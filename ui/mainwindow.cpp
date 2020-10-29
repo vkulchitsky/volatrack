@@ -6,6 +6,7 @@
 #include <random>
 
 #include <QFileDialog>
+#include <QDir>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -13,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    m_fileDialog = new QFileDialog(nullptr, {}, "../../Volatrack/io", "*.json");
+    m_fileDialog = new QFileDialog(nullptr, {}, QDir::homePath(), "*.json");
     m_fileDialog->setFileMode(QFileDialog::FileMode::ExistingFiles);
 
     ui->player->setMinimum(0);
@@ -30,6 +31,28 @@ MainWindow::MainWindow(QWidget *parent)
         ui->player->setLabel(m_fileDialog->selectedFiles()[0]);
         ui->player->setFrame(0);
         m_controller.setFiles(m_fileDialog->selectedFiles());
+
+        {
+            QVector4D sphereColor(1, 0, 0, 0.5);
+            QVector4D volatileColor(0, 1, 0, 1);
+
+            int spheresCount = 1000;
+            QVector<RenderSphere> spheres(spheresCount);
+            for(int count = 0; count < spheresCount; count++)
+            {
+                RenderSphere rs;
+                rs.color = (count % 2) ? sphereColor : volatileColor;
+                rs.model.setToIdentity();
+                rs.model.translate(QVector3D{0, 0, static_cast<float>(count)});
+                auto scale = 0.3;
+                rs.model.scale(QVector3D{static_cast<float>(scale),
+                                         static_cast<float>(scale),
+                                         static_cast<float>(scale)});
+                spheres[count] = rs;
+            }
+
+            ui->openGLWidget->setSpheres(spheres);
+        }
     });
 
     connect(ui->player, &Player::slidTo, [this](const int value)
@@ -38,38 +61,6 @@ MainWindow::MainWindow(QWidget *parent)
         {
             ui->player->setLabel(m_fileDialog->selectedFiles()[value]);
         }
-    });
-
-    connect(ui->player, &Player::randomness, [this]()
-    {
-        std::default_random_engine gen;
-        std::uniform_real_distribution<double> distColor(0.3, 2.0);
-        std::uniform_real_distribution<double> distPos(-5.0, 5.0);
-        std::uniform_real_distribution<double> distScale(0.1, 0.5);
-        std::uniform_real_distribution<double> distCout(1000, 1000);
-
-        // test
-        int spheresCount = distCout(gen);
-        QVector<RenderSphere> spheres(spheresCount);
-        for(int count = 0; count < spheresCount; count++)
-        {
-            RenderSphere rs;
-            rs.color = QVector4D{static_cast<float>(distColor(gen)),
-                    static_cast<float>(distColor(gen)),
-                    static_cast<float>(distColor(gen)),
-                    static_cast<float>(distColor(gen))};
-            rs.model.setToIdentity();
-            rs.model.translate(QVector3D{static_cast<float>(distPos(gen)),
-                                         static_cast<float>(distPos(gen)),
-                                         static_cast<float>(distPos(gen))});
-            auto scale = distScale(gen);
-            rs.model.scale(QVector3D{static_cast<float>(scale),
-                                     static_cast<float>(scale),
-                                     static_cast<float>(scale)});
-            spheres[count] = rs;
-        }
-
-        ui->openGLWidget->setSpheres(spheres);
     });
 }
 

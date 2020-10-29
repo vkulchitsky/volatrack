@@ -57,7 +57,6 @@ Player::Player(QWidget *parent) :
     connect(ui->last, &QPushButton::clicked, [this]()
     {
         ui->horizontalSlider->setValue(ui->horizontalSlider->maximum());
-        randomness();
     });
 
     connect(ui->horizontalSlider, &QSlider::valueChanged, [this]
