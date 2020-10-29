@@ -9,11 +9,12 @@
 #include <QOpenGLFunctions_4_2_Compatibility>
 
 #include "rendersphere.hpp"
-#include "camera.h"
+#include "camera.hpp"
 
 class QOpenGLShaderProgram;
 
-class Renderer : public QOpenGLWidget, protected QOpenGLFunctions_4_2_Compatibility
+class Renderer : public QOpenGLWidget,
+        protected QOpenGLFunctions_4_2_Compatibility
 {
     Q_OBJECT
 public:

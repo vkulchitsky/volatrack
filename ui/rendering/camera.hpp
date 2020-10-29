@@ -1,3 +1,10 @@
+/*!
+  Camera
+  @file camera.hpp
+  @author Vladimir A Kulchitsky
+  @version 1.0 10/29/2020
+*/
+
 #ifndef CAMERA_H
 #define CAMERA_H
 
