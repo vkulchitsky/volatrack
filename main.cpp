@@ -52,6 +52,21 @@ void commonLoop(const QString& projName, Data&& data,
     }
 }
 
+void lameLoopRun()
+{
+    Data data;
+    data.pushSphere(Sphere(0, 0, 0, 1));
+
+    data.pushVolatile(Volatile{0, 0, 0, 1});
+    data.pushVolatile(Volatile{0, 0, 0, -1});
+    data.pushVolatile(Volatile{0, 0, 1, 0});
+    data.pushVolatile(Volatile{0, 0, -1, 0});
+    data.pushVolatile(Volatile{0, 1, 0, 0});
+    data.pushVolatile(Volatile{0, -1, 0, 0});
+
+    commonLoop("LameLoop", std::move(data));
+}
+
 void firstLoopRun()
 {
     commonLoop("FirstLoop", quickData());

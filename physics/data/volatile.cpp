@@ -18,7 +18,9 @@ vec3 Volatile::absolutePosition(const Spheres &spheres) const
 {
     const Sphere& sphere = spheres[isphere];
 
-    return sphere.c + loc.rect() * sphere.R;
+    auto res = sphere.c + loc.rect() * sphere.R;
+
+    return res;
 }
 
 QJsonObject Volatile::saveToJson() const
@@ -44,9 +46,13 @@ void Volatile::loadFromJson(const QJsonObject &jo)
     isphere = static_cast<Index>(jo[VOL_SPH_INDEX].toInt());
 
     auto surfLocArr = jo[VOL_SURLOC].toArray();
-    loc.rect().setX(surfLocArr[0].toDouble());
-    loc.rect().setY(surfLocArr[1].toDouble());
-    loc.rect().setZ(surfLocArr[2].toDouble());
+    auto rect = loc.rect();
+
+    rect.setX(surfLocArr[0].toDouble());
+    rect.setY(surfLocArr[1].toDouble());
+    rect.setZ(surfLocArr[2].toDouble());
+
+    loc.setRect(rect);
 
     flags = static_cast<Flagger>(jo[VOL_FLAGS].toInt());
 }

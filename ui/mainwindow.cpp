@@ -2,6 +2,7 @@
 #include "./ui_mainwindow.h"
 #include "physics/data/data.hpp"
 #include "rendering/rendersphere.hpp"
+#include "rendering/rendercontroller.hpp"
 
 #include <random>
 
@@ -32,27 +33,10 @@ MainWindow::MainWindow(QWidget *parent)
         ui->player->setFrame(0);
         m_controller.setFiles(m_fileDialog->selectedFiles());
 
-        {
-            QVector4D sphereColor(1, 0, 0, 0.5);
-            QVector4D volatileColor(0, 1, 0, 1);
+        RenderController rc;
 
-            int spheresCount = 1000;
-            QVector<RenderSphere> spheres(spheresCount);
-            for(int count = 0; count < spheresCount; count++)
-            {
-                RenderSphere rs;
-                rs.color = (count % 2) ? sphereColor : volatileColor;
-                rs.model.setToIdentity();
-                rs.model.translate(QVector3D{0, 0, static_cast<float>(count)});
-                auto scale = 0.3;
-                rs.model.scale(QVector3D{static_cast<float>(scale),
-                                         static_cast<float>(scale),
-                                         static_cast<float>(scale)});
-                spheres[count] = rs;
-            }
-
-            ui->openGLWidget->setSpheres(spheres);
-        }
+        ui->openGLWidget->setSpheres(rc.spheresFromData(m_controller
+                                                        .getData(0)));
     });
 
     connect(ui->player, &Player::slidTo, [this](const int value)
@@ -60,6 +44,10 @@ MainWindow::MainWindow(QWidget *parent)
         if (m_fileDialog->selectedFiles().size())
         {
             ui->player->setLabel(m_fileDialog->selectedFiles()[value]);
+            RenderController rc;
+
+            ui->openGLWidget->setSpheres(rc.spheresFromData(m_controller
+                                                            .getData(value)));
         }
     });
 }

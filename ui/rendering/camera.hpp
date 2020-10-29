@@ -1,7 +1,7 @@
 /*!
   Camera
   @file camera.hpp
-  @author Vladimir A Kulchitsky
+  @author Serhii Lytvynenko
   @version 1.0 10/29/2020
 */
 

@@ -23,14 +23,19 @@ void Engine::process(Data &data)
     auto gen = std::default_random_engine();
     auto dist = std::uniform_real_distribution<double>(0, 2 * PI);
 
-    for (auto& vol : data.volatiles())
+    Volatiles newVols = data.volatiles();
+
+    for (auto& vol : newVols)
     {
         // find out distance that volatile needs to travel
         const auto& d = stdrdSphDist(vol.isphere, data);
 
         // go d in random direction on the great circle
         vol.loc.moveBy(d, dist(gen));
+//        vol.loc.moveBy(d, 0);
     }
+
+    data.setVolatilesArray(std::move(newVols));
 
     data.time.t += data.time.dt;
 }
