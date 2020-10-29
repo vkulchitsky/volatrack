@@ -1,6 +1,9 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include "physics/data/data.hpp"
+#include "rendering/rendersphere.hpp"
+
+#include <random>
 
 #include <QFileDialog>
 
@@ -36,7 +39,36 @@ MainWindow::MainWindow(QWidget *parent)
             ui->player->setLabel(m_fileDialog->selectedFiles()[value]);
         }
 
-        ui->openGLWidget->draw(m_controller.getData(value));
+//        ui->openGLWidget->draw(m_controller.getData(value));
+
+        std::default_random_engine gen;
+        std::uniform_real_distribution<double> distColor(0.3, 2.0);
+        std::uniform_real_distribution<double> distPos(-5.0, 5.0);
+        std::uniform_real_distribution<double> distScale(0.1, 0.5);
+        std::uniform_real_distribution<double> distCout(1000, 1000);
+
+        // test
+        int spheresCount = distCout(gen);
+        QVector<RenderSphere> spheres(spheresCount);
+        for(int count = 0; count < spheresCount; count++)
+        {
+            RenderSphere rs;
+            rs.color = QVector4D{static_cast<float>(distColor(gen)),
+                    static_cast<float>(distColor(gen)),
+                    static_cast<float>(distColor(gen)),
+                    static_cast<float>(distColor(gen))};
+            rs.model.setToIdentity();
+            rs.model.translate(QVector3D{static_cast<float>(distPos(gen)),
+                                         static_cast<float>(distPos(gen)),
+                                         static_cast<float>(distPos(gen))});
+            auto scale = distScale(gen);
+            rs.model.scale(QVector3D{static_cast<float>(scale),
+                                     static_cast<float>(scale),
+                                     static_cast<float>(scale)});
+            spheres[count] = rs;
+        }
+    //    ui->openGLWidget->updateSpheres(spheres);
+        ui->openGLWidget->setSpheres(spheres);
     });
 }
 
