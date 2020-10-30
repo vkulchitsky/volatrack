@@ -1,3 +1,10 @@
+/*!
+  Defines triangular mesh that shapes a sphere
+  @file spheremesh.hpp
+  @author Serhii Lytvynenko
+  @version 1.0 10/26/2020
+*/
+
 #ifndef SPHEREMESH_H
 #define SPHEREMESH_H
 

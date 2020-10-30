@@ -2,7 +2,7 @@
   Camera
   @file camera.hpp
   @author Serhii Lytvynenko
-  @version 1.0 10/29/2020
+  @version 1.0 10/26/2020
 */
 
 #ifndef CAMERA_H

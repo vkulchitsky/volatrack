@@ -1,3 +1,10 @@
+/*!
+  Renderer for spheres
+  @file renderer.h
+  @author Serhii Lytvynenko
+  @version 1.0 10/26/2020
+*/
+
 #ifndef RENDERER_H
 #define RENDERER_H
 

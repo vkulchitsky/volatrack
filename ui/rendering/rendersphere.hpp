@@ -1,3 +1,10 @@
+/*!
+  Sphere in render format
+  @file rendersphere.hpp
+  @author Serhii Lytvynenko
+  @version 1.0 10/26/2020
+*/
+
 #ifndef RENDERSPHERE_H
 #define RENDERSPHERE_H
 

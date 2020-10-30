@@ -30,9 +30,24 @@ namespace volatrack
 class MainModel
 {
 public:
+
+    /*!
+     * \brief Default constructor
+     */
     MainModel();
 
+    /*!
+     * \brief one second test run with hardcoded data
+     */
     void simpleTestRun();
+
+    /*!
+     * \brief run simulation from json file
+     * \param file to run
+     * \param length of simulation
+     * \param project name
+     * \param target directory
+     */
     void runFromJson(const QString& runFile, real simTime = 1.0,
                      const QString& projName = "JsonImport",
                      const QString& targetDir = QDir::homePath());
