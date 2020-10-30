@@ -50,9 +50,9 @@ QJsonObject ProjectController::readPath(const QString &path)
 }
 
 ProjectController::ProjectController(const QString &name,
-                                     const QString &sourceDir)
+                                     const QString &targetDir)
     : m_name(name)
-    , m_sourceDir(sourceDir)
+    , m_targetDir(targetDir)
 {
     readFiles();
 }
@@ -63,7 +63,7 @@ void ProjectController::saveToJsonFile(const Data &data)
 
     Index frame = static_cast<Index>(data.time.t / data.time.dtSave);
 
-    QString s = !m_sourceDir.isEmpty() ? m_sourceDir : QDir::homePath();
+    QString s = !m_targetDir.isEmpty() ? m_targetDir : QDir::homePath();
 
     QDir dir(s);
     dir.mkdir(m_name);

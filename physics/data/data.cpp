@@ -98,3 +98,18 @@ void Data::setVolatilesArray(const Volatiles &&volatiles)
 {
     m_volatiles = volatiles;
 }
+
+Data Data::quickData()
+{
+    Data data;
+
+    data.pushSphere(Sphere(0, 0, 0, 1));
+    data.pushSphere(Sphere(0, 0, 2, 0.5));
+
+    data.pushVolatile(Volatile(0, 0, 0, 1));
+    data.pushVolatile(Volatile(0, 0, 0, -1));
+    data.pushVolatile(Volatile(1, 1, 0, 0));
+    data.pushVolatile(Volatile(1, -1, 0, 0));
+
+    return data;
+}

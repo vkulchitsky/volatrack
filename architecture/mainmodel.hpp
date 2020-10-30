@@ -8,7 +8,18 @@
 #ifndef MAINMODEL_H
 #define MAINMODEL_H
 
+#include "physics/data/sphere.hpp"
+#include "physics/data/volatile.hpp"
 #include "physics/data/data.hpp"
+#include "physics/engine/engine.hpp"
+#include "io/projectcontroller.hpp"
+#include "io/sphereimporter.hpp"
+
+#include <QVector>
+#include <QJsonObject>
+#include <QJsonDocument>
+#include <QDebug>
+#include <QDir>
 
 namespace volatrack
 {
@@ -21,8 +32,17 @@ class MainModel
 public:
     MainModel();
 
+    void simpleTestRun();
+    void runFromJson(const QString& runFile, real simTime = 1.0,
+                     const QString& projName = "JsonImport",
+                     const QString& targetDir = QDir::homePath());
+
 private:
-    //
+
+    void commonLoop(const QString& projName, const QString& targetDir
+                    = QDir::homePath(), real simTime = 1.0);
+
+    Data m_data;
 };
 
 }

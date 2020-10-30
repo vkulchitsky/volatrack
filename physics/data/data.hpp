@@ -75,6 +75,8 @@ public:
 
     void setVolatilesArray(const Volatiles&& volatiles);
 
+    static Data quickData();
+
 private:
     Spheres m_spheres;
     Volatiles m_volatiles;

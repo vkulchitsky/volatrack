@@ -73,7 +73,7 @@ private:
 
     QStringList m_files;
     QString m_name;
-    QString m_sourceDir;
+    QString m_targetDir;
     QVector<QJsonObject> m_jsons;
 };
 
