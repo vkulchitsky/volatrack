@@ -31,7 +31,7 @@ void MainModel::commonLoop(const QString &projName, const QString &targetDir,
 void MainModel::simpleTestRun()
 {
     m_data = Data::quickData();
-    commonLoop("QuickDataSim");
+    commonLoop("Test");
 }
 
 void MainModel::runFromJson(const QString &runFile, real simTime,
@@ -51,6 +51,5 @@ void MainModel::runFromJson(const QString &runFile, real simTime,
         m_data.pushVolatile(Volatile{i, -1, 0, 0});
     }
 
-    // take "SecondLoop" and the received data through the common loop
     commonLoop(projName, targetDir, simTime);
 }
