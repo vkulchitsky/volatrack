@@ -17,12 +17,13 @@ set(TARGET_NAME_G volagraph)
 file(GLOB_RECURSE SOURCES_DA "physics/data/*.cpp")
 file(GLOB_RECURSE SOURCES_E "physics/engine/*.cpp")
 file(GLOB_RECURSE SOURCES_IO "io/*.cpp")
+file(GLOB_RECURSE SOURCES_A "architecture/*.cpp")
 file(GLOB SOURCES "*.cpp")
 
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
 add_executable(${TARGET_NAME}
-    ${SOURCES_DA} ${SOURCES} ${SOURCES_E} ${SOURCES_IO})
+    ${SOURCES_DA} ${SOURCES} ${SOURCES_E} ${SOURCES_IO} ${SOURCES_A})
 
 target_link_libraries(${TARGET_NAME} Qt5::Widgets)
 

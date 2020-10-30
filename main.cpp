@@ -74,7 +74,7 @@ void firstLoopRun()
 
 void secondLoopRun()
 {
-    SphereImporter si("/home/vladimir/8sph.json");
+    SphereImporter si("/home/vloot/8sph.json");
 
     Data data;
     data.setSpheresArray(si.spheres());

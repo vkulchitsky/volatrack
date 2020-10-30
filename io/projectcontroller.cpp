@@ -68,7 +68,7 @@ void ProjectController::saveToJsonFile(const Data &data)
     QDir dir(s);
     dir.mkdir(m_name);
 
-    QFile file(s + "/" + m_name + "/" + m_name + QString::number(frame)
+    QFile file(s + "/" + m_name + "/" + m_name + QString::number(1e+5 - frame)
                + ".json");
     file.open(QIODevice::WriteOnly);
     file.write(json);
