@@ -113,3 +113,8 @@ Data Data::quickData()
 
     return data;
 }
+
+void Data::loadSphereEvenly(Index isphere)
+{
+    //
+}

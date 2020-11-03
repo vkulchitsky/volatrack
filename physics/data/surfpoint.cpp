@@ -31,14 +31,14 @@ void SurfPoint::moveBy(real d, real alpha)
 {
     // if (x, y, z) is the north pole, we transform by angle
     // (d*cos(a), d*sin(a), 1 - d2/2)
-    vec3 dAlpha(d * std::cos(alpha), d * std::sin(alpha), 1 - 0.5 * d * d);
+    vec3 dAlpha(d * std::cos(alpha), d * std::sin(alpha), 0);
 
     // multiply by (x, y, z) frame to get great circle from (x, y, z)
     // note: frame * (0, 0, 1) = (x, y, z), & dAlpha is very close to (0, 0, 1)
     // so m_rect changes by very little
     m_rect = frame() * dAlpha;
 
-    // should already be pretty much normal, but just in case
+    // should already be pretty muc/*1 - 0.5 * d * d*/h normal, but just in case
     normalize();
 }
 

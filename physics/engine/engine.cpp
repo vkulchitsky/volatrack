@@ -32,7 +32,6 @@ void Engine::process(Data &data)
 
         // go d in random direction on the great circle
         vol.loc.moveBy(d, dist(gen));
-//        vol.loc.moveBy(d, 0);
     }
 
     data.setVolatilesArray(std::move(newVols));

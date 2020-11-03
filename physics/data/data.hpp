@@ -78,6 +78,8 @@ public:
     static Data quickData();
 
 private:
+    void loadSphereEvenly(Index isphere);
+
     Spheres m_spheres;
     Volatiles m_volatiles;
 };
