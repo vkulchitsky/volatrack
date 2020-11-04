@@ -40,6 +40,11 @@
 #define DATA_VOLS "volatiles"
 #define DATA_TIME "time"
 
+#define INFO_SIM "simulation number"
+#define INFO_SLIDE "file number"
+
+#define FILE_INFO "file information"
+
 #ifndef DEFS_HPP
 #define DEFS_HPP
 

@@ -40,7 +40,7 @@ void MainModel::runFromJson(const QString &runFile, real simTime,
     SphereImporter si(runFile);
 
     m_data.setSpheresArray(si.spheres());
-    m_data.loadSpheresEvenly();
+    m_data.loadSpheresRandomly(7, true);
 
     commonLoop(projName, targetDir, simTime);
 }
