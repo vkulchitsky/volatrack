@@ -40,16 +40,7 @@ void MainModel::runFromJson(const QString &runFile, real simTime,
     SphereImporter si(runFile);
 
     m_data.setSpheresArray(si.spheres());
-
-    for (Index i = 0; i < m_data.spheres().size(); ++i)
-    {
-        m_data.pushVolatile(Volatile{i, 0, 0, 1});
-        m_data.pushVolatile(Volatile{i, 0, 0, -1});
-        m_data.pushVolatile(Volatile{i, 0, 1, 0});
-        m_data.pushVolatile(Volatile{i, 0, -1, 0});
-        m_data.pushVolatile(Volatile{i, 1, 0, 0});
-        m_data.pushVolatile(Volatile{i, -1, 0, 0});
-    }
+    m_data.loadSpheresEvenly();
 
     commonLoop(projName, targetDir, simTime);
 }

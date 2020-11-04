@@ -21,6 +21,7 @@ namespace volatrack
 
 using real = double;
 using Index = unsigned int;
+using Size = unsigned long;
 using Flagger = unsigned int;
 
 using vec3 = QVector3D;

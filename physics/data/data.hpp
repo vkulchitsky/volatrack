@@ -69,16 +69,44 @@ public:
      */
     void loadFromJson(const QJsonObject &jo) override;
 
-    Time time;
-
+    /*!
+     * \brief setter for spheres array with move semantics
+     * \param spheres to set
+     */
     void setSpheresArray(const Spheres&& spheres);
 
+    /*!
+     * \brief setter for volatiles array with move semantics
+     * \param volatiles to set
+     */
     void setVolatilesArray(const Volatiles&& volatiles);
 
+    /*!
+     * \brief load each sphere uniformly with six volatiles
+     */
+    void loadSpheresEvenly();
+
+    /*!
+     * \brief load each sphere with volatiles randomly distributed
+     * \param number of volatiles on each sphere
+     * \param whether each sphere has the same number of volatiles, or it's
+     * also random
+     */
+    void loadSpheresRandomly(Size volsPerSphere, bool constVols = false);
+
+    /*!
+     * \brief simple data sample for testing
+     * \return the data sample
+     */
     static Data quickData();
+
+    Time time;
+
 
 private:
     void loadSphereEvenly(Index isphere);
+    void loadSphereRandomly(Index isphere, Size number);
+    void addRandomVolatile(Index isphere);
 
     Spheres m_spheres;
     Volatiles m_volatiles;

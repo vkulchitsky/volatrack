@@ -1,6 +1,8 @@
 #include "data.hpp"
 #include "defs.hpp"
 
+#include <random>
+
 #include <QJsonObject>
 #include <QJsonArray>
 #include <QVector>
@@ -114,7 +116,56 @@ Data Data::quickData()
     return data;
 }
 
+void Data::loadSpheresEvenly()
+{
+    for (Index isphere = 0; isphere < m_spheres.size(); ++isphere)
+    {
+        loadSphereEvenly(isphere);
+    }
+}
+
+void Data::loadSpheresRandomly(Size volsPerSphere, bool constVols)
+{
+    auto gen = std::default_random_engine();
+    auto dist = std::uniform_int_distribution<Size>(0, 2 * volsPerSphere);
+
+    for (Index isphere = 0; isphere < m_spheres.size(); ++isphere)
+    {
+        loadSphereRandomly(isphere, constVols ? volsPerSphere : dist(gen));
+    }
+}
+
 void Data::loadSphereEvenly(Index isphere)
 {
-    //
+    pushVolatile(Volatile{isphere, 0, 0, 1});
+    pushVolatile(Volatile{isphere, 0, 0, -1});
+    pushVolatile(Volatile{isphere, 0, 1, 0});
+    pushVolatile(Volatile{isphere, 0, -1, 0});
+    pushVolatile(Volatile{isphere, 1, 0, 0});
+    pushVolatile(Volatile{isphere, -1, 0, 0});
+}
+
+void Data::loadSphereRandomly(Index isphere, Size number)
+{
+    for (Index i = 0; i < number; ++i)
+    {
+        addRandomVolatile(isphere);
+    }
+}
+
+void Data::addRandomVolatile(Index isphere)
+{
+    auto gen = std::default_random_engine();
+    auto dist = std::uniform_real_distribution<double>(0, 1);
+
+    Volatile vol(isphere, dist(gen), dist(gen), dist(gen));
+
+    if (vol.loc.rect() == vec3{0, 0, 0})
+    {
+        addRandomVolatile(isphere);
+        return;
+    }
+
+    vol.loc.normalize();
+    m_volatiles.push_back(vol);
 }
