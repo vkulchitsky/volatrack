@@ -40,7 +40,7 @@
 #define DATA_VOLS "volatiles"
 #define DATA_TIME "time"
 
-#define INFO_SIM "simulation number"
+#define INFO_SIM "simulation name"
 #define INFO_SLIDE "file number"
 
 #define FILE_INFO "file information"

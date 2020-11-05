@@ -1,8 +1,14 @@
 #include "architecture/mainmodel.hpp"
 
+#include <QString>
+
 int main()
 {
+    QString jsonPath = "/home/vloot/8sph.json";
+
     volatrack::MainModel model;
-    model.runFromJson("/home/vloot/8sph.json", 1, "JsonImportX");
+    model.simpleTestRun();
+//    model.runFromJson(jsonPath);
+//    model.runFromJson(jsonPath, 1, "JsonImportX");
     return 0;
 }

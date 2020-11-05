@@ -35,6 +35,11 @@ vec3 mat3::bottomRow()
     return {leftColumn.z(), middleColumn.z(), rightColumn.z()};
 }
 
+mat3 mat3::identity()
+{
+    return {{1, 0, 0}, {0, 1, 0}, {0, 0, 1}};
+}
+
 mat3 mat3::operator+(const mat3 &other)
 {
     return

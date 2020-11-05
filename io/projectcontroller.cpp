@@ -75,14 +75,15 @@ void ProjectController::saveToJsonFile(const Data &data)
 
     QJsonObject infoObj;
     QJsonValue fv(static_cast<int>(frame));
+    QJsonValue sv(m_name);
 
     infoObj.insert(INFO_SLIDE, fv);
+    infoObj.insert(INFO_SIM, sv);
     resObj.insert(FILE_INFO, infoObj);
 
     auto json = QJsonDocument{resObj}.toJson();
 
     QString s = !m_targetDir.isEmpty() ? m_targetDir : QDir::homePath();
-
     QDir dir(s);
     dir.mkdir(m_name);
 

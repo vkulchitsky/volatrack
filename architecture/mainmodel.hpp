@@ -11,7 +11,6 @@
 #include "physics/data/sphere.hpp"
 #include "physics/data/volatile.hpp"
 #include "physics/data/data.hpp"
-#include "physics/engine/engine.hpp"
 #include "io/projectcontroller.hpp"
 #include "io/sphereimporter.hpp"
 
@@ -58,6 +57,7 @@ private:
                     = QDir::homePath(), real simTime = 1.0);
 
     Data m_data;
+    std::shared_ptr<std::default_random_engine> m_gen;
 };
 
 }

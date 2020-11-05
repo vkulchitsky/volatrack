@@ -4,13 +4,14 @@ using namespace volatrack;
 
 MainModel::MainModel()
 {
-
+    m_gen = std::make_shared<std::default_random_engine>();
 }
 
 void MainModel::commonLoop(const QString &projName, const QString &targetDir,
                            real simTime)
 {
     Engine engine;
+    engine.passGen(m_gen);
     ProjectController pc(projName, targetDir);
     engine.init(m_data);
     const real endTime = simTime;
@@ -31,6 +32,7 @@ void MainModel::commonLoop(const QString &projName, const QString &targetDir,
 void MainModel::simpleTestRun()
 {
     m_data = Data::quickData();
+    m_data.passGen(m_gen);
     commonLoop("Test");
 }
 
@@ -39,6 +41,7 @@ void MainModel::runFromJson(const QString &runFile, real simTime,
 {
     SphereImporter si(runFile);
 
+    m_data.passGen(m_gen);
     m_data.setSpheresArray(si.spheres());
     m_data.loadSpheresRandomly(7, true);
 

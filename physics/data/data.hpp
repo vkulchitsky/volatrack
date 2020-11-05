@@ -1,4 +1,4 @@
-/*!
+﻿/*!
     Data structure for full data with IO
     @file data.hpp
     @author Vladimir A Kulchitsky
@@ -10,6 +10,9 @@
 
 #include "volatile.hpp"
 #include "time.hpp"
+
+#include <memory>
+#include <random>
 
 namespace volatrack
 {
@@ -100,8 +103,13 @@ public:
      */
     static Data quickData();
 
-    Time time;
+    /*!
+     * \brief use random double generator that is given
+     * \param generator
+     */
+    void passGen(const std::shared_ptr<std::default_random_engine> &gen);
 
+    Time time;    
 
 private:
     void loadSphereEvenly(Index isphere);
@@ -110,6 +118,7 @@ private:
 
     Spheres m_spheres;
     Volatiles m_volatiles;
+    std::shared_ptr<std::default_random_engine> m_gen;
 };
 
 }

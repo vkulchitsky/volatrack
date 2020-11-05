@@ -126,12 +126,11 @@ void Data::loadSpheresEvenly()
 
 void Data::loadSpheresRandomly(Size volsPerSphere, bool constVols)
 {
-    auto gen = std::default_random_engine();
     auto dist = std::uniform_int_distribution<Size>(0, 2 * volsPerSphere);
 
     for (Index isphere = 0; isphere < m_spheres.size(); ++isphere)
     {
-        loadSphereRandomly(isphere, constVols ? volsPerSphere : dist(gen));
+        loadSphereRandomly(isphere, constVols ? volsPerSphere : dist(*m_gen));
     }
 }
 
@@ -155,10 +154,9 @@ void Data::loadSphereRandomly(Index isphere, Size number)
 
 void Data::addRandomVolatile(Index isphere)
 {
-    auto gen = std::default_random_engine();
-    auto dist = std::uniform_real_distribution<double>(0, 1);
+    auto dist = std::uniform_real_distribution<double>(-1, 1);
 
-    Volatile vol(isphere, dist(gen), dist(gen), dist(gen));
+    Volatile vol(isphere, dist(*m_gen), dist(*m_gen), dist(*m_gen));
 
     if (vol.loc.rect() == vec3{0, 0, 0})
     {
@@ -168,4 +166,9 @@ void Data::addRandomVolatile(Index isphere)
 
     vol.loc.normalize();
     m_volatiles.push_back(vol);
+}
+
+void Data::passGen(const std::shared_ptr<std::default_random_engine> &gen)
+{
+    m_gen = gen;
 }

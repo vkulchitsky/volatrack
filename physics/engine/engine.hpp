@@ -58,7 +58,19 @@ public:
      */
     static bool areNear(const Data& data, Index i, Index j, real dR = 0);
 
+    /*!
+     * \brief contact detection
+     * \param data
+     * \param dR - how close they have to be
+     * \return list of all contacts
+     */
     Pairs getContacts(const Data& data, real dR = 0);
+
+    /*!
+     * \brief use random double generator that is given
+     * \param generator
+     */
+    void passGen(const std::shared_ptr<std::default_random_engine> &gen);
 
 private:
 
@@ -66,6 +78,7 @@ private:
 
     real m_lastSaveTime;
     real m_timeVolCoeff;
+    std::shared_ptr<std::default_random_engine> m_gen;
 };
 
 }

@@ -20,7 +20,6 @@ void Engine::process(Data &data)
 {
     // every volatile travels sphere distance into a random direction
 
-    auto gen = std::default_random_engine();
     auto dist = std::uniform_real_distribution<double>(0, 2 * PI);
 
     Volatiles newVols = data.volatiles();
@@ -31,7 +30,7 @@ void Engine::process(Data &data)
         const auto& d = stdrdSphDist(vol.isphere, data);
 
         // go d in random direction on the great circle
-        vol.loc.moveBy(d, dist(gen));
+        vol.loc.moveBy(d, dist(*m_gen));
     }
 
     data.setVolatilesArray(std::move(newVols));
@@ -93,6 +92,11 @@ real Engine::stdrdSphDist(Index isphere, const Data& data)
 
     // volatile travel formula
     return d0 * m_timeVolCoeff * std::exp(-E0 / (2 * kB * sphere.T));
+}
+
+void Engine::passGen(const std::shared_ptr<std::default_random_engine> &gen)
+{
+    m_gen = gen;
 }
 
 }

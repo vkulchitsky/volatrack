@@ -31,6 +31,8 @@ public:
     vec3 middleRow();
     vec3 bottomRow();
 
+    static mat3 identity();
+
     vec3 leftColumn;
     vec3 middleColumn;
     vec3 rightColumn;
