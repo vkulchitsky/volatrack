@@ -1,6 +1,7 @@
 #include "projectcontroller.hpp"
 #include "defs.hpp"
 
+#include <iostream>
 #include <algorithm>
 
 #include <QJsonDocument>
@@ -87,9 +88,12 @@ void ProjectController::saveToJsonFile(const Data &data)
     QDir dir(s);
     dir.mkdir(m_name);
 
-    QFile file(s + "/" + m_name + "/" + m_name + QString::number(frame)
-               + ".json");
+    auto filename = m_name + QString::number(frame);
+
+    QFile file(s + "/" + m_name + "/" + filename+ ".json");
     file.open(QIODevice::WriteOnly);
     file.write(json);
     file.close();
+
+    std::cout << "File generated: " << filename.toStdString() << std::endl;
 }

@@ -103,6 +103,8 @@ public:
      */
     static Data quickData();
 
+    static Data diffusionData();
+
     /*!
      * \brief use random double generator that is given
      * \param generator

@@ -36,6 +36,13 @@ void MainModel::simpleTestRun()
     commonLoop("Test");
 }
 
+void MainModel::diffusionTestRun()
+{
+    m_data = Data::diffusionData();
+    m_data.passGen(m_gen);
+    commonLoop("DiffusionTest");
+}
+
 void MainModel::runFromJson(const QString &runFile, real simTime,
                             const QString &projName, const QString &targetDir)
 {

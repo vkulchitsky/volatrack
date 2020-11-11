@@ -16,7 +16,7 @@ namespace volatrack
 const real waterFreeze = 273.15; //!< water freezing temperature
 
 // will be adjusted to the correct value!
-const real tau = 1e-5; //!< standard volatile movement time
+const real tau = 1e-3; //!< standard volatile movement time
 
 // will be adjusted to the correct value!
 const real E0 = 2e-20; //!< standard energy for volatile

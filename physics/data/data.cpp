@@ -116,6 +116,24 @@ Data Data::quickData()
     return data;
 }
 
+Data Data::diffusionData()
+{
+    Data data;
+
+    Sphere sph(0, 0, 0, 20);
+    sph.T = waterFreeze - 80;
+    data.pushSphere(sph);
+
+    Size numVols = 5000;
+
+    for (Index ivol = 0; ivol < numVols; ++ivol)
+    {
+        data.pushVolatile(Volatile(0, 0, 0, 1));
+    }
+
+    return data;
+}
+
 void Data::loadSpheresEvenly()
 {
     for (Index isphere = 0; isphere < m_spheres.size(); ++isphere)

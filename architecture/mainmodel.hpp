@@ -41,6 +41,11 @@ public:
     void simpleTestRun();
 
     /*!
+     * \brief one second test run with dispersion model
+     */
+    void diffusionTestRun();
+
+    /*!
      * \brief run simulation from json file
      * \param file to run
      * \param length of simulation

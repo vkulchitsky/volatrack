@@ -7,8 +7,9 @@ int main()
     QString jsonPath = "/home/vloot/8sph.json";
 
     volatrack::MainModel model;
-    model.simpleTestRun();
+//    model.simpleTestRun();
 //    model.runFromJson(jsonPath);
 //    model.runFromJson(jsonPath, 1, "JsonImportX");
+    model.diffusionTestRun();
     return 0;
 }
