@@ -120,7 +120,7 @@ Data Data::diffusionData()
 {
     Data data;
 
-    Sphere sph(0, 0, 0, 20);
+    Sphere sph(0, 0, 0, 5);
     sph.T = waterFreeze - 80;
     data.pushSphere(sph);
 
@@ -189,4 +189,24 @@ void Data::addRandomVolatile(Index isphere)
 void Data::passGen(const std::shared_ptr<std::default_random_engine> &gen)
 {
     m_gen = gen;
+}
+
+real Data::concentration(Index isphere, const SurfPoint &sp, real rad)
+{
+    auto rad2 = rad * rad;
+    real volCount = 0;
+    auto sphere = m_spheres[isphere];
+    auto sphR2 = sphere.R * sphere.R;
+
+    for (auto& vol : m_volatiles)
+    {
+        if (vol.isphere != isphere) continue;
+
+        if ((vol.loc.rect() - sp.rect()).lengthSquared() * sphR2 < rad2)
+        {
+            volCount++;
+        }
+    }
+
+    return volCount / (PI * rad2);
 }
