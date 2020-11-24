@@ -10,10 +10,27 @@
 
 #include "data.hpp"
 
-class Concentration
+namespace volatrack
 {
-public:
-    Concentration();
+namespace conectration
+{
+
+struct DotRadConc
+{
+    real conectration;
+    SurfPoint point;
+    real radius;
 };
+
+class Concentrations : std::vector<DotRadConc>
+{
+    void calculate(const Data& data, Index isphere);
+};
+
+
+}
+}
+
+
 
 #endif // CONCENTRATION_HPP
