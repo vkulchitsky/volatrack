@@ -112,6 +112,7 @@ public:
     void passGen(const std::shared_ptr<std::default_random_engine> &gen);
 
     real concentration(Index isphere, const SurfPoint& sp, real rad);
+    //
 
     Time time;    
 
