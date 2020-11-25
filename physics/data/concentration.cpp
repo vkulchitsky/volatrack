@@ -1,4 +1,5 @@
 #include "concentration.hpp"
+#include <iostream>
 
 #include <random>
 
@@ -19,28 +20,31 @@ Concentrations::Concentrations(Size gridDimension)
 
 void Concentrations::calculate(const Data &data, Index isphere)
 {
-    // REWRITE THIS - HORRIBLE AND EXPENSIVE!!!
+    std::vector<real> volCounts(size());
 
-    for (auto& item : *this)
+    for (auto& vol : data.volatiles())
     {
-        auto rad2 = item.radius * item.radius;
-        real volCount = 0;
+        if (vol.isphere != isphere) continue;
+
         auto sphere = data.spheres()[isphere];
         auto sphR2 = sphere.R * sphere.R;
 
-        for (auto& vol : data.volatiles())
+        for  (Index i = 0; i < size(); ++i)
         {
-            if (vol.isphere != isphere) continue;
+            auto& item = (*this)[i];
+            auto rad2 = item.radius * item.radius;
 
             if ((vol.loc.rect() - item.point.rect()).lengthSquared()
                     * sphR2 < rad2)
             {
-                volCount++;
+                volCounts[i]++;
             }
         }
-
-        item.concentration = volCount / (PI * rad2);
     }
 
-
+    for (Index i = 0; i < size(); ++i)
+    {
+        auto& item = (*this)[i];
+        item.concentration = volCounts[i] / (PI * item.radius * item.radius);
+    }
 }

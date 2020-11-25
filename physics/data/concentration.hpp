@@ -30,6 +30,8 @@ struct DotRadConc
 
 class Concentrations : std::vector<DotRadConc>
 {
+public:
+
     /*!
      * \brief Constructor.
      * \param dimension of point grid for knowing concentrations on sphere

@@ -1,4 +1,5 @@
 #include "mainmodel.hpp"
+#include "physics/data/concentration.hpp"
 
 using namespace volatrack;
 
@@ -40,7 +41,11 @@ void MainModel::diffusionTestRun()
 {
     m_data = Data::diffusionData();
     m_data.passGen(m_gen);
+
     commonLoop("DiffusionTest");
+
+    concentration::Concentrations cc(100);
+    cc.calculate(m_data, 0);
 }
 
 void MainModel::runFromJson(const QString &runFile, real simTime,
