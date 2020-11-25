@@ -70,6 +70,13 @@ public:
      */
     void moveBy(real d, real alpha);
 
+    /*!
+     * \brief make grid of surfpoints about evenly on a sphere
+     * \param dim - dimension/size of grid
+     * \return the generated grid
+     */
+    static std::vector<SurfPoint> makeGrid(Size dim);
+
 private:
 
     // orthogonal transformation frame (0, 0, 1) --> (x, y, z)

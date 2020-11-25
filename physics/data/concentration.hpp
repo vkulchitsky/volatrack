@@ -12,18 +12,35 @@
 
 namespace volatrack
 {
-namespace conectration
+namespace concentration
 {
 
 struct DotRadConc
 {
-    real conectration;
+    DotRadConc(real c, SurfPoint p, real r)
+        : concentration(c)
+        , point(p)
+        , radius(r)
+    {}
+
+    real concentration;
     SurfPoint point;
     real radius;
 };
 
 class Concentrations : std::vector<DotRadConc>
 {
+    /*!
+     * \brief Constructor.
+     * \param dimension of point grid for knowing concentrations on sphere
+     */
+    Concentrations(Size gridDimension);
+
+    /*!
+     * \brief calculate concentrations for volatiles on a sphere
+     * \param data
+     * \param isphere
+     */
     void calculate(const Data& data, Index isphere);
 };
 

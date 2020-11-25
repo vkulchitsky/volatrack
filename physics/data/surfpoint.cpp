@@ -42,6 +42,34 @@ void SurfPoint::moveBy(real d, real alpha)
     normalize();
 }
 
+std::vector<SurfPoint> SurfPoint::makeGrid(Size dim)
+{
+    std::vector<SurfPoint> res;
+
+    for (Index i = 0; i < dim; ++i)
+    {
+        for (Index j = 0; j < dim; ++j)
+        {
+            for (Index k = 0; k < dim; ++k)
+            {
+                if (i > 0 && i < dim - 1)
+                {
+                    if (j > 0 && j < dim - 1)
+                    {
+                        if (k > 0 && k < dim - 1) continue;
+                    }
+                }
+
+                SurfPoint sp((i + 0.5) / dim, (j + 0.5) / dim, (k + 0.5) / dim);
+                sp.normalize();
+                res.push_back(sp);
+            }
+        }
+    }
+
+    return res;
+}
+
 mat3 SurfPoint::frame()
 {
     // diag = sqrt(x2 + y2)
