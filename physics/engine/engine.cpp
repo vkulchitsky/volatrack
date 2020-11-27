@@ -6,7 +6,7 @@
 namespace volatrack {
 
 
-Engine::Engine() : m_lastSaveTime(0)
+Engine::Engine() : m_lastSaveTime(0), m_lastJumpCheckTime(0)
 {
     //
 }
@@ -16,7 +16,7 @@ Engine::Engine(const Data &data)
     init(data);
 }
 
-void Engine::process(Data &data)
+void Engine::randomWalkProcess(Data &data)
 {
     // every volatile travels sphere distance into a random direction
 
@@ -38,9 +38,21 @@ void Engine::process(Data &data)
     data.time.t += data.time.dt;
 }
 
+void Engine::jumpingProcess(Data &data)
+{
+    real dR = 0.01;
+    auto contacts = getContacts(data, dR);
+
+    for (auto& pair : contacts)
+    {
+        //
+    }
+}
+
 void Engine::init(const Data &data)
 {
     m_lastSaveTime = data.time.t;
+    m_lastJumpCheckTime = data.time.t;
     m_timeVolCoeff = data.time.volCoeff();
 }
 
@@ -49,6 +61,17 @@ bool Engine::needsSaving(const Data &data)
     if (data.time.t - m_lastSaveTime > data.time.dtSave)
     {
         m_lastSaveTime = data.time.t;
+        return true;
+    }
+
+    return false;
+}
+
+bool Engine::needsJumpCheck(const Data &data)
+{
+    if (data.time.t - m_lastJumpCheckTime > data.time.dtJump)
+    {
+        m_lastJumpCheckTime = data.time.t;
         return true;
     }
 
@@ -65,9 +88,9 @@ bool Engine::areNear(const Data &data, Index i, Index j, real dR)
     return (totalDistance2 < std::pow(first.R + second.R + dR, 2));
 }
 
-Pairs Engine::getContacts(const Data &data, real dR)
+Contacts Engine::getContacts(const Data &data, real dR)
 {
-    Pairs res;
+    Contacts res;
 
     for (Index i = 0; i < data.spheres().size(); ++i)
     {
@@ -75,7 +98,9 @@ Pairs Engine::getContacts(const Data &data, real dR)
         {
             if (areNear(data, i, j, dR))
             {
-                res.push_back({i, j});
+                SurfPoint s1(0, 0, 1);
+                SurfPoint s2(0, 0, 1);
+                res.push_back({i, s1, j, s2});
             }
         }
     }

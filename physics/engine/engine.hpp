@@ -9,6 +9,7 @@
 #define ENGINE_H
 
 #include "physics/data/data.hpp"
+#include "physics/data/contacts.hpp"
 
 namespace volatrack {
 
@@ -30,10 +31,17 @@ public:
     Engine(const Data &data);
 
     /*!
-     * \brief process that alters data accordingly
+     * \brief process for random walk portion that alters data accordingly
      * \param data to be altered
      */
-    void process(Data& data);
+    void randomWalkProcess(Data& data);
+
+    /*!
+     * \brief process for jumping from sphere to sphere that alters data
+     * accordingly
+     * \param data to be altered
+     */
+    void jumpingProcess(Data& data);
 
     /*!
      * \brief initital steps for starting simulation
@@ -47,6 +55,13 @@ public:
      * \return whether data is in need of saving
      */
     bool needsSaving(const Data& data);
+
+    /*!
+     * \brief if called, engine checks for sphere-to-sphere jumping
+     * \param data
+     * \return whether the engine must check for jumping
+     */
+    bool needsJumpCheck(const Data& data);
 
     /*!
      * \brief whether two spheres are near each other
@@ -64,7 +79,7 @@ public:
      * \param dR - how close they have to be
      * \return list of all contacts
      */
-    Pairs getContacts(const Data& data, real dR = 0);
+    Contacts getContacts(const Data& data, real dR = 0);
 
     /*!
      * \brief use random double generator that is given
@@ -77,6 +92,7 @@ private:
     real stdrdSphDist(Index isphere, const Data &data);
 
     real m_lastSaveTime;
+    real m_lastJumpCheckTime;
     real m_timeVolCoeff;
     std::shared_ptr<std::default_random_engine> m_gen;
 };

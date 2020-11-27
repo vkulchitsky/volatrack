@@ -21,11 +21,15 @@ void MainModel::commonLoop(const QString &projName, const QString &targetDir,
 
     while (m_data.time.t < endTime)
     {
-        engine.process(m_data);
+        engine.randomWalkProcess(m_data);
 
         if (engine.needsSaving(m_data))
         {
               pc.saveToJsonFile(m_data);
+        }
+        if (engine.needsJumpCheck(m_data))
+        {
+            engine.jumpingProcess(m_data);
         }
     }
 }

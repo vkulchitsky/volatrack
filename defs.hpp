@@ -31,6 +31,7 @@
 #define TIME_CURRENT "current time"
 #define TIME_STEP "time step"
 #define TIME_SAVE_STEP "save time step"
+#define TIME_JUMP_STEP "jumping time interval"
 
 #define VOL_SPH_INDEX "isphere"
 #define VOL_SURLOC "surface location"

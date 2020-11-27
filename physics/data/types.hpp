@@ -27,8 +27,6 @@ using Flagger = unsigned int;
 using vec3 = QVector3D;
 using quat = QVector4D;
 
-using Pairs = std::vector<std::pair<Index, Index>>;
-
 struct CanIO
 {
     virtual QJsonObject saveToJson() const = 0;

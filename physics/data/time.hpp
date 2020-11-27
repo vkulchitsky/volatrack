@@ -46,6 +46,7 @@ public:
     real t; //!< current time
     real dt; //!< time step
     real dtSave; //!< save time step
+    real dtJump; //!< sphere to sphere jumping check interval
 };
 
 }
