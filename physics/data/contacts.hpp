@@ -1,3 +1,10 @@
+/*!
+    Structure that carries information for a contact
+    @file contacts.hpp
+    @author Vladimir A Kulchitsky
+    @version 1.0 11/25/2020
+*/
+
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
 

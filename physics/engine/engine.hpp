@@ -90,6 +90,7 @@ public:
 private:
 
     real stdrdSphDist(Index isphere, const Data &data);
+    static std::vector<quat> rotMat(quat q);
 
     real m_lastSaveTime;
     real m_lastJumpCheckTime;

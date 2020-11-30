@@ -98,8 +98,20 @@ Contacts Engine::getContacts(const Data &data, real dR)
         {
             if (areNear(data, i, j, dR))
             {
-                SurfPoint s1(0, 0, 1);
-                SurfPoint s2(0, 0, 1);
+                // get transformation matrix from polyphysica
+                auto sphi = data.spheres()[i];
+                auto sphj = data.spheres()[j];
+
+                auto Ti = rotMat(sphi.q);
+                auto Tj = rotMat(sphj.q);
+
+                // ASSUMING SPHERES ARE NOT ORIENTED
+
+                SurfPoint s1(sphj.c - sphi.c);
+                s1.normalize();
+                SurfPoint s2(sphi.c - sphj.c);
+                s2.normalize();
+
                 res.push_back({i, s1, j, s2});
             }
         }
@@ -117,6 +129,18 @@ real Engine::stdrdSphDist(Index isphere, const Data& data)
 
     // volatile travel formula
     return d0 * m_timeVolCoeff * std::exp(-E0 / (2 * kB * sphere.T));
+}
+
+std::vector<quat> Engine::rotMat(quat q)
+{
+    float xx{ 2*q.x()*q.x() }, yy{ 2*q.y()*q.y() }, zz{ 2*q.z()*q.z() },
+          xy{ 2*q.x()*q.y() }, xz{ 2*q.x()*q.z() }, yz{ 2*q.y()*q.z() },
+          xw{ 2*q.x()*q.w() }, yw{ 2*q.y()*q.w() }, zw{ 2*q.z()*q.w() };
+
+    return {{1-(yy+zz),    xy-zw,     xz+yw,  0},
+               {xy+zw,  1-(xx+zz),    yz-xw,  0},
+               {xz-yw,     yz+xw,  1-(xx+yy), 0},
+                   {0,         0,          0, 1}};
 }
 
 void Engine::passGen(const std::shared_ptr<std::default_random_engine> &gen)
