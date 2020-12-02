@@ -9,6 +9,7 @@
 #define SPHERE_H
 
 #include "material.hpp"
+#include "quat.hpp"
 
 namespace volatrack
 {

@@ -25,7 +25,7 @@ using Size = unsigned long;
 using Flagger = unsigned int;
 
 using vec3 = QVector3D;
-using quat = QVector4D;
+using vec4 = QVector4D;
 
 struct CanIO
 {

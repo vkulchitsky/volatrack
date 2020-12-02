@@ -102,8 +102,8 @@ Contacts Engine::getContacts(const Data &data, real dR)
                 auto sphi = data.spheres()[i];
                 auto sphj = data.spheres()[j];
 
-                auto Ti = rotMat(sphi.q);
-                auto Tj = rotMat(sphj.q);
+                auto Ti = sphi.q.rotMat();
+                auto Tj = sphj.q.rotMat();
 
                 // ASSUMING SPHERES ARE NOT ORIENTED
 
@@ -129,18 +129,6 @@ real Engine::stdrdSphDist(Index isphere, const Data& data)
 
     // volatile travel formula
     return d0 * m_timeVolCoeff * std::exp(-E0 / (2 * kB * sphere.T));
-}
-
-std::vector<quat> Engine::rotMat(quat q)
-{
-    float xx{ 2*q.x()*q.x() }, yy{ 2*q.y()*q.y() }, zz{ 2*q.z()*q.z() },
-          xy{ 2*q.x()*q.y() }, xz{ 2*q.x()*q.z() }, yz{ 2*q.y()*q.z() },
-          xw{ 2*q.x()*q.w() }, yw{ 2*q.y()*q.w() }, zw{ 2*q.z()*q.w() };
-
-    return {{1-(yy+zz),    xy-zw,     xz+yw,  0},
-               {xy+zw,  1-(xx+zz),    yz-xw,  0},
-               {xz-yw,     yz+xw,  1-(xx+yy), 0},
-                   {0,         0,          0, 1}};
 }
 
 void Engine::passGen(const std::shared_ptr<std::default_random_engine> &gen)
