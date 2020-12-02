@@ -21,15 +21,15 @@ public:
     mat4(const vec4& left, const vec4& mLeft, const vec4& mRight,
          const vec4& right);
 
-    mat4 operator+(const mat4& other);
-    mat4 operator-(const mat4& other);
-    vec4 operator*(const vec4& original);
-    mat4 operator*(const mat4& other);
+    mat4 operator+(const mat4& other) const;
+    mat4 operator-(const mat4& other) const;
+    vec4 operator*(const vec4& original) const;
+    mat4 operator*(const mat4& other) const;
 
-    vec4 topRow();
-    vec4 midTopRow();
-    vec4 midBottomRow();
-    vec4 bottomRow();
+    vec4 topRow() const;
+    vec4 midTopRow() const;
+    vec4 midBottomRow() const;
+    vec4 bottomRow() const;
 
     static mat4 identity();
 

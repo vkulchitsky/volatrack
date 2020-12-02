@@ -2,7 +2,7 @@
 
 using namespace volatrack;
 
-mat4 quat::rotMat()
+mat4 quat::rotMat() const
 {
     float xx{ 2 * x() * x() }, yy{ 2 * y() * y() }, zz{ 2 * z() * z() },
           xy{ 2 * x() * y() }, xz{ 2 * x() * z() }, yz{ 2 * y() * z() },

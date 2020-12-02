@@ -21,7 +21,7 @@ class quat : public vec4
 
 public:
 
-    mat4 rotMat();
+    mat4 rotMat() const;
 };
 
 }

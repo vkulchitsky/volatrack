@@ -10,6 +10,8 @@
 
 #include "types.hpp"
 #include "mat3.hpp"
+#include "mat4.hpp"
+#include "quat.hpp"
 
 namespace volatrack
 {
@@ -69,6 +71,18 @@ public:
      * \param alpha - in what direction to move
      */
     void moveBy(real d, real alpha);
+
+    /*!
+     * \brief Rotate by quaternion
+     * \param q - quaternion to rotate by
+     */
+    void rotateBy(const quat& q);
+
+    /*!
+     * \brief Rotate by rotation matrix
+     * \param rotMat - rotation matrix to rotate by
+     */
+    void rotateBy(const mat4& rotMat);
 
     /*!
      * \brief make grid of surfpoints about evenly on a sphere

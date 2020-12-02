@@ -98,21 +98,20 @@ Contacts Engine::getContacts(const Data &data, real dR)
         {
             if (areNear(data, i, j, dR))
             {
-                // get transformation matrix from polyphysica
                 auto sphi = data.spheres()[i];
                 auto sphj = data.spheres()[j];
 
-                auto Ti = sphi.q.rotMat();
-                auto Tj = sphj.q.rotMat();
+                SurfPoint spi(sphj.c - sphi.c);
+                spi.normalize();
+                spi.rotateBy(sphi.q);
+                spi.normalize();
 
-                // ASSUMING SPHERES ARE NOT ORIENTED
+                SurfPoint spj(sphi.c - sphj.c);
+                spj.normalize();
+                spj.rotateBy(sphj.q);
+                spj.normalize();
 
-                SurfPoint s1(sphj.c - sphi.c);
-                s1.normalize();
-                SurfPoint s2(sphi.c - sphj.c);
-                s2.normalize();
-
-                res.push_back({i, s1, j, s2});
+                res.push_back({i, spi, j, spj});
             }
         }
     }

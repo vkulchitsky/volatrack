@@ -11,25 +11,25 @@ mat4::mat4(const vec4 &left, const vec4& mLeft, const vec4 &mRight, const vec4 &
 
 }
 
-vec4 mat4::topRow()
+vec4 mat4::topRow() const
 {
     return {leftColumn.x(), midLeftColumn.x(), midRightColumn.x(),
                 rightColumn.x()};
 }
 
-vec4 mat4::midTopRow()
+vec4 mat4::midTopRow() const
 {
     return {leftColumn.y(), midLeftColumn.y(), midRightColumn.y(),
                 rightColumn.y()};
 }
 
-vec4 mat4::midBottomRow()
+vec4 mat4::midBottomRow() const
 {
     return {leftColumn.z(), midLeftColumn.z(), midRightColumn.z(),
                 rightColumn.z()};
 }
 
-vec4 mat4::bottomRow()
+vec4 mat4::bottomRow() const
 {
     return {leftColumn.w(), midLeftColumn.w(), midRightColumn.w(),
                 rightColumn.w()};
@@ -40,7 +40,7 @@ mat4 mat4::identity()
     return {{1, 0, 0, 0}, {0, 1, 0, 0}, {0, 0, 1, 0}, {0, 0, 0, 1}};
 }
 
-mat4 mat4::operator+(const mat4 &other)
+mat4 mat4::operator+(const mat4 &other) const
 {
     return
     {
@@ -51,7 +51,7 @@ mat4 mat4::operator+(const mat4 &other)
     };
 }
 
-mat4 mat4::operator-(const mat4 &other)
+mat4 mat4::operator-(const mat4 &other) const
 {
     return
     {
@@ -62,7 +62,7 @@ mat4 mat4::operator-(const mat4 &other)
     };
 }
 
-vec4 mat4::operator*(const vec4 &original)
+vec4 mat4::operator*(const vec4 &original) const
 {
     return
     {
@@ -73,7 +73,7 @@ vec4 mat4::operator*(const vec4 &original)
     };
 }
 
-mat4 mat4::operator*(const mat4 &other)
+mat4 mat4::operator*(const mat4 &other) const
 {
     return
     {

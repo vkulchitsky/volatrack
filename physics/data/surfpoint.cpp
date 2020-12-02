@@ -42,6 +42,18 @@ void SurfPoint::moveBy(real d, real alpha)
     normalize();
 }
 
+void SurfPoint::rotateBy(const quat &q)
+{
+    rotateBy(q.rotMat());
+}
+
+void SurfPoint::rotateBy(const mat4 &rotMat)
+{
+    vec4 rect4(m_rect, 0);
+    rect4 = rotMat * rect4;
+    m_rect = {rect4.x(), rect4.y(), rect4.z()};
+}
+
 std::vector<SurfPoint> SurfPoint::makeGrid(Size dim)
 {
     std::vector<SurfPoint> res;
