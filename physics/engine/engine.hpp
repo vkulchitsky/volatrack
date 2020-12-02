@@ -90,11 +90,14 @@ public:
 private:
 
     real stdrdSphDist(Index isphere, const Data &data);
+    Contact getContact(Index i, Index j, const Data& data);
 
     real m_lastSaveTime;
     real m_lastJumpCheckTime;
     real m_timeVolCoeff;
     std::shared_ptr<std::default_random_engine> m_gen;
+    Contacts m_contacts;
+    real m_dR;
 };
 
 }

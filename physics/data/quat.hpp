@@ -21,7 +21,12 @@ class quat : public vec4
 
 public:
 
+    quat();
+    quat(const vec4& vec);
+    quat(real w, real x, real y, real z);
+
     mat4 rotMat() const;
+    quat inverse();
 };
 
 }

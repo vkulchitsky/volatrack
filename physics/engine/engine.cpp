@@ -40,10 +40,7 @@ void Engine::randomWalkProcess(Data &data)
 
 void Engine::jumpingProcess(Data &data)
 {
-    real dR = 0.01;
-    auto contacts = getContacts(data, dR);
-
-    for (auto& pair : contacts)
+    for (auto& contact : m_contacts)
     {
         //
     }
@@ -54,6 +51,8 @@ void Engine::init(const Data &data)
     m_lastSaveTime = data.time.t;
     m_lastJumpCheckTime = data.time.t;
     m_timeVolCoeff = data.time.volCoeff();
+    m_contacts = getContacts(data, 0);
+    m_dR = 0.01;
 }
 
 bool Engine::needsSaving(const Data &data)
@@ -98,20 +97,7 @@ Contacts Engine::getContacts(const Data &data, real dR)
         {
             if (areNear(data, i, j, dR))
             {
-                auto sphi = data.spheres()[i];
-                auto sphj = data.spheres()[j];
-
-                SurfPoint spi(sphj.c - sphi.c);
-                spi.normalize();
-                spi.rotateBy(sphi.q);
-                spi.normalize();
-
-                SurfPoint spj(sphi.c - sphj.c);
-                spj.normalize();
-                spj.rotateBy(sphj.q);
-                spj.normalize();
-
-                res.push_back({i, spi, j, spj});
+                res.push_back(getContact(i, j, data));
             }
         }
     }
@@ -128,6 +114,24 @@ real Engine::stdrdSphDist(Index isphere, const Data& data)
 
     // volatile travel formula
     return d0 * m_timeVolCoeff * std::exp(-E0 / (2 * kB * sphere.T));
+}
+
+Contact Engine::getContact(Index i, Index j, const Data &data)
+{
+    auto sphi = data.spheres()[i];
+    auto sphj = data.spheres()[j];
+
+    SurfPoint spi(sphj.c - sphi.c);
+    spi.normalize();
+    spi.rotateBy(sphi.q.inverse());
+    spi.normalize();
+
+    SurfPoint spj(sphi.c - sphj.c);
+    spj.normalize();
+    spj.rotateBy(sphj.q.inverse());
+    spj.normalize();
+
+    return {i, spi, j, spj};
 }
 
 void Engine::passGen(const std::shared_ptr<std::default_random_engine> &gen)
