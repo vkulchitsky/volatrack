@@ -20,7 +20,7 @@ void Engine::randomWalkProcess(Data &data)
 {
     // every volatile travels sphere distance into a random direction
 
-    auto dist = std::uniform_real_distribution<double>(0, 2 * PI);
+    auto dist = std::uniform_real_distribution<double>(0, 2 * cst::PI);
 
     Volatiles newVols = data.volatiles();
 
@@ -42,7 +42,14 @@ void Engine::jumpingProcess(Data &data)
 {
     for (auto& contact : m_contacts)
     {
-        //
+        for (auto& vol : data.volatiles())
+        {
+            if (vol.isphere != contact.i && vol.isphere != contact.j) continue;
+            SurfPoint sp = contact.pointOf(vol.isphere);
+            if (sp.angleWith(vol.loc) > m_jumpingAngle) continue;
+
+            //
+        }
     }
 }
 
@@ -53,6 +60,7 @@ void Engine::init(const Data &data)
     m_timeVolCoeff = data.time.volCoeff();
     m_contacts = getContacts(data, 0);
     m_dR = 0.01;
+    m_jumpingAngle = cst::PI / 180;
 }
 
 bool Engine::needsSaving(const Data &data)
@@ -110,10 +118,10 @@ real Engine::stdrdSphDist(Index isphere, const Data& data)
     auto& sphere = data.spheres()[isphere];
 
     // keeping it relative because we will have to divide by R anyway
-    auto d0 = d0Rel;
+    auto d0 = cst::d0Rel;
 
     // volatile travel formula
-    return d0 * m_timeVolCoeff * std::exp(-E0 / (2 * kB * sphere.T));
+    return d0 * m_timeVolCoeff * std::exp(-cst::E0 / (2 * cst::kB * sphere.T));
 }
 
 Contact Engine::getContact(Index i, Index j, const Data &data)

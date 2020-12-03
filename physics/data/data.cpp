@@ -121,7 +121,7 @@ Data Data::diffusionData()
     Data data;
 
     Sphere sph(0, 0, 0, 5);
-    sph.T = waterFreeze - 80;
+    sph.T = cst::waterFreeze - 80;
     data.pushSphere(sph);
 
     Size numVols = 5000;
@@ -208,5 +208,5 @@ real Data::concentration(Index isphere, const SurfPoint &sp, real rad)
         }
     }
 
-    return volCount / (PI * rad2);
+    return volCount / (cst::PI * rad2);
 }

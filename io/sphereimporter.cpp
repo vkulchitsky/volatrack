@@ -33,8 +33,8 @@ std::vector<Sphere> SphereImporter::spheresFromObject(const QJsonObject &obj)
 
     auto gen = std::default_random_engine();
     real increment = 100.0;
-    auto dist = std::uniform_real_distribution<double>(waterFreeze - increment,
-                                                       waterFreeze + increment);
+    auto dist = std::uniform_real_distribution<double>(cst::waterFreeze
+                                     - increment, cst::waterFreeze + increment);
 
     for (int i = 0; i < obj["spheres"].toObject().length(); ++i)
     {

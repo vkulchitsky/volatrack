@@ -12,7 +12,7 @@ Concentrations::Concentrations(Size gridDimension)
 
     for (auto& pt : points)
     {
-        real rad = 2 * PI / gridDimension;
+        real rad = 2 * cst::PI / gridDimension;
         DotRadConc drc(0, pt, rad);
         this->push_back(drc);
     }
@@ -45,6 +45,6 @@ void Concentrations::calculate(const Data &data, Index isphere)
     for (Index i = 0; i < size(); ++i)
     {
         auto& item = (*this)[i];
-        item.concentration = volCounts[i] / (PI * item.radius * item.radius);
+        item.concentration = volCounts[i] / (cst::PI * item.radius * item.radius);
     }
 }

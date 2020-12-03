@@ -16,11 +16,12 @@ namespace volatrack
 struct Contact
 {
     Contact(Index i1, SurfPoint pt1, Index i2, SurfPoint pt2);
+    SurfPoint pointOf(Index index);
 
-    Index iFirst;
-    SurfPoint ptFirst;
-    Index iSecond;
-    SurfPoint ptSecond;
+    Index i;
+    SurfPoint spi;
+    Index j;
+    SurfPoint spj;
 };
 
 using Contacts = std::vector<Contact>;

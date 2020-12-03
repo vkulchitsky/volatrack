@@ -33,5 +33,5 @@ void Time::loadFromJson(const QJsonObject &jo)
 
 real Time::volCoeff() const
 {
-    return std::sqrt(dt / tau);
+    return std::sqrt(dt / cst::tau);
 }

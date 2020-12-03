@@ -98,6 +98,7 @@ private:
     std::shared_ptr<std::default_random_engine> m_gen;
     Contacts m_contacts;
     real m_dR;
+    real m_jumpingAngle;
 };
 
 }

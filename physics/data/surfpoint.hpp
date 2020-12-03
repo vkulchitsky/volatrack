@@ -85,6 +85,13 @@ public:
     void rotateBy(const mat4& rotMat);
 
     /*!
+     * \brief angle between two surface points
+     * \param other surface point
+     * \return the angle
+     */
+    real angleWith(const SurfPoint& other);
+
+    /*!
      * \brief make grid of surfpoints about evenly on a sphere
      * \param dim - dimension/size of grid
      * \return the generated grid

@@ -13,6 +13,8 @@
 namespace volatrack
 {
 
+namespace cst {
+
 const real waterFreeze = 273.15; //!< water freezing temperature
 
 // will be adjusted to the correct value!
@@ -33,6 +35,8 @@ const real kB = 1.38e-23; //!< Boltzman's constant
 const real d0Rel = 1.0; //!< maximum volatile travel relative to sphere
 
 const real PI = 3.14159265358979323846264;
+
+}
 
 }
 

@@ -54,6 +54,17 @@ void SurfPoint::rotateBy(const mat4 &rotMat)
     m_rect = {rect4.x(), rect4.y(), rect4.z()};
 }
 
+real SurfPoint::angleWith(const SurfPoint &other)
+{
+    auto thisL2 = m_rect.lengthSquared();
+    auto otherL2 = other.rect().lengthSquared();
+    auto dotProduct = vec3::dotProduct(m_rect, other.rect());
+
+    auto cosine = dotProduct * dotProduct / (thisL2 * otherL2);
+
+    return std::acos(cosine);
+}
+
 std::vector<SurfPoint> SurfPoint::makeGrid(Size dim)
 {
     std::vector<SurfPoint> res;
