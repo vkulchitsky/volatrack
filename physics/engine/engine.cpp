@@ -40,15 +40,37 @@ void Engine::randomWalkProcess(Data &data)
 
 void Engine::jumpingProcess(Data &data)
 {
+    auto dist = std::uniform_real_distribution<double>(0, 1);
+
     for (auto& contact : m_contacts)
     {
         for (auto& vol : data.volatiles())
         {
             if (vol.isphere != contact.i && vol.isphere != contact.j) continue;
-            SurfPoint sp = contact.pointOf(vol.isphere);
-            if (sp.angleWith(vol.loc) > m_jumpingAngle) continue;
+            Index iCurr = vol.isphere;
+            Index iOther;
+            if (iCurr == contact.i)
+            {
+                iOther = contact.j;
+            }
+            else
+            {
+                iOther = contact.i;
+            }
+            SurfPoint spCurr = contact.pointOf(iCurr);
+            SurfPoint spOther = contact.pointOf(iOther);
+            if (spCurr.angleWith(vol.loc) > m_jumpingAngle) continue;
 
-            //
+            auto sphere = data.spheres()[vol.isphere];
+            auto d0 = cst::d0Rel;
+            auto jumpProbability = 0.5 * std::exp((-cst::S0 * cst::E0)
+                           / (cst::PI * sphere.R * d0 * cst::kB * sphere.T));
+
+            if (dist(*m_gen) < jumpProbability)
+            {
+                vol.isphere = iOther;
+                vol.loc = spOther;
+            }
         }
     }
 }
