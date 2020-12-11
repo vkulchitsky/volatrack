@@ -9,19 +9,22 @@
 #define CONTACT_HPP
 
 #include "surfpoint.hpp"
+#include "data.hpp"
 
 namespace volatrack
 {
 
 struct Contact
 {
-    Contact(Index i1, SurfPoint pt1, Index i2, SurfPoint pt2);
+    Contact(Index i1, SurfPoint pt1, Index i2, SurfPoint pt2, real delta = 0);
     SurfPoint pointOf(Index index);
+    real csArea(const Data& data);
 
     Index i;
     SurfPoint spi;
     Index j;
     SurfPoint spj;
+    real delta;
 };
 
 using Contacts = std::vector<Contact>;

@@ -62,9 +62,9 @@ void Engine::jumpingProcess(Data &data)
             if (spCurr.angleWith(vol.loc) > m_jumpingAngle) continue;
 
             auto sphere = data.spheres()[vol.isphere];
-            auto d0 = cst::d0Rel;
+
             auto jumpProbability = 0.5 * std::exp((-cst::S0 * cst::E0)
-                           / (cst::PI * sphere.R * d0 * cst::kB * sphere.T));
+                           / (contact.csArea(data) * cst::kB * sphere.T));
 
             if (dist(*m_gen) < jumpProbability)
             {
@@ -80,7 +80,7 @@ void Engine::init(const Data &data)
     m_lastSaveTime = data.time.t;
     m_lastJumpCheckTime = data.time.t;
     m_timeVolCoeff = data.time.volCoeff();
-    m_contacts = getContacts(data, 0);
+    m_contacts = getContacts(data);
     m_dR = 0.01;
     m_jumpingAngle = cst::PI / 180;
 }
@@ -107,17 +107,22 @@ bool Engine::needsJumpCheck(const Data &data)
     return false;
 }
 
-bool Engine::areNear(const Data &data, Index i, Index j, real dR)
+real Engine::intersection(const Data &data, Index i, Index j)
 {
     Sphere first = data.spheres()[i];
     Sphere second = data.spheres()[j];
 
-    real totalDistance2 = (first.c - second.c).lengthSquared();
+    if ((first.c - second.c).lengthSquared() > std::pow(first.R + second.R, 2))
+    {
+        return -1;
+    }
 
-    return (totalDistance2 < std::pow(first.R + second.R + dR, 2));
+    real totalDistance = (first.c - second.c).length();
+
+    return first.R + second.R - totalDistance;
 }
 
-Contacts Engine::getContacts(const Data &data, real dR)
+Contacts Engine::getContacts(const Data &data)
 {
     Contacts res;
 
@@ -125,9 +130,10 @@ Contacts Engine::getContacts(const Data &data, real dR)
     {
         for (Index j = i; j < data.spheres().size(); ++j)
         {
-            if (areNear(data, i, j, dR))
+            auto intersect = intersection(data, i, j);
+            if (intersect > 0)
             {
-                res.push_back(getContact(i, j, data));
+                res.push_back(getContact(i, j, intersect, data));
             }
         }
     }
@@ -146,7 +152,7 @@ real Engine::stdrdSphDist(Index isphere, const Data& data)
     return d0 * m_timeVolCoeff * std::exp(-cst::E0 / (2 * cst::kB * sphere.T));
 }
 
-Contact Engine::getContact(Index i, Index j, const Data &data)
+Contact Engine::getContact(Index i, Index j, real delta, const Data &data)
 {
     auto sphi = data.spheres()[i];
     auto sphj = data.spheres()[j];
@@ -161,7 +167,7 @@ Contact Engine::getContact(Index i, Index j, const Data &data)
     spj.rotateBy(sphj.q.inverse());
     spj.normalize();
 
-    return {i, spi, j, spj};
+    return {i, spi, j, spj, delta};
 }
 
 void Engine::passGen(const std::shared_ptr<std::default_random_engine> &gen)

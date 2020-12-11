@@ -71,7 +71,7 @@ public:
      * \param dR - allowed distance
      * \return whether surfaces are less than dR away
      */
-    static bool areNear(const Data& data, Index i, Index j, real dR = 0);
+    static real intersection(const Data& data, Index i, Index j);
 
     /*!
      * \brief contact detection
@@ -79,7 +79,7 @@ public:
      * \param dR - how close they have to be
      * \return list of all contacts
      */
-    Contacts getContacts(const Data& data, real dR = 0);
+    Contacts getContacts(const Data& data);
 
     /*!
      * \brief use random double generator that is given
@@ -90,7 +90,7 @@ public:
 private:
 
     real stdrdSphDist(Index isphere, const Data &data);
-    Contact getContact(Index i, Index j, const Data& data);
+    Contact getContact(Index i, Index j, real delta, const Data& data);
 
     real m_lastSaveTime;
     real m_lastJumpCheckTime;
