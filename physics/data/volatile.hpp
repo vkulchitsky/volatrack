@@ -14,6 +14,15 @@
 
 namespace volatrack {
 
+struct VolGroup : CanIO
+{
+    QString name;
+    vec4 color;
+
+    QJsonObject saveToJson() const override;
+    void loadFromJson(const QJsonObject &jo) override;
+};
+
 struct Volatile : CanIO
 {
     /*!
@@ -37,6 +46,7 @@ struct Volatile : CanIO
 
     Index isphere; //!< index of regolith sphere
     SurfPoint loc; //!< location of volatile within surface of sphere
+    VolGroup group; //!< the volatile's group
 
     Flagger flags; //!< flags (e.g. type of molecule)
 };

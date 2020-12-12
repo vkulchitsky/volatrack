@@ -21,6 +21,9 @@
 #define MAT_VISCG "viscg"
 #define MAT_NAME_F "name"
 
+#define GROUP_NAME "name"
+#define GROUP_COLOR "color"
+
 #define SPHERE_POSITION "position"
 #define SPHERE_ROTATION "orientation"
 #define SPHERE_VELOCITY "velocity"
@@ -36,6 +39,7 @@
 #define VOL_SPH_INDEX "isphere"
 #define VOL_SURLOC "surface location"
 #define VOL_FLAGS "flags"
+#define VOL_GROUP "group"
 
 #define DATA_SPHERES "spheres"
 #define DATA_VOLS "volatiles"
