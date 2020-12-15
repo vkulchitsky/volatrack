@@ -9,6 +9,7 @@ using namespace volatrack;
 Volatile::Volatile(Index i, real x, real y, real z)
     : isphere(i)
     , loc(x, y, z)
+    , igroup(0)
     , flags(0)
 {
     loc.normalize();

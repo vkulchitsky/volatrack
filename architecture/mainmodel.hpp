@@ -60,6 +60,7 @@ private:
 
     void commonLoop(const QString& projName, const QString& targetDir
                     = QDir::homePath(), real simTime = 1.0);
+    void scanData();
 
     Data m_data;
     std::shared_ptr<std::default_random_engine> m_gen;

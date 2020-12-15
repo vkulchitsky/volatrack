@@ -34,17 +34,29 @@ void MainModel::commonLoop(const QString &projName, const QString &targetDir,
     }
 }
 
+void MainModel:: scanData()
+{
+    m_data.passGen(m_gen);
+    if (m_data.volGroups().empty())
+    {
+        VolGroup vg;
+        vg.name = "Default";
+        vg.color = {0, 1, 0, 1};
+        m_data.pushVolGroup(vg);
+    }
+}
+
 void MainModel::simpleTestRun()
 {
     m_data = Data::quickData();
-    m_data.passGen(m_gen);
+    scanData();
     commonLoop("Test");
 }
 
 void MainModel::diffusionTestRun()
 {
     m_data = Data::diffusionData();
-    m_data.passGen(m_gen);
+    scanData();
 
     commonLoop("DiffusionTest");
 
@@ -57,7 +69,7 @@ void MainModel::runFromJson(const QString &runFile, real simTime,
 {
     SphereImporter si(runFile);
 
-    m_data.passGen(m_gen);
+    scanData();
     m_data.setSpheresArray(si.spheres());
     m_data.loadSpheresRandomly(7, true);
 
