@@ -64,6 +64,13 @@ void MainModel::diffusionTestRun()
     cc.calculate(m_data, 0);
 }
 
+void MainModel::twoSphereJumping()
+{
+    m_data = Data::firstJumpingData();
+    scanData();
+    commonLoop("FirstJumpingTest");
+}
+
 void MainModel::runFromJson(const QString &runFile, real simTime,
                             const QString &projName, const QString &targetDir)
 {

@@ -46,6 +46,11 @@ public:
     void diffusionTestRun();
 
     /*!
+     * \brief first test of volatile jumpings with two spheres
+     */
+    void twoSphereJumping();
+
+    /*!
      * \brief run simulation from json file
      * \param file to run
      * \param length of simulation

@@ -119,6 +119,8 @@ public:
 
     static Data diffusionData();
 
+    static Data firstJumpingData();
+
     /*!
      * \brief use random double generator that is given
      * \param generator
