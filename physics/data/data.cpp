@@ -38,6 +38,11 @@ void volatrack::Data::pushVolatile(const volatrack::Volatile &vol)
     m_volatiles.push_back(vol);
 }
 
+void Data::pushVolGroup(const VolGroup &vg)
+{
+    m_volGroups.push_back(vg);
+}
+
 QJsonObject Data::saveToJson() const
 {
     QJsonObject res;
@@ -58,8 +63,17 @@ QJsonObject Data::saveToJson() const
         volArr.insert(i, volObj);
     }
 
+    // fill groups of volatiles
+    QJsonArray vgArr;
+    for (Index i = 0; i < m_volGroups.size(); ++i)
+    {
+        auto vgObj = m_volGroups[i].saveToJson();
+        vgArr.insert(i, vgObj);
+    }
+
     res.insert(DATA_SPHERES, sphArr);
     res.insert(DATA_VOLS, volArr);
+    res.insert(DATA_VGS, vgArr);
     res.insert(DATA_TIME, time.saveToJson());
 
     return res;
@@ -72,6 +86,7 @@ void Data::loadFromJson(const QJsonObject &jo)
 
     auto sphArr = jo[DATA_SPHERES].toArray();
     auto volArr = jo[DATA_VOLS].toArray();
+    auto vgArr = jo[DATA_VGS].toArray();
     auto timeVal = jo[DATA_TIME];
 
     for (auto sph : sphArr)
@@ -88,6 +103,13 @@ void Data::loadFromJson(const QJsonObject &jo)
         m_volatiles.push_back(volat);
     }
 
+    for (auto vg : vgArr)
+    {
+        VolGroup vgr;
+        vgr.loadFromJson(vg.toObject());
+        m_volGroups.push_back(vgr);
+    }
+
     time.loadFromJson(timeVal.toObject());
 }
 
@@ -98,7 +120,7 @@ void Data::setSpheresArray(const Spheres &&spheres)
 
 void Data::setVolatilesArray(const Volatiles &&volatiles)
 {
-    m_volatiles = volatiles;
+    m_volatiles = std::move(volatiles);
 }
 
 Data Data::quickData()
@@ -184,6 +206,16 @@ void Data::addRandomVolatile(Index isphere)
 
     vol.loc.normalize();
     m_volatiles.push_back(vol);
+}
+
+VolGroups Data::volGroups() const
+{
+    return m_volGroups;
+}
+
+void Data::setVolGroupsArray(const VolGroups &&volGroups)
+{
+    m_volGroups = std::move(volGroups);
 }
 
 void Data::passGen(const std::shared_ptr<std::default_random_engine> &gen)

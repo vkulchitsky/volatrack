@@ -36,7 +36,7 @@ QJsonObject Volatile::saveToJson() const
     res.insert(VOL_SURLOC, surfLocArr);
 
     // group
-    res.insert(VOL_GROUP, group.saveToJson());
+    res.insert(VOL_GROUP, static_cast<int>(igroup));
 
     // flags
     res.insert(VOL_FLAGS, static_cast<int>(flags));
@@ -56,7 +56,7 @@ void Volatile::loadFromJson(const QJsonObject &jo)
     rect.setZ(surfLocArr[2].toDouble());
 
     loc.setRect(rect);
-    group.loadFromJson(jo[VOL_GROUP].toObject());
+    igroup = jo[VOL_GROUP].toInt();
     flags = static_cast<Flagger>(jo[VOL_FLAGS].toInt());
 }
 

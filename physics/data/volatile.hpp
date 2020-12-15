@@ -46,13 +46,14 @@ struct Volatile : CanIO
 
     Index isphere; //!< index of regolith sphere
     SurfPoint loc; //!< location of volatile within surface of sphere
-    VolGroup group; //!< the volatile's group
+    Index igroup; //!< the volatile's group
 
     Flagger flags; //!< flags (e.g. type of molecule)
 };
 
 //! defining Volatiles as Volatile vector
 using Volatiles = std::vector<Volatile>;
+using VolGroups = std::vector<VolGroup>;
 
 }
 

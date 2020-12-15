@@ -49,6 +49,12 @@ public:
     Volatiles volatiles() const;
 
     /*!
+     * \brief volatile groups getter
+     * \return
+     */
+    VolGroups volGroups() const;
+
+    /*!
      * \brief push sphere to data
      * \param sphere to be pushed
      */
@@ -59,6 +65,8 @@ public:
      * \param volatile to push
      */
     void pushVolatile(const Volatile& vol);
+
+    void pushVolGroup(const VolGroup& vg);
 
     /*!
      * \brief save to json format
@@ -83,6 +91,12 @@ public:
      * \param volatiles to set
      */
     void setVolatilesArray(const Volatiles&& volatiles);
+
+    /*!
+     * \brief setter for volatile groups array with move semantics
+     * \param volGroups
+     */
+    void setVolGroupsArray(const VolGroups &&volGroups);
 
     /*!
      * \brief load each sphere uniformly with six volatiles
@@ -114,7 +128,7 @@ public:
     real concentration(Index isphere, const SurfPoint& sp, real rad);
     //
 
-    Time time;    
+    Time time;
 
 private:
     void loadSphereEvenly(Index isphere);
@@ -123,6 +137,7 @@ private:
 
     Spheres m_spheres;
     Volatiles m_volatiles;
+    VolGroups m_volGroups;
     std::shared_ptr<std::default_random_engine> m_gen;
 };
 

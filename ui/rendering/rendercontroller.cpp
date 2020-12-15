@@ -12,8 +12,6 @@ QVector<RenderSphere> RenderController::spheresFromData(const Data &data)
     QVector<RenderSphere> res;
 
     QVector4D sphereColor(1, 0, 0, 0.5);
-    QVector4D volatileColor(0, 1, 0, 1);
-
     const real volDotScale = 0.05;
 
     for (auto& sph : data.spheres())
@@ -35,7 +33,7 @@ QVector<RenderSphere> RenderController::spheresFromData(const Data &data)
     {
         RenderSphere rs;
 
-        rs.color = volatileColor;
+        rs.color = data.volGroups()[vol.igroup].color;
 
         rs.model.setToIdentity();
         rs.model.translate(vol.absolutePosition(data.spheres()));

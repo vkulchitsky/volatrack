@@ -43,6 +43,7 @@
 
 #define DATA_SPHERES "spheres"
 #define DATA_VOLS "volatiles"
+#define DATA_VGS "volatile groups"
 #define DATA_TIME "time"
 
 #define INFO_SIM "simulation name"
