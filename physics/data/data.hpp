@@ -55,6 +55,11 @@ public:
     VolGroups volGroups() const;
 
     /*!
+     * \brief clear volatile groups
+     */
+    void clearVolGroups();
+
+    /*!
      * \brief push sphere to data
      * \param sphere to be pushed
      */
@@ -118,8 +123,6 @@ public:
     static Data quickData();
 
     static Data diffusionData();
-
-    static Data firstJumpingData();
 
     /*!
      * \brief use random double generator that is given

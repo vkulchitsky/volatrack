@@ -7,6 +7,7 @@ namespace volatrack {
 
 
 Engine::Engine() : m_lastSaveTime(0), m_lastJumpCheckTime(0)
+  , m_jumpingAngle(cst::PI / 6)
 {
     //
 }

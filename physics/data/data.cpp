@@ -156,22 +156,6 @@ Data Data::diffusionData()
     return data;
 }
 
-Data Data::firstJumpingData()
-{
-    Data data;
-
-    Sphere rs(0.5, 0, 0, 1);
-    Sphere ls(-0.5, 0, 0, 1);
-    rs.T = cst::waterFreeze;
-    ls.T = cst::waterFreeze - 40;
-    data.pushSphere(rs);
-    data.pushSphere(ls);
-
-    // load both spheres with volatiles and appropriate groups
-
-    return data;
-}
-
 void Data::loadSpheresEvenly()
 {
     for (Index isphere = 0; isphere < m_spheres.size(); ++isphere)
@@ -227,6 +211,11 @@ void Data::addRandomVolatile(Index isphere)
 VolGroups Data::volGroups() const
 {
     return m_volGroups;
+}
+
+void Data::clearVolGroups()
+{
+    m_volGroups.clear();
 }
 
 void Data::setVolGroupsArray(const VolGroups &&volGroups)

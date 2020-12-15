@@ -10,6 +10,7 @@ int main()
 //    model.simpleTestRun();
 //    model.runFromJson(jsonPath);
 //    model.runFromJson(jsonPath, 1, "JsonImportX");
-    model.diffusionTestRun();
+//    model.diffusionTestRun();
+    model.twoSphereJumping();
     return 0;
 }

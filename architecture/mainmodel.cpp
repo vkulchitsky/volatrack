@@ -66,8 +66,43 @@ void MainModel::diffusionTestRun()
 
 void MainModel::twoSphereJumping()
 {
-    m_data = Data::firstJumpingData();
+    m_data.passGen(m_gen);
+
+    const real delta = 0.05;
+
+    Sphere rs(1 - delta * 0.5, 0, 0, 1);
+    Sphere ls(-1 + delta * 0.5, 0, 0, 1);
+    rs.T = cst::waterFreeze;
+    ls.T = cst::waterFreeze - 40;
+    m_data.pushSphere(rs);
+    m_data.pushSphere(ls);
+
+    VolGroup rightGroup;
+    rightGroup.color = {0, 0, 1, 1};
+    rightGroup.name = "Right initial";
+
+    VolGroup leftGroup;
+    leftGroup.color = {0, 1, 0, 1};
+    leftGroup.name = "Left initial";
+
     scanData();
+
+    m_data.loadSpheresRandomly(20, true);
+
+    m_data.clearVolGroups();
+
+    m_data.pushVolGroup(rightGroup);
+    m_data.pushVolGroup(leftGroup);
+
+    auto vols = m_data.volatiles();
+
+    for (auto& vol : vols)
+    {
+        vol.igroup = vol.isphere;
+    }
+
+    m_data.setVolatilesArray(std::move(vols));
+
     commonLoop("FirstJumpingTest");
 }
 

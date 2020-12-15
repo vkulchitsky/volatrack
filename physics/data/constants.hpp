@@ -24,7 +24,7 @@ const real tau = 1e-3; //!< standard volatile movement time
 const real E0 = 2e-20; //!< standard energy for volatile
 
 // will be adjusted to the correct value!
-const real S0 = 1.0; //!< standard constant for jumping probability
+const real S0 = 1e-4; //!< standard constant for jumping probability
 
 // will be adjusted to the correct value!
 const real pdelta = 1.0; //!< standard delta for jumping probability
