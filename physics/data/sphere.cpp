@@ -7,10 +7,13 @@ using namespace volatrack;
 
 Sphere::Sphere(real x, real y, real z, real R)
     : c(x, y, z)
+    , q(1, 0, 0, 0)
     , R(R)
     , T(cst::waterFreeze)
     , material()
-{}
+{
+//    int a = 1;
+}
 
 Sphere::Sphere(vec3 pos, real R)
     : c(pos)

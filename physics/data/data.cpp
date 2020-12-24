@@ -228,6 +228,18 @@ void Data::passGen(const std::shared_ptr<std::default_random_engine> &gen)
     m_gen = gen;
 }
 
+Size Data::volsOnSphere(Index isphere)
+{
+    Size res = 0;
+
+    for (auto& vol : volatiles())
+    {
+        if (vol.isphere == isphere) res++;
+    }
+
+    return res;
+}
+
 real Data::concentration(Index isphere, const SurfPoint &sp, real rad)
 {
     auto rad2 = rad * rad;

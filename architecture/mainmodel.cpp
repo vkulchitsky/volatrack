@@ -1,6 +1,8 @@
 #include "mainmodel.hpp"
 #include "physics/data/concentration.hpp"
 
+#include <iostream>
+
 using namespace volatrack;
 
 MainModel::MainModel()
@@ -72,8 +74,8 @@ void MainModel::twoSphereJumping()
 
     Sphere rs(1 - delta * 0.5, 0, 0, 1);
     Sphere ls(-1 + delta * 0.5, 0, 0, 1);
-    rs.T = cst::waterFreeze;
-    ls.T = cst::waterFreeze - 40;
+    rs.T = cst::waterFreeze - 80;
+    ls.T = cst::waterFreeze + 500;
     m_data.pushSphere(rs);
     m_data.pushSphere(ls);
 
@@ -103,7 +105,77 @@ void MainModel::twoSphereJumping()
 
     m_data.setVolatilesArray(std::move(vols));
 
-    commonLoop("FirstJumpingTest");
+    commonLoop("FirstJumpingTest", QDir::homePath(), 20.0);
+
+    std::cout << "Volatiles on left sphere: " << m_data.volsOnSphere(1)
+              << std::endl;
+    std::cout << "Volatiles on right sphere: " << m_data.volsOnSphere(0)
+              << std::endl;
+}
+
+void MainModel::fiveSphereJumping()
+{
+    m_data.passGen(m_gen);
+
+    const real delta = 0.05;
+
+    Sphere A(-4 + 2 * delta, 0, 0, 1);
+    Sphere B(-2 + delta, 0, 0, 1);
+    Sphere C(0, 0, 0, 1);
+    Sphere D(2 - delta, 0, 0, 1);
+    Sphere E(4 - 2 * delta, 0, 0, 1);
+
+    A.T = cst::waterFreeze - 100;
+    B.T = cst::waterFreeze + 300;
+    C.T = cst::waterFreeze + 200;
+    D.T = cst::waterFreeze + 100;
+    E.T = cst::waterFreeze;
+
+    m_data.pushSphere(A);
+    m_data.pushSphere(B);
+    m_data.pushSphere(C);
+    m_data.pushSphere(D);
+    m_data.pushSphere(E);
+
+    VolGroup gA, gB, gC, gD, gE;
+
+    gA.color = {0, 0, 1, 1};
+    gA.name = "A";
+
+    gB.color = {0, 1, 0, 1};
+    gB.name = "B";
+
+    gC.color = {1, 1, 0, 1};
+    gC.name = "C";
+
+    gD.color = {0, 0, 0, 1};
+    gD.name = "D";
+
+    gE.color = {1, 1, 1, 1};
+    gE.name = "E";
+
+    scanData();
+
+    m_data.loadSpheresRandomly(20, true);
+
+    m_data.clearVolGroups();
+
+    m_data.pushVolGroup(gA);
+    m_data.pushVolGroup(gB);
+    m_data.pushVolGroup(gC);
+    m_data.pushVolGroup(gD);
+    m_data.pushVolGroup(gE);
+
+    auto vols = m_data.volatiles();
+
+    for (auto& vol : vols)
+    {
+        vol.igroup = vol.isphere;
+    }
+
+    m_data.setVolatilesArray(std::move(vols));
+
+    commonLoop("SecondJumpingTest", QDir::homePath(), 20.0);
 }
 
 void MainModel::runFromJson(const QString &runFile, real simTime,

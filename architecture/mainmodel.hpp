@@ -51,6 +51,11 @@ public:
     void twoSphereJumping();
 
     /*!
+     * \brief second test of volatile jumpings with five spheres
+     */
+    void fiveSphereJumping();
+
+    /*!
      * \brief run simulation from json file
      * \param file to run
      * \param length of simulation

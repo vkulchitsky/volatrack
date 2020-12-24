@@ -7,7 +7,7 @@ namespace volatrack {
 
 
 Engine::Engine() : m_lastSaveTime(0), m_lastJumpCheckTime(0)
-  , m_jumpingAngle(cst::PI / 6)
+  , m_jumpingAngle(cst::PI)
 {
     //
 }
@@ -43,9 +43,11 @@ void Engine::jumpingProcess(Data &data)
 {
     auto dist = std::uniform_real_distribution<double>(0, 1);
 
+    auto vols = data.volatiles();
+
     for (auto& contact : m_contacts)
     {
-        for (auto& vol : data.volatiles())
+        for (auto& vol : vols)
         {
             if (vol.isphere != contact.i && vol.isphere != contact.j) continue;
             Index iCurr = vol.isphere;
@@ -74,6 +76,8 @@ void Engine::jumpingProcess(Data &data)
             }
         }
     }
+
+    data.setVolatilesArray(std::move(vols));
 }
 
 void Engine::init(const Data &data)
@@ -129,7 +133,7 @@ Contacts Engine::getContacts(const Data &data)
 
     for (Index i = 0; i < data.spheres().size(); ++i)
     {
-        for (Index j = i; j < data.spheres().size(); ++j)
+        for (Index j = i + 1; j < data.spheres().size(); ++j)
         {
             auto intersect = intersection(data, i, j);
             if (intersect > 0)

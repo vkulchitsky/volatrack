@@ -130,6 +130,13 @@ public:
      */
     void passGen(const std::shared_ptr<std::default_random_engine> &gen);
 
+    /*!
+     * \brief number of volatiles on given sphere
+     * \param index of sphere
+     * \return number of volatiles
+     */
+    Size volsOnSphere(Index isphere);
+
     real concentration(Index isphere, const SurfPoint& sp, real rad);
     //
 
