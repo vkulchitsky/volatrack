@@ -38,7 +38,7 @@ void SurfPoint::moveBy(real d, real alpha)
     // so m_rect changes by very little
     m_rect += frame() * dAlpha;
 
-    // should already be pretty muc/*1 - 0.5 * d * d*/h normal, but just in case
+    // should already be pretty much normal, but just in case
     normalize();
 }
 

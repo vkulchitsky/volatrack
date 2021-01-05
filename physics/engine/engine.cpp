@@ -45,32 +45,39 @@ void Engine::jumpingProcess(Data &data)
 
     auto vols = data.volatiles();
 
+    // go through each volatile for each contact
     for (auto& contact : m_contacts)
     {
-        for (auto& vol : vols)
+        for (Index ivol = 0; ivol < vols.size(); ++ivol)
         {
+            auto& vol = vols[ivol];
+
+            // the volatile must be on one of the spheres of the contact
+            // otherwise we continue
             if (vol.isphere != contact.i && vol.isphere != contact.j) continue;
+
+            // defining the spheres are Current and Other
             Index iCurr = vol.isphere;
-            Index iOther;
-            if (iCurr == contact.i)
-            {
-                iOther = contact.j;
-            }
-            else
-            {
-                iOther = contact.i;
-            }
+            Index iOther = (iCurr == contact.i) ? contact.j : contact.i;
+
+            // finding the points on each contact sphere
             SurfPoint spCurr = contact.pointOf(iCurr);
             SurfPoint spOther = contact.pointOf(iOther);
+
+            // is the volatile close enough to the contact point?
             if (spCurr.angleWith(vol.loc) > m_jumpingAngle) continue;
 
+            // current sphere
             auto sphere = data.spheres()[vol.isphere];
 
+            // calculating probability from scientific formula
             auto jumpProbability = 0.5 * std::exp((-cst::S0 * cst::E0)
                            / (contact.csArea(data) * cst::kB * sphere.T));
 
+            // jumping with probability jumpProbability
             if (dist(*m_gen) < jumpProbability)
             {
+                // volatile jumps to other sphere at the point of contact
                 vol.isphere = iOther;
                 vol.loc = spOther;
             }
