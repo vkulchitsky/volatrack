@@ -175,7 +175,7 @@ void MainModel::fiveSphereJumping()
 
     m_data.setVolatilesArray(std::move(vols));
 
-    commonLoop("SecondJumpingTest", QDir::homePath(), 20.0);
+    commonLoop("SecondJumpingTest", QDir::homePath(), 10.0);
 }
 
 void MainModel::runFromJson(const QString &runFile, real simTime,

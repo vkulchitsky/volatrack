@@ -6,7 +6,7 @@
 
 using namespace volatrack;
 
-Time::Time() : t(0), dt(1e-5), dtSave(0.01), dtJump(2e-5)
+Time::Time() : t(0), dt(1e-5), dtSave(0.01), dtJump(1e-3)
 {
 
 }
