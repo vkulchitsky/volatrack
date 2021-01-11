@@ -29,4 +29,5 @@ target_link_libraries(${TARGET_NAME} Qt5::Widgets)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 add_subdirectory(tests)
+add_subdirectory(examples)
 add_subdirectory(ui)

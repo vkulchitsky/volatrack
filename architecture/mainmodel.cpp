@@ -48,6 +48,17 @@ void MainModel:: scanData()
     }
 }
 
+Data MainModel::data() const
+{
+    return m_data;
+}
+
+void MainModel::setData(const Data &data)
+{
+    m_data = data;
+    scanData();
+}
+
 void MainModel::simpleTestRun()
 {
     m_data = Data::quickData();

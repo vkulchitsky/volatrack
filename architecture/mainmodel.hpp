@@ -66,10 +66,28 @@ public:
                      const QString& projName = "JsonImport",
                      const QString& targetDir = QDir::homePath());
 
-private:
-
+    /*!
+     * \brief commonLoop - the usual process
+     * \param projName - proposed name of project
+     * \param targetDir - where the files will form
+     * \param simTime - how long the simulation will be
+     */
     void commonLoop(const QString& projName, const QString& targetDir
                     = QDir::homePath(), real simTime = 1.0);
+
+    /*!
+     * \brief data getter
+     * \return data
+     */
+    Data data() const;
+
+    /*!
+     * \brief setter for data
+     * \param data to be set
+     */
+    void setData(const Data &data);
+
+private:
     void scanData();
 
     Data m_data;

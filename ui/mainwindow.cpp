@@ -37,6 +37,8 @@ MainWindow::MainWindow(QWidget *parent)
 
         ui->openGLWidget->setSpheres(rc.spheresFromData(m_controller
                                                         .getData(0)));
+
+        m_fileDialog->hide();
     });
 
     connect(ui->player, &Player::slidTo, [this](const int value)

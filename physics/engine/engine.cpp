@@ -94,7 +94,7 @@ void Engine::init(const Data &data)
     m_timeVolCoeff = data.time.volCoeff();
     m_contacts = getContacts(data);
     m_dR = 0.01;
-    m_jumpingAngle = cst::PI / 6;
+    m_jumpingAngle = cst::PI / 18;
 }
 
 bool Engine::needsSaving(const Data &data)
