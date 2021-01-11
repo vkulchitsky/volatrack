@@ -36,24 +36,10 @@ public:
     MainModel();
 
     /*!
-     * \brief one second test run with hardcoded data
+     * \brief Constructor taking data
+     * \param data
      */
-    void simpleTestRun();
-
-    /*!
-     * \brief one second test run with dispersion model
-     */
-    void diffusionTestRun();
-
-    /*!
-     * \brief first test of volatile jumpings with two spheres
-     */
-    void twoSphereJumping();
-
-    /*!
-     * \brief second test of volatile jumpings with five spheres
-     */
-    void fiveSphereJumping();
+    MainModel(const Data& data);
 
     /*!
      * \brief run simulation from json file

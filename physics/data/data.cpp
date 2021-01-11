@@ -10,7 +10,10 @@
 using namespace volatrack;
 
 Data::Data()
-{}
+{
+    std::default_random_engine dre;
+    m_gen = std::make_shared<std::default_random_engine>(dre);
+}
 
 Data::Data(const Spheres &&spheres, const Volatiles &&vols)
 {
