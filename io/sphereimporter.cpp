@@ -1,9 +1,12 @@
 #include "sphereimporter.hpp"
 #include "projectcontroller.hpp"
 
+#include <iostream>
+
 #include <random>
 
 #include <QJsonArray>
+#include <QJsonDocument>
 
 using namespace volatrack;
 
@@ -31,10 +34,14 @@ std::vector<Sphere> SphereImporter::spheresFromObject(const QJsonObject &obj)
 {
     std::vector<Sphere> res;
 
+    QJsonDocument doc(obj);
+
     auto gen = std::default_random_engine();
     real increment = 100.0;
     auto dist = std::uniform_real_distribution<double>(cst::waterFreeze
                                      - increment, cst::waterFreeze + increment);
+
+    QJsonDocument spheresDoc(obj["spheres"].toObject());
 
     for (int i = 0; i < obj["spheres"].toObject().length(); ++i)
     {

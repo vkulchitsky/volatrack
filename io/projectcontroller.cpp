@@ -1,12 +1,13 @@
 #include "projectcontroller.hpp"
 #include "defs.hpp"
 
-#include <iostream>
 #include <algorithm>
 
 #include <QJsonDocument>
 #include <QFile>
 #include <QDir>
+#include <QMap>
+#include <QVariant>
 
 using namespace volatrack;
 
@@ -94,6 +95,4 @@ void ProjectController::saveToJsonFile(const Data &data)
     file.open(QIODevice::WriteOnly);
     file.write(json);
     file.close();
-
-    std::cout << "File generated: " << filename.toStdString() << std::endl;
 }

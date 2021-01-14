@@ -145,7 +145,7 @@ void imported8Spheres()
 {
     QString jsonPath = "/home/vloot/8sph.json";
     MainModel model;
-    model.runFromJson(jsonPath);
+    model.runFromJson(jsonPath, 1, "8sph");
 }
 
 int main()
